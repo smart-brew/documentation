@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   module.exports = {
     title: 'SmartBrew',
     tagline: 'Team 6 - Team project 2021/2022',
-    url: 'https://your-docusaurus-test-site.com',
+    url: 'https://smart-brew.netlify.com',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
