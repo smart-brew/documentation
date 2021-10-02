@@ -1,0 +1,37 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🚚 Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Use Node.js 14
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        cache: 'yarn'
+    
+    - name: 🔨 Build Project
+      run: |
+        yarn
+        yarn build
+
+#     - name: 📂 Sync files
+#       uses: SamKirkland/FTP-Deploy-Action@4.1.0
+#       with:
+#         server: ftp.samkirkland.com
+#         username: myFtpUserName
+#         password: ${{ secrets.password }}
+#         local-dir: './build/'
+#         server-dir: 'docs/'
+
