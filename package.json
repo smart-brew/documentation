@@ -11,7 +11,8 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.6",
@@ -36,5 +37,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "commit-message-validator": "^1.0.2",
+    "husky": "^7.0.2"
+  },
+  "config": {
+    "commit-message-validator": {
+      "pattern": "((feature)|(fix)|(chore))\\(SB-[1-9]\\d*\\): .*",
+      "errorMessage": "\nCheck correct commit message formatting in SmartBrew documentation\n"
+    }
   }
 }
