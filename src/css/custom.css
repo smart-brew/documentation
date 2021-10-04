@@ -16,6 +16,33 @@
   --ifm-code-font-size: 95%;
 }
 
+:root[data-theme='light'] {
+  --ifm-color-primary: rgb(197, 161, 3);
+}
+
+html[data-theme='light'] .theme-doc-markdown a {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  background-color: rgba(255, 252, 213, 0.801);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme='light'] .theme-doc-markdown a:hover {
+  background-color: rgba(255, 249, 166, 0.801);
+  border-bottom-color: #1a1a1a;
+}
+
+html[data-theme='dark'] .theme-doc-markdown a {
+  text-decoration: none;
+  background-color: rgba(99, 81, 0, 0.2);
+  border-bottom: 1px solid rgba(119, 97, 0, 0.5);
+}
+
+html[data-theme='dark'] .theme-doc-markdown a:hover {
+  background-color: rgba(119, 97, 0, 0.3);
+  border-bottom-color: rgba(119, 97, 0, 0.8);
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
