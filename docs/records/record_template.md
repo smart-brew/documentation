@@ -1,9 +1,13 @@
 ---
-sidebar_position: 3
-title: 04.10.2021
+sidebar_position: 1
+title: Zápisnica template
 ---
 
-# Zápisnica - 4.10.2021
+:::tip TODO
+Pri vypĺňaní template je potreba prepísať hore v hlavičke atribút **title** do formátu: **DD.MM.YYYY** *(napr. 04.10.2021)*. 
+:::
+
+# Zápisnica - YYYY.MM.DD
 
 ## Zhrnutie taskov
 
@@ -32,3 +36,6 @@ title: 04.10.2021
 ## Diskusia
 
 *Iné témy, ktoré sa prebrali na stretnutí.*
+
+
+
