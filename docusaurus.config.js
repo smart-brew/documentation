@@ -68,7 +68,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               title: 'Edit',
               items: [
                 {
-                  label: 'Dokumntácia VS code',
+                  label: 'Dokumentácia VS code',
                   href: 'https://github.dev/smart-brew/documentation',
                 },
               ],
