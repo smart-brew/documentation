@@ -10,6 +10,8 @@ V rámci tejto GitHub organizácie budeme pracovať v nasledovných repozitároc
 
 - [documentation](https://github.com/smart-brew/documentation) - pre dokumentáciu
 - [web](https://github.com/smart-brew/web) - pre tímovú stránku
+- [frontend](https://github.com/smart-brew/frontend) - GUI pre používateľov
+- [backend](https://github.com/smart-brew/backend) - aplikačný server, ktorý je spojený s databázou a rieši požiadavky z frontendu cez REST API
 
 ## Commit {#commit}
 

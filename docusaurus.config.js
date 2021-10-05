@@ -56,19 +56,35 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           style: 'dark',
           links: [
             {
-              title: 'More',
+              title: 'GitHub',
               items: [
                 {
-                  label: 'GitHub',
+                  label: 'Organizácia',
                   href: 'https://github.com/smart-brew/',
+                },
+                {
+                  label: 'Tímový web',
+                  href: 'https://github.com/smart-brew/web',
+                },
+                {
+                  label: 'Dokumentácia',
+                  href: 'https://github.com/smart-brew/documentation',
+                },
+                {
+                  label: 'Backend',
+                  href: 'https://github.com/smart-brew/backend',
+                },
+                {
+                  label: 'Frontend',
+                  href: 'https://github.com/smart-brew/frontend',
                 },
               ],
             },
             {
-              title: 'Edit',
+              title: 'Online editor dokumentácie',
               items: [
                 {
-                  label: 'Dokumentácia VS code',
+                  label: 'Web VS code',
                   href: 'https://github.dev/smart-brew/documentation',
                 },
               ],

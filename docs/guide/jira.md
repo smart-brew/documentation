@@ -4,7 +4,7 @@ author: Peter Stríž
 
 # Jira
 
-S Jirou pracujeme metodológiou Scrumu
+S [Jirou](https://smartbrew.atlassian.net/jira/software/projects/SB/boards/1) pracujeme metodológiou Scrumu
 
 ## Úlohy
 
