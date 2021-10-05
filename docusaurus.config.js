@@ -64,6 +64,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 },
               ],
             },
+            {
+              title: 'Edit',
+              items: [
+                {
+                  label: 'Dokumntácia VS code',
+                  href: 'https://github.dev/smart-brew/documentation',
+                },
+              ],
+            },
           ],
           copyright: `Copyright © ${new Date().getFullYear()} SmartBrew - Built with Docusaurus.`,
         },
