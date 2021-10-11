@@ -9,7 +9,7 @@
 ssh -p 54308 pi@te1.tunnelin.com
 ```
 ```bash title="password"
-raspberry
+tp062122
 ```
 
 :::caution tip ak sa nedá pripojiť
