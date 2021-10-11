@@ -14,7 +14,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     favicon: 'img/favicon.ico',
     organizationName: 'smart-brew', // Usually your GitHub org/user name.
     projectName: 'documentation', // Usually your repo name.
-
+    i18n: {
+      defaultLocale: 'sk-SK',
+      locales: ['sk-SK']
+    },
     presets: [
       [
         '@docusaurus/preset-classic',
