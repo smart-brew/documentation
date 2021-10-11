@@ -23,6 +23,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docs: {
             path: './docs',
             routeBasePath: '/',
+            showLastUpdateAuthor: true,
+            showLastUpdateTime: true,
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
