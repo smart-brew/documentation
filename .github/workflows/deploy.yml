@@ -1,37 +1,39 @@
-name: Deploy
+name: Deploy to team06-21.studenti.fiit.stuba.sk
 
 on:
+  # listen to manual trigger
+  workflow_dispatch:
+
+  # listen to push
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   deploy:
-    name: 🎉 Deploy to FTP
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: 🚚 Checkout code
-      uses: actions/checkout@v2
-    
-    - name: ✨ Use Node.js 14
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-        cache: 'yarn'
-    
-    - name: 🔨 Build Project
-      run: |
-        yarn
-        yarn build
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v2
 
-#     - name: 📂 Sync files
-#       uses: SamKirkland/FTP-Deploy-Action@4.1.0
-#       with:
-#         server: ftp.samkirkland.com
-#         username: myFtpUserName
-#         password: ${{ secrets.password }}
-#         local-dir: './build/'
-#         server-dir: 'docs/'
+      - name: ✨ Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
 
+      - name: 🔨 Build Project
+        run: |
+          yarn
+          yarn build
+
+      - name: 🔗 Rsync deployments
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -Pav -O --no-perms --delete
+          path: /build/
+          remote_path: /data1/TP/web/docs
+          remote_host: ${{ secrets.HOST }}
+          remote_user: ${{ secrets.USERNAME }}
+          remote_key: ${{ secrets.KEY }}

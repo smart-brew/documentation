@@ -7,14 +7,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   module.exports = {
     title: 'SmartBrew',
     tagline: 'Team 6 - Team project 2021/2022',
-    url: 'https://smart-brew.netlify.com',
-    baseUrl: '/',
+    url: 'http://team06-21.studenti.fiit.stuba.sk/',
+    baseUrl: '/docs/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
     organizationName: 'smart-brew', // Usually your GitHub org/user name.
     projectName: 'documentation', // Usually your repo name.
-
+    i18n: {
+      defaultLocale: 'sk-SK',
+      locales: ['sk-SK'],
+    },
     presets: [
       [
         '@docusaurus/preset-classic',
@@ -23,6 +26,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docs: {
             path: './docs',
             routeBasePath: '/',
+            showLastUpdateAuthor: true,
+            showLastUpdateTime: true,
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
@@ -35,7 +40,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
         colorMode: {
-          defaultMode: 'dark',
+          defaultMode: 'light',
         },
         navbar: {
           title: 'SmartBrew',
