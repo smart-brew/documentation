@@ -1,6 +1,6 @@
 # Documentation
 
-URL https://smart-brew.netlify.app/
+URL http://team06-21.studenti.fiit.stuba.sk/docs
 
 ### Installation
 
@@ -16,4 +16,4 @@ $ yarn start
 
 ### Build
 
-Automatically builds from `master` branch at https://smart-brew.netlify.app/
+Automatically builds from `master` branch at http://team06-21.studenti.fiit.stuba.sk/docs
