@@ -4,10 +4,11 @@ title: Zápisnica template
 ---
 
 :::tip TODO
-Pri vypĺňaní template je potreba prepísať hore v hlavičke atribút **title** do formátu: **DD.MM.YYYY** *(napr. 04.10.2021)*. 
+Pri vypĺňaní template je potreba prepísať hore v hlavičke atribút **title** do formátu: **DD.MM.YYYY** *(napr. 04.10.2021)*.
+A sidebar_position na najnižšie číslo zo zápisníc _(napr. predošlá má číslo 3, tak moja bude mať číslo 4)_.
 :::
 
-# Zápisnica - YYYY.MM.DD
+# Zápisnica - DD.MM.YYYY
 
 ## Zhrnutie taskov
 
