@@ -19,15 +19,14 @@ Ako server na hostovanie webu sa používa [http-server](https://www.npmjs.com/p
 
 Automatické spustenie servera:
     
-    1. Mať nainštalovaný `http-server` na VM
-    
-    2. Vo VM spustiť príkaz:
+1. Mať nainštalovaný `http-server` na VM    
+2. Vo VM spustiť príkaz:
 
 ```bash
 crontab -e
 ```
 
-    3. Na koniec súboru pridať:
+3. Na koniec súboru pridať:
 
 ```bash
 @reboot cd ~/web && sudo http-server -p 80
