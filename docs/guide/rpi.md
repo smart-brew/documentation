@@ -16,7 +16,7 @@ Ak nemáš vygenerované ssh kľúče treba ich vygenerovať bez hesla (treba le
 ssh-keygen
 ```
 ** 2. krok **
-:::caution použitie príkazu
+:::caution podmienka použitia príkazu
 Ak budeme mať heslo do virtuálneho stroja `heslo="neznáme"` môžes použiť príkaz na skopírovanie tvojho verejného kľuča do `authorized_keys`.
 ::: 
 Ak je heslo neznáme pošli nejakému členovi napr. (Marek Vajda alebo Peter Stríž) svoj verejný kľúč aby ti ho nahrali na virtuálnom stroji do `authorized_keys`. V prípade, že skôr spomenuté možnosti nie sú dostupné, je potrebné sa prihlásiť pomocou privátneho kľúča do virtuálneho stroja, ktorý zadáš do prikazu `ssh -i [cesta ku privátnemu kľúču]> user@ip`. Následne si môžeš nahrať svoj kľúč samostatne.
