@@ -9,13 +9,13 @@
 Odporúčam použiť `git bash` alebo `wsl` terminál na prístup do rpi. Taktiež by malo byť spojenie odolné voči reštartom. To znamená, že reštart virtuálneho stroja alebo rpi by nemal nič znefunkčniť a po čase cca `1 min` by malo byť  pripojenie znova dostupné.
 ::: 
 
-** 1. krok **
+### 1. krok
 
 Ak nemáš vygenerované ssh kľúče treba ich vygenerovať bez hesla (treba len stále štláčať enter). 
 ```bash title="Vygenerovanie ssh kľúčov"
 ssh-keygen
 ```
-** 2. krok **
+### 2. krok
 :::caution podmienka použitia príkazu
 Ak budeme mať heslo do virtuálneho stroja `heslo="neznáme"` môžes použiť príkaz na skopírovanie tvojho verejného kľuča do `authorized_keys`.
 ::: 
@@ -23,7 +23,7 @@ Ak je heslo neznáme pošli nejakému členovi napr. (Marek Vajda alebo Peter St
 ```bash title="Skopírovanie verejného kľúča do virtuálneho stroja"
 ssh-copy-id ubuntu@team06-21.studenti.fiit.stuba.sk
 ```
-** 3. krok **
+### 3. krok
 
 Pripojenie príkazom ssh, ktorý používa tzv. `jumphost` na pripojenie sa do reverzného terminálu rpi.
 ```bash title="pripojenie do rpi cez ssh jumphost"
