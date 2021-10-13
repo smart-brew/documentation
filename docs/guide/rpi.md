@@ -42,7 +42,7 @@ ssh -p 2222 pi@localhost
 
 ## Ako funguje pripojenie
 
-Pripojenie funguje pomocou reverzného shell spojenia. Rpi v intervale `1 min` spúšťa pomocou `sudo crontab -e` skript, ktorý kontroluje vytvorenie reverzného ssh spojenia na virtuálnom stroji.
+Pripojenie funguje pomocou reverzného ssh spojenia. Rpi v intervale `1 min` spúšťa pomocou `sudo crontab -e` skript, ktorý kontroluje vytvorenie reverzného ssh spojenia na virtuálnom stroji.
 
 ```bash title="sudo crontab -e príkaz"
 */1 * * * * sudo . /create_ssh_tunnel.sh > tunnel.log 2>&1
