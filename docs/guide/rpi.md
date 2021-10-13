@@ -3,7 +3,7 @@
 
 # Raspberry pi
 
-** Pripojenie do rpi **
+## Pripojenie do rpi
 
 :::caution vhodný terminál a reštart
 Odporúčam použiť `git bash` alebo `wsl` terminál na prístup do rpi. Taktiež by malo byť spojenie odolné voči reštartom. To znamená, že reštart virtuálneho stroja alebo rpi by nemal nič znefunkčniť a po čase cca `1 min` by malo byť  pripojenie znova dostupné.
@@ -36,11 +36,11 @@ ssh -p 22 ubuntu@team06-21.studenti.fiit.stuba.sk
 ssh -p 2222 pi@localhost
 :::
 
-** Pripojenie pomocou vnc **
+## Pripojenie pomocou vnc
 
     #todo
 
-** Ako funguje pripojenie **
+## Ako funguje pripojenie
 
 Pripojenie funguje pomocou reverzného shell spojenia. Rpi v intervale `1 min` spúšťa pomocou `sudo crontab -e` skript, ktorý kontroluje vytvorenie reverzného ssh spojenia na virtuálnom stroji.
 
