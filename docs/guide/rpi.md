@@ -38,7 +38,22 @@ ssh -p 2222 pi@localhost
 
 ## Pripojenie pomocou vnc
 
-    #todo
+Na pripojenie pomocou vnc si treba stiahnuť [vnc viewer](https://www.realvnc.com/en/connect/download/viewer). A následne sa prihlásiť do účtu. Rpi sa následne zobrazí v účte tímu.
+
+```bash title="prihlasovací email"
+marek.vajda009@gmail.com
+```
+
+```bash title="password"
+tp062122
+```
+## Spustenie browsera do fullscreenu na Rpi
+
+Rpi je nastavené tak aby sa po spustení otvoril webový frontend v prehliadaci. Momentáne sa v grafickom rozhraní spustí len webový prehliadač `chromium` bez ostatného grafického rozhrania. Toto nastavenie sme docielili v súbore `/home/pi/.config/lxsession/LXDE-pi/autostart`. Ak chceme aby sa otvorilo po štarte aj štandardné grafické rozhranie musíme nasledujúci príkaz zadať do súboru `/etc/xdg/lxsession/LXDE-pi/autostart`.
+
+```bash title="príkaz na spustenie prehliadaca vo fullscreen"
+@chromium-browser localhost --start-fullscreen --kiosk
+```
 
 ## Ako funguje pripojenie
 
