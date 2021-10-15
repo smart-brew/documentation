@@ -9,7 +9,7 @@ Dokumentácia sa robí s pomocou nástroja na tvorbu dokumentácie [Docusaurus](
 
 Link na Github repozitár https://github.com/smart-brew/documentation
 
-Dokumentácia sa **automaticky** buildne z `master branch` do https://smart-brew.netlify.app
+Dokumentácia sa **automaticky** buildne z `master branch` do http://team06-21.studenti.fiit.stuba.sk/docs/
 
 ## Nový súbor
 
