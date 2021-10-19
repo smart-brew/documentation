@@ -81,7 +81,7 @@ if [[ $? -ne 0 ]]; then
 fi
 ```
 
-## Zoznam prikazov na nastavenie rpi komunikácie
+## Zoznam príkazov na nastavenie rpi komunikácie
 ```bash title="príkazy"
 # add ssh file to filesystem root on boot partition of rpi to enable ssh
 # add wpa_supplicant file to rpi root partition boot
