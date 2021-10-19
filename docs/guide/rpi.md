@@ -30,7 +30,7 @@ Pripojenie príkazom ssh, ktorý používa tzv. `jumphost` na pripojenie sa do r
 ssh-copy-id ubuntu@team06-21.studenti.fiit.stuba.sk
 ```
 :::note alternatívne pripojenie
-Alternatívne je možné sa pripojiť najprv cez ssh do virtuálneho stroja. A následne do reverzného prikazového riadka na porte `2222`.
+Alternatívne je možné sa pripojiť najprv cez ssh do virtuálneho stroja. A následne do reverzného prikazového riadka na porte `2222` alebo `2224`.
 ```bash title="alternatívne príkazy"
 ssh -p 22 ubuntu@team06-21.studenti.fiit.stuba.sk
 ssh -p 2222 pi@localhost
