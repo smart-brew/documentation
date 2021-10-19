@@ -138,7 +138,7 @@ chmod +x create_ssh_tunnel
 
 # make new sudo cron schedule for script
 crontab -e
-*/0 * * * * ./create_ssh_tunnel > tunnel.log 2>&1
+*/1 * * * * ./create_ssh_tunnel > tunnel.log 2>&1
 
 ssh-keygen
 # ssh to ubuntu ssh copy id
