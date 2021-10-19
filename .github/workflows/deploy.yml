@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: 🚚 Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # see also: https://github.com/facebook/docusaurus/issues/2798#issuecomment-636602951
 
       - name: ✨ Use Node.js 14
         uses: actions/setup-node@v2
