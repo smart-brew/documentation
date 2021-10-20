@@ -49,7 +49,7 @@ tp062122
 ```
 ## Spustenie browsera do fullscreenu na Rpi
 
-Rpi je nastavené tak aby sa po spustení otvoril webový frontend v prehliadaci. Momentáne sa v grafickom rozhraní spustí len webový prehliadač `chromium` bez ostatného grafického rozhrania. Toto nastavenie sme docielili v súbore `/home/pi/.config/lxsession/LXDE-pi/autostart`. Ak chceme aby sa otvorilo po štarte aj štandardné grafické rozhranie musíme nasledujúci príkaz zadať do súboru `/etc/xdg/lxsession/LXDE-pi/autostart`. Alebo ak nefunguje treba použiť `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` s=ubor.
+Rpi je nastavené tak aby sa po spustení otvoril webový frontend v prehliadaci. Momentáne sa v grafickom rozhraní spustí len webový prehliadač `chromium` bez ostatného grafického rozhrania. Toto nastavenie sme docielili v súbore `/home/pi/.config/lxsession/LXDE-pi/autostart`. Ak chceme aby sa otvorilo po štarte aj štandardné grafické rozhranie musíme nasledujúci príkaz zadať do súboru `/etc/xdg/lxsession/LXDE-pi/autostart`. Alebo ak nefunguje treba použiť `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` súbor.
 
 ```bash title="príkaz na spustenie prehliadaca vo fullscreen"
 @chromium-browser localhost --start-fullscreen --kiosk
