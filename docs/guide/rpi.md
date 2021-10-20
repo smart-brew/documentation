@@ -27,7 +27,7 @@ ssh-copy-id ubuntu@team06-21.studenti.fiit.stuba.sk
 
 Pripojenie príkazom ssh, ktorý používa tzv. `jumphost` na pripojenie sa do reverzného terminálu rpi. Port je `2222` alebo `2224`.
 ```bash title="pripojenie do rpi cez ssh jumphost"
-ssh -J ubuntu@147.175.151.12:22 -p 2222 pi@localhost
+ssh -J ubuntu@team06-21.studenti.fiit.stuba.sk:22 -p 2222 pi@localhost
 ```
 :::note alternatívn+e pripojenie
 Alternatívne je možné sa pripojiť najprv cez ssh do virtuálneho stroja. A následne do reverzného prikazového riadka na porte `2222` alebo `2224`.
