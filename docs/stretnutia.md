@@ -1,7 +1,7 @@
 ---
 ---
 
-# Metodika stretnutí a práce v tíme
+# Metodika stretnutí
 
 Tu je zapísaná základná organizácia stretnutí tímu, ktorej sa budeme snažiť držať.
 
