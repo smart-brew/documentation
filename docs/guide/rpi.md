@@ -62,9 +62,9 @@ Pripojenie funguje pomocou reverzného ssh spojenia. Rpi v intervale `1 min` sp�
 ```bash title="sudo crontab -e príkaz"
 */1 * * * * sudo . /create_ssh_tunnel.sh > tunnel.log 2>&1
 ```
-Skript na vytvorenie reverzného konzolového spojenia sa pripája na virtuálny stroj `team06-21.studenti.fiit.stuba.sk`. Port `2222` na virtuálnom je následne tunelovaný ako port `22` na raspberry pi. 
+Skript na vytvorenie reverzného konzolového spojenia sa pripája na virtuálny stroj `team06-21.studenti.fiit.stuba.sk`. Port `2224` na virtuálnom je následne tunelovaný ako port `22` na raspberry pi. 
 
-```bash title="create_ssh_tunnel.sh"
+```bash title="create_ssh_tunnel"
 #!/bin/bash
 createTunnel() {
   /usr/bin/ssh -N -f -R 2222:localhost:22 ubuntu@team06-21.studenti.fiit.stuba.sk
