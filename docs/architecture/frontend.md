@@ -161,34 +161,34 @@ V ideálnom prípade BE odpovie formou:
 200 OK
 {
     "module-states" : [                 // stavy jednotlivých modulov
-                        1 : {
+                        {
                             "temp" : 70,
                             "rpm" : 100,
                             "heating" : 1,      // 1 - true, 0 - false (myslím že JSON nepodporuje bool)
                             "active" : 1,
-                            },
-                        2 : {
+                        },
+                        {
                             "temp" : 20,
                             "rpm" : 0,
                             "heating" : 0,
                             "active" : 0,
-                            },
+                        },
                             
     "rec-blocks": [                     // základné informácie o všetkých blokoch
-                    1 : {
+                    {
                         "id": 1,
                         "name" : "BLOCK1",
                         "steps" [
                                 ...
                                 ]
-                        },
-                    2 : {
+                    },
+                    {
                         "id": 2,
                         "name" : "BLOCK2",
                         "steps" [
                                 ...
                                 ]
-                        },
+                    },
                    ...
                   ],
     "curr-block": {                 // podrobné informácie o momentálne vykonávanom bloku
