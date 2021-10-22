@@ -297,3 +297,12 @@ treba vstup používateľa
 - pri varení nemusí BE odpovedať stále s celým receptom, pokiaľ má recept 
 uložený u seba (z kroku spustenia varenia) - stačí len current block a module-stats
 - zamyslieť sa, či by bolo možné implementovať pozastavenie varenia
+
+### Je potrebné
+- ku vykonávaným krokom poznamenať či sú automatické, alebo manuálne (musí ich vykonať obsluha, pivovar o tom upozorní na monitore)
+- označovať jednotlivé násypníky (Akú úlohu môžu zastávať - jačmeň sa bude pridávať iba jedným z nich, a podobne.)
+- odkiaľ sa bude načítavať stav zariadenia (backend/konfiguračný file). Napríklad ktoré násypníky sú dostupné a môžu sa využiť pri varení jednotlivých receptov
+- odkiaľ sa načítavajú možné inštrukcie (obsahujúce názov a kombináciu jednotlivých parametrov ) // vo figme zakreslené ako jeden obdĺžniček z ktorých sa skladajú postupy
+- na hlavnej obrazovke zobraziť náhlad práve vykonávaného receptu (napísaný ako postup pre človeka, v celistvom texte)
+- dodať možnosť pomenovania jednotlivých krokov vykonávania receptov
+- šipočka ukazuje či teplota v jednotlivých nádobách stúpa alebo klesá
