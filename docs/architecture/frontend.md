@@ -6,28 +6,27 @@ Pre používateľské rozhranie budeme používať React framework.
 
 ## Komunikácia s back-endom
 
+Pre komunikáciu využijeme REST API cally a správy vo formáte JSON.
+
 ### Výber receptu
 
 Pri zapnutí si používateľ bude môcť vybrať, či chce použiť už
 vytvorený recept, alebo či chce vytvoriť nový recept.
 
-Pokiaľ si vyberie použitie vytvoreného receptu, front-end pošle POST request na back-end URL:
+Pokiaľ si vyberie použitie vytvoreného receptu, front-end pošle GET request na back-end URL:
 
 ````
-{
-    "message" : "recget",       // Recipe get
-    "status" : "all"
-}
+/api/recipe/all/
 ````
 
 Ako odpoveď obdrží JSON vo formáte:
 
 ````
 {
-    "message" : "recget",
-    "recipe" : 
+    "recipes" : 
     [
-        1 : {
+        0 : {
+            "id" : 0,
             "timestamp" : ...,
             "steps" : 
                 [
@@ -35,7 +34,8 @@ Ako odpoveď obdrží JSON vo formáte:
                 ],
                 ...
             },
-        2 : {
+        1 : {
+            "id" : 1,
             "timestamp" : ...,
             "steps" : 
                 [
@@ -53,9 +53,12 @@ receptov. Pri vybratí receptu sa ten načíta na hlavnú obrazovku a tiež sa o
 POST request na BE s vybraným receptom:
 
 ````
+/api/recipe/select/{recipe-id}
+
+
 {
-    "message" : "recsel",       // Recipe Select
     "recipe" : {
+                "id" : 0,
                 "timestamp" : ...,
                 "steps" : 
                     [
@@ -74,8 +77,9 @@ receptu vykliká všetky požadované kroky a klikne na tlačidlo **"Pridať rec
 Na BE sa odošle POST request:
 
 ````
+/api/recipe/add/
+
 {
-    "message" : "recadd",       // Recipe Add
     "recipe" : {
                 "timestamp" : ...,
                 "steps" : 
@@ -86,12 +90,21 @@ Na BE sa odošle POST request:
                 }
 }
 ````
+Ako odpoveď na FE príde JSON s vygenerovaným ID pridaného receptu:
+````
+{
+    "recipe" : {
+                "id" : xx
+                }
+}
+````
+Tento recept spolu s jeho novým ID s následne FE uloží k sebe lokálne.
 
 Ďalej používateľ dostane ponuku, či chce pridaný recept rovno využiť a variť
 podľa neho, alebo nie.
 
 Pokiaľ s ním chce variť, pošle sa POST request na BE (JSON v rovnakom formáte ako
-v predošlej časti). Pokiaľ s ním variť nechce, UI sa vráti na hlavnú obrazovku a 
+pri výbere existujúceho receptu). Pokiaľ s ním variť nechce, UI sa vráti na hlavnú obrazovku a 
 čaká na ďalšie pokyny.
 
 ### Začiatok varenia
@@ -101,9 +114,11 @@ skontrolovať, či je recept správny. Pokiaľ je s receptom spokojný, spustí 
 Pri spustení varenia sa na BE pošle POST request:
 
 ````
+/api/brew/start/
+
 {
-    "message" : "recstart",        // Recipe Start
     "recipe" : {                   // pre istotu sa pošle recept znovu
+                "id" : xx,
                 "timestamp" : ...,
                 "steps" : 
                     [
@@ -118,16 +133,19 @@ FE čaká na odpoveď z BE, či sa všetko úspešne spustilo:
 
 ````
 {
-    "message" : "recstart",
-    "status" : "ok"
+    "message" : "brew-start",
+    "status" : "ok",
+    "brew-id" : xx
 }
 ````
+FE si uloží ID varenia pre ďalšie dopyty.
 
 Pokiaľ na BE nastane porucha alebo chyba pri spúšťaní, na FE pošle odpoveď:
 ````
 {
-    "message" : "recstart",
-    "status" : "error"
+    "message" : "brew-start",
+    "status" : "error",
+    "error" : "Temp error message."
 }
 ````
 FE túto chybu následne ohlási používateľovi.
@@ -135,19 +153,16 @@ FE túto chybu následne ohlási používateľovi.
 ### Periodické dopyty na back-end
 
 Pokiaľ sa varenie spustí úspešne, FE prejde do módu, kde sa periodicky dopytuje
-BE na stav receptu. Každú 1 sekundu na BE odošle POST request na URL:
+BE na stav receptu. Každú 1 sekundu na BE odošle GET request na URL:
 ````
-{
-    "message" : "recupdate",         // Recipe update
-    "status" : "get"                // Get state
-}
+/api/brew/update/
 ````
 #### Pokiaľ všetko prebieha v poriadku
 
 V ideálnom prípade BE odpovie formou:
 ````
 {
-    "message" : "recupdate",
+    "message" : "brew-update",
     "status" : "ok",
     "module-states" : [                 // stavy jednotlivých modulov
                         1 : {
@@ -198,8 +213,9 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
 
 ````
 {
-    "message" : "recupdate",
+    "message" : "brew-update",
     "status" : "error",
+    "error" : "Temp error message.",
     "module" : {                        // špecifikácia chybného modulu (a zariadenia)
                 "name" : "MODULE1",
                 ...
@@ -211,44 +227,78 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
 }
 ````
 
-### Prerušenie varenia
+### Úprava parametrov počas varenia
+
+Pokiaľ nastane zmena parametrov nejakých krokov, ktoré ešte neboli vykonané,
+FE odošle POST request na BE:
+````
+/api/brew/update/
+
+
+{
+    "brew-id" : xx,
+    "step" : {                      // upraveny krok
+             "parent-block" : ID,
+             ...
+             }    
+}
+````
+Pokiaľ úprava prebehne v poriadku, BE odpovie správou:
+````
+{
+    "message" : "brew-update-step",
+    "status" : "ok"
+}
+````
+Pokiaľ úpravu nebolo možné vykonať, BE odpovie správou:
+````
+{
+    "message" : "brew-update-step",
+    "status" : "error",
+    "error" : "Temp error message."
+}
+````
+
+
+_Note: je potrebné, aby FE po tomto POST requeste spustil timer na periodické dopyty odznova,
+aby sme sa vyhli nepríjemnostiam s asynchronicitou BE._
+
+### Zrušenie varenia
 
 Na front-ende by mala byť možnosť prerušiť varenie používateľom. Používateľ klikne
-na tlačidlo **"Prerušiť varenie"**. FE sa opýta, či si je používateľ istý.
+na tlačidlo **"Zrušiť varenie"**. FE sa opýta, či si je používateľ istý.
 
-Po potvrdení je na BE odoslaný POST request:
+Po potvrdení je na BE odoslaný GET request:
+````
+/api/brew/abort/
+````
+
+BE by mal zrušiť všetky procesy, správne vypnúť všetky zariadenia a odpovedať formou:
 ````
 {
-    "message" : "recupdate",
-    "status" : "abort"
+    "message" : "brew-abort",
+    "status" : "ok"
 }
 ````
 
-BE by mal prerušiť všetky procesy, vypnúť všetky zariadenia a odpovedať formou:
+Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 ````
 {
-    "message" : "recupdate",
-    "status" : "abort-done"
-}
-````
-
-Pokiaľ pri prerušení nastane chyba, BE odpovie formou:
-````
-{
-    "message" : "recupdate",
-    "status" : "abort-error"
+    "message" : "brew-abort",
+    "status" : "error",
+    "error" : "Temp error message."
 }
 ````
 Now it's time to panic.
 
 ### Úspešné ukončenie varenia
 
-Pokiaľ BE úspešne ukončil varenie, pri najbližšom dopyte (recupdate-get) z FE
+Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (/api/brew/update/)
 BE odpovie formou:
 ````
 {
-    "message" : "recupdate",
-    "status" : "finished"
+    "message" : "brew-update",
+    "status" : "fin"
 }
 ````
 
@@ -260,4 +310,4 @@ FE o tejto skutočnosti upovedomí používateľa a ukončí mód periodických 
 treba vstup používateľa
 - pri varení nemusí BE odpovedať stále s celým receptom, pokiaľ má recept 
 uložený u seba (z kroku spustenia varenia) - stačí len current block a module-stats
-- 
+- zamyslieť sa, či by bolo možné implementovať pozastavenie varenia
