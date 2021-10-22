@@ -15,87 +15,84 @@ vytvorený recept, alebo či chce vytvoriť nový recept.
 
 Pokiaľ si vyberie použitie vytvoreného receptu, front-end pošle GET request na back-end URL:
 
-````
-/api/recipe/all/
-````
+```
+GET /api/recipe
+```
 
-Ako odpoveď obdrží JSON vo formáte:
+Ako odpoveď obdrží **všetky** recepty v JSON formáte:
 
-````
-{
-    "recipes" : 
-    [
-        0 : {
-            "id" : 0,
-            "timestamp" : ...,
-            "steps" : 
-                [
-                ...
-                ],
-                ...
-            },
-        1 : {
-            "id" : 1,
-            "timestamp" : ...,
-            "steps" : 
-                [
-                ...
-                ],
-                ...
-            },
-        ...
-    ]
-}
-````
+```json
+[
+    {
+        "id" : 0,
+        "timestamp" : ...,
+        "steps" : 
+            [
+            ...
+            ],
+            ...
+        },
+    {
+        "id" : 1,
+        "timestamp" : ...,
+        "steps" : 
+            [
+            ...
+            ],
+            ...
+    },
+    ...
+]
+```
 
 JSON obsahuje všetky uložené recepty. FE ponúkne používateľovi výber z prijatých
 receptov. Pri vybratí receptu sa ten načíta na hlavnú obrazovku a tiež sa odošle
 POST request na BE s vybraným receptom:
 
-````
-/api/recipe/select/{recipe-id}
+```
+POST /api/recipe/{recipe-id}/select
+```
 
-
+```json
 {
-    "recipe" : {
-                "id" : 0,
-                "timestamp" : ...,
-                "steps" : 
-                    [
-                    ...
-                    ],
-                ...
-                }
+    "id" : 0,
+    "timestamp" : ...,
+    "steps" : 
+        [
+        ...
+        ],
+    ...
+    }
 }
-````
+```
  
 
 ### Pridanie nového receptu
 
 Pokiaľ používateľ chce vytvoriť nový recept, pomocou obrazovky pre pridanie
 receptu vykliká všetky požadované kroky a klikne na tlačidlo **"Pridať recept"**.
-Na BE sa odošle POST request:
+Na BE sa odošle PUT request:
 
-````
-/api/recipe/add/
+```
+PUT /api/recipe
+```
 
+```json
 {
-    "recipe" : {
-                "timestamp" : ...,
-                "steps" : 
-                    [
-                    ...
-                    ],
-                ...
-                }
+    "timestamp" : ...,
+    "steps" : 
+        [
+        ...
+        ],
+    ...
+    }
 }
-````
+```
 Ako odpoveď na FE príde JSON s vygenerovaným ID pridaného receptu:
-````
+````json
+200 OK
 {
-    "recipe" : {
-                "id" : xx
-                }
+    "id" : xx      
 }
 ````
 Tento recept spolu s jeho novým ID s následne FE uloží k sebe lokálne.
@@ -113,38 +110,38 @@ Po vybratí receptu sa recept načíta na hlavnú obrazovku. Používateľ dosta
 skontrolovať, či je recept správny. Pokiaľ je s receptom spokojný, spustí varenie.
 Pri spustení varenia sa na BE pošle POST request:
 
-````
-/api/brew/start/
+```
+POST /api/brew/{recepie-id}/start
+```
 
+```json
 {
-    "recipe" : {                   // pre istotu sa pošle recept znovu
-                "id" : xx,
-                "timestamp" : ...,
-                "steps" : 
-                    [
-                    ...
-                    ],
-                ...
-                }
+    // pre istotu sa pošle recept znovu
+    "id" : xx,
+    "timestamp" : ...,
+    "steps" : 
+        [
+        ...
+        ],
+    ...
+    }
 }
 ````
 
 FE čaká na odpoveď z BE, či sa všetko úspešne spustilo:
 
-````
+````json
+200 OK
 {
-    "message" : "brew-start",
-    "status" : "ok",
     "brew-id" : xx
 }
 ````
 FE si uloží ID varenia pre ďalšie dopyty.
 
 Pokiaľ na BE nastane porucha alebo chyba pri spúšťaní, na FE pošle odpoveď:
-````
+````json
+500 SERVER ERROR
 {
-    "message" : "brew-start",
-    "status" : "error",
     "error" : "Temp error message."
 }
 ````
@@ -155,15 +152,14 @@ FE túto chybu následne ohlási používateľovi.
 Pokiaľ sa varenie spustí úspešne, FE prejde do módu, kde sa periodicky dopytuje
 BE na stav receptu. Každú 1 sekundu na BE odošle GET request na URL:
 ````
-/api/brew/update/
+GET /api/brew/{brew-id}
 ````
 #### Pokiaľ všetko prebieha v poriadku
 
 V ideálnom prípade BE odpovie formou:
-````
+````json
+200 OK
 {
-    "message" : "brew-update",
-    "status" : "ok",
     "module-states" : [                 // stavy jednotlivých modulov
                         1 : {
                             "temp" : 70,
@@ -211,10 +207,9 @@ FE túto odpoveď spracuje a obnoví obrazovku.
 
 Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
 
-````
+````json
+500 SERVER ERROR
 {
-    "message" : "brew-update",
-    "status" : "error",
     "error" : "Temp error message.",
     "module" : {                        // špecifikácia chybného modulu (a zariadenia)
                 "name" : "MODULE1",
@@ -232,29 +227,23 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
 Pokiaľ nastane zmena parametrov nejakých krokov, ktoré ešte neboli vykonané,
 FE odošle POST request na BE:
 ````
-/api/brew/update/
-
-
-{
-    "brew-id" : xx,
-    "step" : {                      // upraveny krok
-             "parent-block" : ID,
-             ...
-             }    
-}
+POST /api/brew/{brew-id}/step/{step-id}
+````
+````json
+{                     
+    "parent-block" : ID,
+    ...             // upravovany "step"
+}    
 ````
 Pokiaľ úprava prebehne v poriadku, BE odpovie správou:
-````
-{
-    "message" : "brew-update-step",
-    "status" : "ok"
-}
+````json
+200 OK
 ````
 Pokiaľ úpravu nebolo možné vykonať, BE odpovie správou:
-````
+
+````json
+400 BAD REQUEST
 {
-    "message" : "brew-update-step",
-    "status" : "error",
     "error" : "Temp error message."
 }
 ````
@@ -268,24 +257,20 @@ aby sme sa vyhli nepríjemnostiam s asynchronicitou BE._
 Na front-ende by mala byť možnosť prerušiť varenie používateľom. Používateľ klikne
 na tlačidlo **"Zrušiť varenie"**. FE sa opýta, či si je používateľ istý.
 
-Po potvrdení je na BE odoslaný GET request:
+Po potvrdení je na BE odoslaný POST request:
 ````
-/api/brew/abort/
+POST /api/brew/{brew-id}/abort
 ````
 
 BE by mal zrušiť všetky procesy, správne vypnúť všetky zariadenia a odpovedať formou:
-````
-{
-    "message" : "brew-abort",
-    "status" : "ok"
-}
+````json
+200 OK
 ````
 
 Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
-````
+````json
+500 SERVER ERROR
 {
-    "message" : "brew-abort",
-    "status" : "error",
     "error" : "Temp error message."
 }
 ````
@@ -293,11 +278,12 @@ Now it's time to panic.
 
 ### Úspešné ukončenie varenia
 
-Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (/api/brew/update/)
-BE odpovie formou:
-````
+Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (`GET /api/brew/{brew-id}`) BE pridá položku `status: "fin"`:
+````json
+200 OK
 {
-    "message" : "brew-update",
+    ...
+    ...
     "status" : "fin"
 }
 ````
