@@ -50,7 +50,7 @@ receptov. Pri vybratí receptu sa ten načíta na hlavnú obrazovku a tiež sa o
 POST request na BE s vybraným receptom:
 
 ```
-POST /api/recipe/{recipe-id}/select
+POST /api/recipe/{recipeId}
 ```
 
 ```json
@@ -71,10 +71,10 @@ POST /api/recipe/{recipe-id}/select
 
 Pokiaľ používateľ chce vytvoriť nový recept, pomocou obrazovky pre pridanie
 receptu vykliká všetky požadované kroky a klikne na tlačidlo **"Pridať recept"**.
-Na BE sa odošle PUT request:
+Na BE sa odošle POST request:
 
 ```
-PUT /api/recipe
+POST /api/recipe
 ```
 
 ```json
@@ -111,7 +111,7 @@ skontrolovať, či je recept správny. Pokiaľ je s receptom spokojný, spustí 
 Pri spustení varenia sa na BE pošle POST request:
 
 ```
-POST /api/brew/{recepie-id}/start
+POST /api/brew/{recipeId}
 ```
 
 ```json
@@ -133,7 +133,7 @@ FE čaká na odpoveď z BE, či sa všetko úspešne spustilo:
 ````json
 200 OK
 {
-    "brew-id" : xx
+    "brewId" : xx
 }
 ````
 FE si uloží ID varenia pre ďalšie dopyty.
@@ -152,7 +152,7 @@ FE túto chybu následne ohlási používateľovi.
 Pokiaľ sa varenie spustí úspešne, FE prejde do módu, kde sa periodicky dopytuje
 BE na stav receptu. Každú 1 sekundu na BE odošle GET request na URL:
 ````
-GET /api/brew/{brew-id}
+GET /api/brew/{brewId}
 ````
 #### Pokiaľ všetko prebieha v poriadku
 
@@ -221,13 +221,27 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
              },                         
 }
 ````
+### Úspešné ukončenie varenia
+
+Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (`GET /api/brew/{brewId}`) BE pridá položku `status: "fin"`:
+````json
+200 OK
+{
+    ...
+    ...
+    "status" : "fin"
+}
+````
+
+FE o tejto skutočnosti upovedomí používateľa a ukončí mód periodických dopytov.
+ 
 
 ### Úprava parametrov počas varenia
 
 Pokiaľ nastane zmena parametrov nejakých krokov, ktoré ešte neboli vykonané,
 FE odošle POST request na BE:
 ````
-POST /api/brew/{brew-id}/step/{step-id}
+POST /api/brew/{brewId}/step/{stepId}
 ````
 ````json
 {                     
@@ -257,9 +271,9 @@ aby sme sa vyhli nepríjemnostiam s asynchronicitou BE._
 Na front-ende by mala byť možnosť prerušiť varenie používateľom. Používateľ klikne
 na tlačidlo **"Zrušiť varenie"**. FE sa opýta, či si je používateľ istý.
 
-Po potvrdení je na BE odoslaný POST request:
+Po potvrdení je na BE odoslaný PUT request:
 ````
-POST /api/brew/{brew-id}/abort
+PUT /api/brew/{brewId}
 ````
 
 BE by mal zrušiť všetky procesy, správne vypnúť všetky zariadenia a odpovedať formou:
@@ -275,21 +289,6 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 }
 ````
 Now it's time to panic.
-
-### Úspešné ukončenie varenia
-
-Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (`GET /api/brew/{brew-id}`) BE pridá položku `status: "fin"`:
-````json
-200 OK
-{
-    ...
-    ...
-    "status" : "fin"
-}
-````
-
-FE o tejto skutočnosti upovedomí používateľa a ukončí mód periodických dopytov.
- 
 ### Notes
 
 - krok musí mať atribút **type**, ktorý bude identifikovať, či je automatický alebo
