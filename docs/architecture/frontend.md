@@ -103,7 +103,7 @@ Recept sa následne načíta na hlavnú obrazovku a tiež sa odošle
 POST request na BE s vybraným receptom:
 
 ```
-POST /api/recipe/{recipe-id}/select
+POST /api/recipe/{recipe-id}/load
 ```
 
 ```json
@@ -119,7 +119,7 @@ POST /api/recipe/{recipe-id}/select
     ...
   ]
 }
-```
+
  
 
 ### Pridanie nového receptu
@@ -165,10 +165,10 @@ pri výbere existujúceho receptu). Pokiaľ s ním variť nechce, UI sa vráti n
 
 Po vybratí receptu sa recept načíta na hlavnú obrazovku. Používateľ dostane príležitosť
 skontrolovať, či je recept správny. Pokiaľ je s receptom spokojný, spustí varenie.
-Pri spustení varenia sa na BE pošle POST request:
+Pri spustení varenia sa na BE pošle PUT request (body je prázdne):
 
 ```
-POST /api/brew/{recepie-id}/start
+PUT /api/brew/{recipeId}/start
 ```
 
 ```json
@@ -193,7 +193,7 @@ FE čaká na odpoveď z BE, či sa všetko úspešne spustilo:
 ````json
 200 OK
 {
-    "brew-id" : xx
+    "brewId" : xx
 }
 ````
 FE si uloží ID varenia pre ďalšie dopyty.
@@ -212,7 +212,7 @@ FE túto chybu následne ohlási používateľovi.
 Pokiaľ sa varenie spustí úspešne, FE prejde do módu, kde sa periodicky dopytuje
 BE na stav receptu. Každú 1 sekundu na BE odošle GET request na URL:
 ````
-GET /api/brew/{brew-id}
+GET /api/brew/{brewId}
 ````
 #### Pokiaľ všetko prebieha v poriadku
 
@@ -280,13 +280,27 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
   }
 }
 ````
+### Úspešné ukončenie varenia
+
+Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (`GET /api/brew/{brewId}`) BE pridá položku `status: "fin"`:
+````json
+200 OK
+{
+    ...
+    ...
+    "status" : "fin"
+}
+````
+
+FE o tejto skutočnosti upovedomí používateľa a ukončí mód periodických dopytov.
+ 
 
 ### Úprava parametrov počas varenia
 
 Pokiaľ nastane zmena parametrov nejakých krokov, ktoré ešte neboli vykonané,
 FE odošle POST request na BE:
 ````
-POST /api/brew/{brew-id}/step/{step-id}
+POST /api/brew/{brewId}/step/{stepId}
 ````
 ````json
 {                     
@@ -310,6 +324,33 @@ Pokiaľ úpravu nebolo možné vykonať, BE odpovie správou:
 _Note: je potrebné, aby FE po tomto POST requeste spustil timer na periodické dopyty odznova,
 aby sme sa vyhli nepríjemnostiam s asynchronicitou BE._
 
+### Pauza počas varenia
+
+Na front-ende by mala byť možnosť pauznúť varenie používateľom. Používateľ klikne
+na tlačidlo **"Pauza"**. FE sa opýta, či si je používateľ istý.
+
+Po potvrdení je na BE odoslaný POST request:
+````
+POST /api/brew/{brewId}/pause
+````
+
+BE by mal zastaviť časovače na všetkých aktívnych procesoch a odpovedať formou:
+````json
+200 OK
+````
+
+Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
+````json
+500 SERVER ERROR
+{
+    "error" : "Temp error message."
+}
+````
+Ak chceme pokračovať vo varení, pošleme:
+````
+POST /api/brew/{brewId}/resume
+````
+
 ### Zrušenie varenia
 
 Na front-ende by mala byť možnosť prerušiť varenie používateľom. Používateľ klikne
@@ -317,7 +358,7 @@ na tlačidlo **"Zrušiť varenie"**. FE sa opýta, či si je používateľ istý
 
 Po potvrdení je na BE odoslaný POST request:
 ````
-POST /api/brew/{brew-id}/abort
+POST /api/brew/{brewId}/abort
 ````
 
 BE by mal zrušiť všetky procesy, správne vypnúť všetky zariadenia a odpovedať formou:
@@ -333,21 +374,6 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 }
 ````
 Now it's time to panic.
-
-### Úspešné ukončenie varenia
-
-Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (`GET /api/brew/{brew-id}`) BE pridá položku `status: "fin"`:
-````json
-200 OK
-{
-    ...
-    ...
-    "status" : "fin"
-}
-````
-
-FE o tejto skutočnosti upovedomí používateľa a ukončí mód periodických dopytov.
- 
 ### Notes
 
 - inštrukcia musí mať atribút **type**, ktorý bude identifikovať, či je automatický alebo
