@@ -44,7 +44,7 @@
   },
   "config": {
     "commit-message-validator": {
-      "pattern": "((feature)|(fix)|(chore))\\(SB-[1-9]\\d*\\): .*",
+      "pattern": "((feature)|(fix)|(chore)|(update))\\(SB-[1-9]\\d*\\): .*",
       "errorMessage": "+--------------------------------------------------------------------+\n| Check correct commit message formatting in SmartBrew documentation |\n+--------------------------------------------------------------------+"
     }
   }
