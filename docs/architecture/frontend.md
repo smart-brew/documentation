@@ -8,6 +8,45 @@ Pre používateľské rozhranie budeme používať React framework.
 
 Pre komunikáciu využijeme REST API cally a správy vo formáte JSON.
 
+### Štruktúra JSONu pre inštrukciu
+Príklad:
+
+````json
+{
+  "id": 0,                      // unique for instruction type
+  "name": "Heat up",            // type of instruction
+  "type": "man"/"auto",         // či je inštrukcia manuálna alebo automatická
+  "parentBlockId": 0,           // id of parent block
+  "currParam": 40,              // current parameter value
+  "targetParam": 70,            // target parameter value
+  "start": 1635332321000,       // begin UNIX timestamp in milis
+  "end": 1635335921000,         // end UNIX timestamp in milis
+  "orderNum": 0,                // order in recipe (from 0)
+  "chamberId": 0,
+  "recipeId" : 4,
+  "templateId" : 6
+}
+````
+
+Podľa stavu vykonávania inštrukcie bude *start* a *end* atribút:
+* **obidva null** - pokiaľ inštrukcia ešte nebola začatá
+* **start = timestamp, end = null**  - pokiaľ sa inštrukcia práve vykonáva
+* **start = timestamp, end = timestamp** - pokiaľ sa inštrukcia vykonala úspešne
+* **start = timestamp, end = -timestamp** - pokiaľ sa inštrukcia vykonala neúspešne
+
+### Štruktúra JSONu pre blok
+Príklad:
+
+````json
+{
+  "id": 0,
+  "name" : "Varenie jačmeňa"
+}
+````
+
+Inštrukcie sa k bloku budú priradzovať na základe jeho ID uloženého v každej inštrukcii.
+
+
 ### Výber receptu
 
 Pri zapnutí si používateľ bude môcť vybrať, či chce použiť už
@@ -19,39 +58,68 @@ Pokiaľ si vyberie použitie vytvoreného receptu, front-end pošle GET request 
 GET /api/recipe
 ```
 
-Ako odpoveď obdrží **všetky** recepty v JSON formáte:
+Ako odpoveď obdrží základné informácie (id, názov, čas vytvorenia) pre **všetky** recepty v JSON formáte:
 
 ```json
 [
     {
         "id" : 0,
-        "timestamp" : ...,
-        "steps" : 
-            [
-            ...
-            ],
-            ...
+        "name" : "IPA",
+        "createdAt" : 1635335921000,    // example
         },
     {
         "id" : 1,
-        "timestamp" : ...,
-        "steps" : 
-            [
-            ...
-            ],
-            ...
+        "name" : "American Pale Ale",
+        "createdAt" : 1635335921000,    // example
     },
     ...
 ]
 ```
 
-JSON obsahuje všetky uložené recepty. FE ponúkne používateľovi výber z prijatých
-receptov. Pri vybratí receptu sa ten načíta na hlavnú obrazovku a tiež sa odošle
-POST request na BE s vybraným receptom (body je prázdne):
+FE ponúkne používateľovi výber z prijatých receptov podľa názvu.
+Pri vybratí receptu sa odošle GET request na backend:
+
+````
+GET /api/recipe/{recipe-id}/select
+````
+Odpoveďou bude JSON so všetkými dátami receptu:
+
+````json
+{
+    "id" : 0,
+    "name" : "IPA",
+    "createdAt" : 1635335921000,    // example
+    "blocks" : [
+    ...
+    ],
+    "instructions" :
+    [
+    ...
+    ]
+}
+````
+Pokiaľ je používateľ s vybraným receptom spokojný, klikne na tlačidlo **"Vybrať recept"**.
+Recept sa následne načíta na hlavnú obrazovku a tiež sa odošle
+POST request na BE s vybraným receptom:
 
 ```
-POST /api/recipe/{recipeId}/load
+POST /api/recipe/{recipe-id}/load
 ```
+
+```json
+{
+  "id" : 0,
+  "name" : "IPA",
+  "createdAt" : 1635335921000,    // example
+  "blocks" : [
+    ...
+  ],
+  "instructions" :
+  [
+    ...
+  ]
+}
+
  
 
 ### Pridanie nového receptu
@@ -66,13 +134,15 @@ PUT /api/recipe
 
 ```json
 {
-    "timestamp" : ...,
-    "steps" : 
-        [
-        ...
-        ],
+  "name": "Corgoň",
+  "createdAt": ...,
+  "blocks" : [
     ...
-    }
+  ],
+  "instructions" :
+  [
+    ...
+  ]
 }
 ```
 Ako odpoveď na FE príde JSON s vygenerovaným ID pridaného receptu:
@@ -100,6 +170,23 @@ Pri spustení varenia sa na BE pošle PUT request (body je prázdne):
 ```
 PUT /api/brew/{recipeId}/start
 ```
+
+```json
+{
+  // pre istotu sa pošle recept znovu
+  "id": 3,
+  "name": "Corgoň",
+  "createdAt": ...,
+  "blocks" : [
+    ...
+  ],
+  "instructions" :
+  [
+    ...
+  ]
+}
+}
+````
 
 FE čaká na odpoveď z BE, či sa všetko úspešne spustilo:
 
@@ -130,50 +217,47 @@ GET /api/brew/{brewId}
 #### Pokiaľ všetko prebieha v poriadku
 
 V ideálnom prípade BE odpovie formou:
+
 ````json
 200 OK
 {
-    "module-states" : [                 // stavy jednotlivých modulov
-                        {
-                            "temp" : 70,
-                            "rpm" : 100,
-                            "heating" : 1,      // 1 - true, 0 - false (myslím že JSON nepodporuje bool)
-                            "active" : 1,
-                        },
-                        {
-                            "temp" : 20,
-                            "rpm" : 0,
-                            "heating" : 0,
-                            "active" : 0,
-                        },
-                            
-    "rec-blocks": [                     // základné informácie o všetkých blokoch
-                    {
-                        "id": 1,
-                        "name" : "BLOCK1",
-                        "steps" [
-                                ...
-                                ]
-                    },
-                    {
-                        "id": 2,
-                        "name" : "BLOCK2",
-                        "steps" [
-                                ...
-                                ]
-                    },
-                   ...
-                  ],
-    "curr-block": {                 // podrobné informácie o momentálne vykonávanom bloku
-                    id: 1,          // stačí len ID, pokiaľ sa aj o ostatných blokoch budú posielať podrobné info.
-                    "name" : "BLOCK2",
-                    "steps" [
-                            ...
-                            ]
-                    },
-    "remaining-time" : ...
-}
+  "module-states": [
+    // stavy jednotlivých modulov
+    {
+      "temp": 70,
+      "rpm": 100,
+      "heating": 1,
+      // 1 - true, 0 - false (myslím že JSON nepodporuje bool)
+      "active": 1
+    },
+    {
+      "temp": 20,
+      "rpm": 0,
+      "heating": 0,
+      "active": 0
+    },
+    "rec-blocks"
+    :
+    [
+      // základné informácie o všetkých blokoch
+      {
+        "id": 0,
+        "name": "BLOCK1"
+      },
+      {
+        "id": 1,
+        "name": "BLOCK2"
+      },
+      ...
+    ],
+    "instructions" : [
+      ...
+    ],
+    "remaining-time" :
+    ...
+    }
 ````
+
 FE túto odpoveď spracuje a obnoví obrazovku.
 
 #### Pokiaľ nastane chyba
@@ -183,15 +267,17 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
 ````json
 500 SERVER ERROR
 {
-    "error" : "Temp error message.",
-    "module" : {                        // špecifikácia chybného modulu (a zariadenia)
-                "name" : "MODULE1",
-                ...
-                },
-    "step" : {                          // krok, v ktorom nastala chyba
-             "parent-block" : ID,
-             ...
-             },                         
+  "error": "Temp error message.",
+  "module": {
+    // špecifikácia chybného modulu (a zariadenia)
+    "name": "MODULE1",
+    ...
+  },
+  "instruction": {
+    // inštrukcia, v ktorom nastala chyba
+    "parent-block": ID,
+    ...
+  }
 }
 ````
 ### Úspešné ukončenie varenia
@@ -218,8 +304,7 @@ POST /api/brew/{brewId}/step/{stepId}
 ````
 ````json
 {                     
-    "parent-block" : ID,
-    ...             // upravovany "step"
+    // celá inštrukcia s upravenými paremtrami, viď Štruktúra JSONu inštrukcie"
 }    
 ````
 Pokiaľ úprava prebehne v poriadku, BE odpovie správou:
@@ -291,7 +376,7 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 Now it's time to panic.
 ### Notes
 
-- krok musí mať atribút **type**, ktorý bude identifikovať, či je automatický alebo
+- inštrukcia musí mať atribút **type**, ktorý bude identifikovať, či je automatický alebo
 treba vstup používateľa
 - pri varení nemusí BE odpovedať stále s celým receptom, pokiaľ má recept 
 uložený u seba (z kroku spustenia varenia) - stačí len current block a module-stats
