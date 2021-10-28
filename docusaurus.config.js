@@ -57,6 +57,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
           ],
         },
+        algolia: {
+          appId: 'FE1FNBDNQS',
+          apiKey: 'de41bb7bfad10c227d414c04e276cc83',
+          indexName: 'SmartBrew',
+        },
         footer: {
           style: 'dark',
           links: [
