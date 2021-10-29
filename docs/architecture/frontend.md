@@ -3,6 +3,7 @@
 ## Technológie
 
 Pre používateľské rozhranie budeme používať React framework.
+Pre IDE je treba doinštalovať tieto rozšírenia - **eslint, prettier, editorconfig**. Testované na vscode.
 
 ## Komunikácia s back-endom
 
