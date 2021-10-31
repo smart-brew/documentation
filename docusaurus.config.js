@@ -88,6 +88,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                   label: 'Frontend',
                   href: 'https://github.com/smart-brew/frontend',
                 },
+                {
+                  label: 'Moduly',
+                  href: 'https://github.com/smart-brew/websocket-module',
+                },
+                {
+                  label: 'Testovací modul',
+                  href: 'https://github.com/smart-brew/module-mock-server',
+                },
               ],
             },
             {
@@ -96,6 +104,19 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 {
                   label: 'Web VS code',
                   href: 'https://github.dev/smart-brew/documentation',
+                },
+              ],
+            },
+            {
+              title: 'Kontakt',
+              items: [
+                {
+                  label: 'Web',
+                  href: 'http://team06-21.studenti.fiit.stuba.sk/',
+                },
+                {
+                  label: 'Email',
+                  href: 'mailto:tim6_tp2021@googlegroups.com',
                 },
               ],
             },
