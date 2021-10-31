@@ -9,6 +9,7 @@ Rôzne komponenty spolu komunikujú rôznym spôsobom, preto je dôležité mať
 
 Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujúce správy:
 
+### Posielanie údajov z modulu na backend
 
 ```json title="Posielanie údajov z modulu na backend"
 {
@@ -20,6 +21,20 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
 
 - **<podporované údaje>** - sú rovnaké údaje ako v [Podporované údaje](./supported-data.md)
 
+### Posielanie inštrukcií z backendu na modul
+
+```json title="Posielanie inštrukcií z backendu na modul"
+{
+  "moduleId": "<názov modulu>",
+  "type": "instruction",
+  "category": "<ketegória>",       // "MOTOR", "PUMP", ...
+  "device": "<názov zariadenia>",  // "MOTOR_1", "PUMP_2", ...
+  "function": "<inštrukcia>",      // "SET_TEMPERATURE", "SET_MOTOR_SPEED", ...
+  "parameter": "<parameter>"
+}
+```
+
+- hodnoty budu podľa definície v [Podporované funkcie](./supported-functions.md)
 
 ## Backend <--> Frontend
 
