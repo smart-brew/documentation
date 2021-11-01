@@ -37,7 +37,166 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
 - hodnoty budu podľa definície v [Podporované funkcie](./supported-functions.md)
 
 ## Backend <--> Frontend
+### Podporované funkcie
 
+FE môže získať informácie o podporovaých funkciách v rámci systému.
+
+```
+GET /api/function
+```
+
+```json
+[
+  {
+    "id": 1,
+    "code_name": "SET_TEMPERATURE",
+    "name": "Temperature",
+    "category": "TEMPERATURE",
+    "units": "°C",
+    "input_type": "float",
+    "description": "Sets temerature for selected chamber",
+    "created_at": "2021-10-30T16:59:08.653Z",
+    "updated_at": "2021-10-30T16:59:08.657Z",
+    "Function_options": [
+      {
+        "id": 1,
+        "name": "Chamber 1",
+        "code_name": "TEMP_1",
+        "module": 1,
+        "created_at": "2021-10-30T16:59:08.654Z",
+        "updated_at": "2021-10-30T16:59:08.657Z"
+      },
+      {
+        "id": 2,
+        "name": "Chamber 2",
+        "code_name": "TEMP_2",
+        "module": 1,
+        "created_at": "2021-10-30T16:59:08.654Z",
+        "updated_at": "2021-10-30T16:59:08.657Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "code_name": "SET_MOTOR_SPEED",
+    "name": "Motor",
+    "category": "MOTOR",
+    "units": "RMP",
+    "input_type": "float",
+    "description": "Sets rpms for selected motor",
+    "created_at": "2021-10-30T16:59:08.733Z",
+    "updated_at": "2021-10-30T16:59:08.734Z",
+    "Function_options": [
+      {
+        "id": 3,
+        "name": "Motor 1",
+        "code_name": "MOTOR_1",
+        "module": 2,
+        "created_at": "2021-10-30T16:59:08.733Z",
+        "updated_at": "2021-10-30T16:59:08.734Z"
+      },
+      {
+        "id": 4,
+        "name": "Motor 2",
+        "code_name": "MOTOR_2",
+        "module": 2,
+        "created_at": "2021-10-30T16:59:08.733Z",
+        "updated_at": "2021-10-30T16:59:08.734Z"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "code_name": "TRANSFER_LIQUIDS",
+    "name": "Transfer liquids",
+    "category": "PUMP",
+    "units": null,
+    "input_type": null,
+    "description": "Transfers liquids from first chamber to second",
+    "created_at": "2021-10-30T16:59:08.764Z",
+    "updated_at": "2021-10-30T16:59:08.765Z",
+    "Function_options": [
+      {
+        "id": 5,
+        "name": "Pump 1",
+        "code_name": "PUMP_1",
+        "module": 3,
+        "created_at": "2021-10-30T16:59:08.764Z",
+        "updated_at": "2021-10-30T16:59:08.765Z"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "code_name": "UNLOAD",
+    "name": "Unload",
+    "category": "UNLOADER",
+    "units": null,
+    "input_type": null,
+    "description": "Unloads selected ingredient into chamber",
+    "created_at": "2021-10-30T16:59:08.780Z",
+    "updated_at": "2021-10-30T16:59:08.781Z",
+    "Function_options": [
+      {
+        "id": 6,
+        "name": "Fermentables",
+        "code_name": "FERMENTABLE",
+        "module": 4,
+        "created_at": "2021-10-30T16:59:08.780Z",
+        "updated_at": "2021-10-30T16:59:08.781Z"
+      },
+      {
+        "id": 7,
+        "name": "Yeast",
+        "code_name": "YEAST",
+        "module": 4,
+        "created_at": "2021-10-30T16:59:08.780Z",
+        "updated_at": "2021-10-30T16:59:08.781Z"
+      },
+      {
+        "id": 8,
+        "name": "Hops",
+        "code_name": "HOPS",
+        "module": 4,
+        "created_at": "2021-10-30T16:59:08.780Z",
+        "updated_at": "2021-10-30T16:59:08.781Z"
+      },
+      {
+        "id": 9,
+        "name": "Other",
+        "code_name": "OTHER",
+        "module": 4,
+        "created_at": "2021-10-30T16:59:08.780Z",
+        "updated_at": "2021-10-30T16:59:08.781Z"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "code_name": "WAIT",
+    "name": "Wait",
+    "category": "SYSTEM",
+    "units": "Minutes",
+    "input_type": "float",
+    "description": "System will wait for given amount of minues",
+    "created_at": "2021-10-30T16:59:08.798Z",
+    "updated_at": "2021-10-30T16:59:08.799Z",
+    "Function_options": []
+  },
+  {
+    "id": 6,
+    "code_name": "MANUAL",
+    "name": "Manual step",
+    "category": "SYSTEM",
+    "units": null,
+    "input_type": "string",
+    "description": "System will wait for manual inervention",
+    "created_at": "2021-10-30T16:59:08.810Z",
+    "updated_at": "2021-10-30T16:59:08.810Z",
+    "Function_options": []
+  }
+]
+```
 ### Výber receptu
 
 Pri zapnutí si používateľ bude môcť vybrať, či chce použiť už
@@ -53,17 +212,101 @@ Ako odpoveď obdrží základné informácie (id, názov, čas vytvorenia) pre *
 
 ```json
 [
-    {
-        "id" : 0,
-        "name" : "IPA",
-        "createdAt" : 1635335921000,    // example
-        },
-    {
-        "id" : 1,
-        "name" : "American Pale Ale",
-        "createdAt" : 1635335921000,    // example
-    },
-    ...
+  {
+    "id": 1,
+    "name": "TEST_RECIPE_1",
+    "description": "Seed recipe 1",
+    "locked": false,
+    "created_at": "2021-10-30T17:02:10.626Z",
+    "updated_at": "2021-10-30T17:02:10.629Z",
+    "Ingredients": [
+      {
+        "id": 1,
+        "recipe_id": 1,
+        "name": "Some ingredient",
+        "amount": 5.6,
+        "type": "Hops",
+        "created_at": "2021-10-30T17:02:10.626Z",
+        "updated_at": "2021-10-30T17:02:10.629Z"
+      },
+      {
+        "id": 2,
+        "recipe_id": 1,
+        "name": "Some different ingredient",
+        "amount": 1,
+        "type": "Yeast",
+        "created_at": "2021-10-30T17:02:10.627Z",
+        "updated_at": "2021-10-30T17:02:10.629Z"
+      }
+    ],
+    "Blocks": [
+      {
+        "id": 1,
+        "recipe_id": 1,
+        "name": "Initialization",
+        "created_at": "2021-10-30T17:02:10.627Z",
+        "updated_at": "2021-10-30T17:02:10.629Z",
+        "Instructions": [
+          {
+            "id": 1,
+            "block_id": 1,
+            "function_template_id": 5,
+            "function_option_id": null,
+            "ordering": 2,
+            "param": {
+              "duration": "5"
+            },
+            "created_at": "2021-10-30T17:02:10.627Z",
+            "updated_at": "2021-10-30T17:02:10.629Z"
+          },
+          {
+            "id": 2,
+            "block_id": 1,
+            "function_template_id": 2,
+            "function_option_id": 3,
+            "ordering": 1,
+            "param": {
+              "rpms": "100"
+            },
+            "created_at": "2021-10-30T17:02:10.627Z",
+            "updated_at": "2021-10-30T17:02:10.629Z"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "recipe_id": 1,
+        "name": "NextBlock",
+        "created_at": "2021-10-30T17:02:10.627Z",
+        "updated_at": "2021-10-30T17:02:10.629Z",
+        "Instructions": [
+          {
+            "id": 3,
+            "block_id": 2,
+            "function_template_id": 4,
+            "function_option_id": 6,
+            "ordering": 4,
+            "param": null,
+            "created_at": "2021-10-30T17:02:10.627Z",
+            "updated_at": "2021-10-30T17:02:10.629Z"
+          },
+          {
+            "id": 4,
+            "block_id": 2,
+            "function_template_id": 1,
+            "function_option_id": 1,
+            "ordering": 3,
+            "param": {
+              "temp": "60"
+            },
+            "created_at": "2021-10-30T17:02:10.627Z",
+            "updated_at": "2021-10-30T17:02:10.629Z"
+          }
+        ]
+      }
+    ]
+  },
+  ...
 ]
 ```
 
