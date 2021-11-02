@@ -1,0 +1,21 @@
+name: Index Algolia
+
+on:
+  # listen to manual trigger
+  workflow_dispatch:
+
+  # listen to push
+  push:
+    branches: [master]
+
+jobs:
+  index:
+    name: 🎉 Index
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v2
+
+      - name: 🔨 Run indexing
+        run: docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
