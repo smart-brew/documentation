@@ -213,98 +213,20 @@ Ako odpoveď obdrží základné informácie (id, názov, čas vytvorenia) pre *
 ```json
 [
   {
-    "id": 1,
+    "id": 3,
     "name": "TEST_RECIPE_1",
     "description": "Seed recipe 1",
     "locked": false,
-    "created_at": "2021-10-30T17:02:10.626Z",
-    "updated_at": "2021-10-30T17:02:10.629Z",
-    "Ingredients": [
-      {
-        "id": 1,
-        "recipe_id": 1,
-        "name": "Some ingredient",
-        "amount": 5.6,
-        "type": "Hops",
-        "created_at": "2021-10-30T17:02:10.626Z",
-        "updated_at": "2021-10-30T17:02:10.629Z"
-      },
-      {
-        "id": 2,
-        "recipe_id": 1,
-        "name": "Some different ingredient",
-        "amount": 1,
-        "type": "Yeast",
-        "created_at": "2021-10-30T17:02:10.627Z",
-        "updated_at": "2021-10-30T17:02:10.629Z"
-      }
-    ],
-    "Blocks": [
-      {
-        "id": 1,
-        "recipe_id": 1,
-        "name": "Initialization",
-        "created_at": "2021-10-30T17:02:10.627Z",
-        "updated_at": "2021-10-30T17:02:10.629Z",
-        "Instructions": [
-          {
-            "id": 1,
-            "block_id": 1,
-            "function_template_id": 5,
-            "function_option_id": null,
-            "ordering": 2,
-            "param": {
-              "duration": "5"
-            },
-            "created_at": "2021-10-30T17:02:10.627Z",
-            "updated_at": "2021-10-30T17:02:10.629Z"
-          },
-          {
-            "id": 2,
-            "block_id": 1,
-            "function_template_id": 2,
-            "function_option_id": 3,
-            "ordering": 1,
-            "param": {
-              "rpms": "100"
-            },
-            "created_at": "2021-10-30T17:02:10.627Z",
-            "updated_at": "2021-10-30T17:02:10.629Z"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "recipe_id": 1,
-        "name": "NextBlock",
-        "created_at": "2021-10-30T17:02:10.627Z",
-        "updated_at": "2021-10-30T17:02:10.629Z",
-        "Instructions": [
-          {
-            "id": 3,
-            "block_id": 2,
-            "function_template_id": 4,
-            "function_option_id": 6,
-            "ordering": 4,
-            "param": null,
-            "created_at": "2021-10-30T17:02:10.627Z",
-            "updated_at": "2021-10-30T17:02:10.629Z"
-          },
-          {
-            "id": 4,
-            "block_id": 2,
-            "function_template_id": 1,
-            "function_option_id": 1,
-            "ordering": 3,
-            "param": {
-              "temp": "60"
-            },
-            "created_at": "2021-10-30T17:02:10.627Z",
-            "updated_at": "2021-10-30T17:02:10.629Z"
-          }
-        ]
-      }
-    ]
+    "created_at": "2021-11-02T20:18:23.509Z",
+    "updated_at": "2021-11-02T20:18:23.511Z"
+  },
+  {
+    "id": 4,
+    "name": "TEST_RECIPE_2",
+    "description": "Seed recipe 2",
+    "locked": false,
+    "created_at": "2021-11-02T20:18:23.568Z",
+    "updated_at": "2021-11-02T20:18:23.571Z"
   },
   ...
 ]
@@ -314,22 +236,104 @@ FE ponúkne používateľovi výber z prijatých receptov podľa názvu.
 Pri vybratí receptu sa odošle GET request na backend:
 
 ````
-GET /api/recipe/{recipe-id}/select
+GET /api/recipe/{recipe-id}
 ````
 Odpoveďou bude JSON so všetkými dátami receptu:
 
 ````json
 {
-    "id" : 0,
-    "name" : "IPA",
-    "createdAt" : 1635335921000,    // example
-    "blocks" : [
-    ...
-    ],
-    "instructions" :
-    [
-    ...
-    ]
+  "id": 3,
+  "name": "TEST_RECIPE_1",
+  "description": "Seed recipe 1",
+  "locked": false,
+  "created_at": "2021-11-02T20:18:23.509Z",
+  "updated_at": "2021-11-02T20:18:23.511Z",
+  "Ingredients": [
+    {
+      "id": 5,
+      "recipe_id": 3,
+      "name": "Some ingredient",
+      "amount": 5.6,
+      "type": "Hops",
+      "units": "Kg",
+      "created_at": "2021-11-02T20:18:23.509Z",
+      "updated_at": "2021-11-02T20:18:23.511Z"
+    },
+    {
+      "id": 6,
+      "recipe_id": 3,
+      "name": "Some different ingredient",
+      "amount": 1,
+      "type": "Yeast",
+      "units": "Pcs",
+      "created_at": "2021-11-02T20:18:23.509Z",
+      "updated_at": "2021-11-02T20:18:23.511Z"
+    }
+  ],
+  "Instructions": [
+    {
+      "id": 11,
+      "recipe_id": 3,
+      "block_id": 1,
+      "function_template_id": 4,
+      "function_option_id": 6,
+      "ordering": 4,
+      "param": null,
+      "created_at": "2021-11-02T20:18:23.509Z",
+      "updated_at": "2021-11-02T20:18:23.511Z",
+      "Blocks": {
+        "name": "SECOND_BLOCK"
+      }
+    },
+    {
+      "id": 12,
+      "recipe_id": 3,
+      "block_id": 1,
+      "function_template_id": 1,
+      "function_option_id": 1,
+      "ordering": 3,
+      "param": {
+        "temp": "60"
+      },
+      "created_at": "2021-11-02T20:18:23.509Z",
+      "updated_at": "2021-11-02T20:18:23.511Z",
+      "Blocks": {
+        "name": "SECOND_BLOCK"
+      }
+    },
+    {
+      "id": 13,
+      "recipe_id": 3,
+      "block_id": 2,
+      "function_template_id": 5,
+      "function_option_id": null,
+      "ordering": 2,
+      "param": {
+        "duration": "5"
+      },
+      "created_at": "2021-11-02T20:18:23.509Z",
+      "updated_at": "2021-11-02T20:18:23.511Z",
+      "Blocks": {
+        "name": "FIRST_BLOCK"
+      }
+    },
+    {
+      "id": 14,
+      "recipe_id": 3,
+      "block_id": 2,
+      "function_template_id": 2,
+      "function_option_id": 3,
+      "ordering": 1,
+      "param": {
+        "rpms": "100"
+      },
+      "created_at": "2021-11-02T20:18:23.509Z",
+      "updated_at": "2021-11-02T20:18:23.511Z",
+      "Blocks": {
+        "name": "FIRST_BLOCK"
+      }
+    }
+  ]
 }
 ````
 Pokiaľ je používateľ s vybraným receptom spokojný, klikne na tlačidlo **"Vybrať recept"**.
@@ -368,14 +372,58 @@ PUT /api/recipe
 
 ```json
 {
-  "name": "Corgoň",
-  "createdAt": ...,
-  "blocks" : [
-    ...
+  "name": "My first beer",
+  "description": "I have no idea what I'am doing",
+  "locked": false,
+  "Ingredients": [
+    {
+      "name": "First ingredient",
+      "amount": 4.6,
+      "type": "Hops",
+      "units": "Kg",
+    },
+    {
+      "name": "Second ingredient",
+      "amount": 1,
+      "type": "Yeast",
+      "units": "Pcs",
+    }
   ],
-  "instructions" :
-  [
-    ...
+  "Instructions": [
+    {
+      "function_template_id": 4,
+      "function_option_id": 6,
+      "ordering": 4,
+      "param": null,
+      "Block": "First stage",
+    },
+    {
+      "function_template_id": 1,
+      "function_option_id": 1,
+      "ordering": 3,
+      "param": {
+        "temp": "60"
+      },
+      "Block": "First stage",
+    },
+    {
+      "function_template_id": 5,
+      "function_option_id": null,
+      "ordering": 2,
+      "param": {
+        "duration": "5"
+      },
+      "Block": "Second stage",
+    },
+    {
+      "function_template_id": 2,
+      "function_option_id": 3,
+      "ordering": 1,
+      "param": {
+        "rpms": "100"
+      },
+      "Block": "Second stage",
+    }
   ]
 }
 ```
