@@ -36,7 +36,11 @@ docker compose build
 docker compose up
 ```
 
-(**_Poznámka_**: Ak nebola doposial spustená databáza, treba vykonať migráciu spolu so seedom údajov - viac info: [Migrácie](./migration.md))
+:::note Poznámka
+
+Ak nebola doposial spustená databáza a sú problémy s nesprávnymi dátami, treba vykonať manuálne migráciu spolu so seedom údajov - viac info: [Migrácie](./migration.md)
+
+:::
 
 3. Spustiť GUI
 
