@@ -39,3 +39,15 @@ jobs:
           remote_host: ${{ secrets.HOST }}
           remote_user: ${{ secrets.USERNAME }}
           remote_key: ${{ secrets.KEY }}
+
+  index:
+    needs: [deploy]
+    name: 🎉 Index Algolia
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v2
+
+      - name: 🔨 Run indexing
+        run: docker run -i --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
