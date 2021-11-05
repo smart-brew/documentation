@@ -29,7 +29,7 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
   "type": "instruction",
   "category": "<ketegória>",       // "MOTOR", "PUMP", ...
   "device": "<názov zariadenia>",  // "MOTOR_1", "PUMP_2", ...
-  "function": "<inštrukcia>",      // "SET_TEMPERATURE", "SET_MOTOR_SPEED", ...
+  "instruction": "<inštrukcia>",      // "SET_TEMPERATURE", "SET_MOTOR_SPEED", ...
   "parameter": "<parameter>"
 }
 ```
@@ -37,6 +37,9 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
 - hodnoty budu podľa definície v [Podporované funkcie](./supported-functions.md)
 
 ## Backend <--> Frontend
+
+Pri každom dopyte a jeho odpovedi, sa budú nachádzať aj `created_at` a `updated_at`, avšak pre prehľadnosť, tu niesú napísané.
+
 ### Podporované funkcie
 
 FE môže získať informácie o podporovaých funkciách v rámci systému.
@@ -55,24 +58,16 @@ GET /api/function
     "units": "°C",
     "input_type": "float",
     "description": "Sets temerature for selected chamber",
-    "created_at": "2021-10-30T16:59:08.653Z",
-    "updated_at": "2021-10-30T16:59:08.657Z",
     "Function_options": [
       {
         "id": 1,
         "name": "Chamber 1",
-        "code_name": "TEMP_1",
-        "module": 1,
-        "created_at": "2021-10-30T16:59:08.654Z",
-        "updated_at": "2021-10-30T16:59:08.657Z"
+        "code_name": "TEMP_1"
       },
       {
         "id": 2,
         "name": "Chamber 2",
-        "code_name": "TEMP_2",
-        "module": 1,
-        "created_at": "2021-10-30T16:59:08.654Z",
-        "updated_at": "2021-10-30T16:59:08.657Z"
+        "code_name": "TEMP_2"
       }
     ]
   },
@@ -84,24 +79,16 @@ GET /api/function
     "units": "RMP",
     "input_type": "float",
     "description": "Sets rpms for selected motor",
-    "created_at": "2021-10-30T16:59:08.733Z",
-    "updated_at": "2021-10-30T16:59:08.734Z",
     "Function_options": [
       {
         "id": 3,
         "name": "Motor 1",
-        "code_name": "MOTOR_1",
-        "module": 2,
-        "created_at": "2021-10-30T16:59:08.733Z",
-        "updated_at": "2021-10-30T16:59:08.734Z"
+        "code_name": "MOTOR_1"
       },
       {
         "id": 4,
         "name": "Motor 2",
-        "code_name": "MOTOR_2",
-        "module": 2,
-        "created_at": "2021-10-30T16:59:08.733Z",
-        "updated_at": "2021-10-30T16:59:08.734Z"
+        "code_name": "MOTOR_2"
       }
     ]
   },
@@ -113,16 +100,11 @@ GET /api/function
     "units": null,
     "input_type": null,
     "description": "Transfers liquids from first chamber to second",
-    "created_at": "2021-10-30T16:59:08.764Z",
-    "updated_at": "2021-10-30T16:59:08.765Z",
     "Function_options": [
       {
         "id": 5,
         "name": "Pump 1",
-        "code_name": "PUMP_1",
-        "module": 3,
-        "created_at": "2021-10-30T16:59:08.764Z",
-        "updated_at": "2021-10-30T16:59:08.765Z"
+        "code_name": "PUMP_1"
       }
     ]
   },
@@ -134,40 +116,26 @@ GET /api/function
     "units": null,
     "input_type": null,
     "description": "Unloads selected ingredient into chamber",
-    "created_at": "2021-10-30T16:59:08.780Z",
-    "updated_at": "2021-10-30T16:59:08.781Z",
     "Function_options": [
       {
         "id": 6,
         "name": "Fermentables",
-        "code_name": "FERMENTABLE",
-        "module": 4,
-        "created_at": "2021-10-30T16:59:08.780Z",
-        "updated_at": "2021-10-30T16:59:08.781Z"
+        "code_name": "FERMENTABLE"
       },
       {
         "id": 7,
         "name": "Yeast",
-        "code_name": "YEAST",
-        "module": 4,
-        "created_at": "2021-10-30T16:59:08.780Z",
-        "updated_at": "2021-10-30T16:59:08.781Z"
+        "code_name": "YEAST"
       },
       {
         "id": 8,
         "name": "Hops",
-        "code_name": "HOPS",
-        "module": 4,
-        "created_at": "2021-10-30T16:59:08.780Z",
-        "updated_at": "2021-10-30T16:59:08.781Z"
+        "code_name": "HOPS"
       },
       {
         "id": 9,
         "name": "Other",
-        "code_name": "OTHER",
-        "module": 4,
-        "created_at": "2021-10-30T16:59:08.780Z",
-        "updated_at": "2021-10-30T16:59:08.781Z"
+        "code_name": "OTHER"
       }
     ]
   },
@@ -179,8 +147,6 @@ GET /api/function
     "units": "Minutes",
     "input_type": "float",
     "description": "System will wait for given amount of minues",
-    "created_at": "2021-10-30T16:59:08.798Z",
-    "updated_at": "2021-10-30T16:59:08.799Z",
     "Function_options": []
   },
   {
@@ -191,8 +157,6 @@ GET /api/function
     "units": null,
     "input_type": "string",
     "description": "System will wait for manual inervention",
-    "created_at": "2021-10-30T16:59:08.810Z",
-    "updated_at": "2021-10-30T16:59:08.810Z",
     "Function_options": []
   }
 ]
@@ -214,19 +178,15 @@ Ako odpoveď obdrží základné informácie (id, názov, čas vytvorenia) pre *
 [
   {
     "id": 3,
-    "name": "TEST_RECIPE_1",
-    "description": "Seed recipe 1",
-    "locked": false,
-    "created_at": "2021-11-02T20:18:23.509Z",
-    "updated_at": "2021-11-02T20:18:23.511Z"
+    "name": "Smoky Grove Lichtenhainer",
+    "description": "Light, gently tart, and smoked—lichtenhainer is an unusual beer, yet surprisingly good for all seasons and one you’ll want to brew and enjoy often.",
+    "locked": false
   },
   {
     "id": 4,
-    "name": "TEST_RECIPE_2",
-    "description": "Seed recipe 2",
-    "locked": false,
-    "created_at": "2021-11-02T20:18:23.568Z",
-    "updated_at": "2021-11-02T20:18:23.571Z"
+    "name": "Burke-Gilman The Hopsplainer",
+    "description": "Courtesy of the brewing team at Burke-Gilman in Seattle, here is a homebrew-scale recipe for the double hazy IPA that won GABF gold in 2020.",
+    "locked": true
   },
   ...
 ]
@@ -243,31 +203,41 @@ Odpoveďou bude JSON so všetkými dátami receptu:
 ````json
 {
   "id": 3,
-  "name": "TEST_RECIPE_1",
-  "description": "Seed recipe 1",
+  "name": "Smoky Grove Lichtenhainer",
+  "description": "Light, gently tart, and smoked—lichtenhainer is an unusual beer, yet surprisingly good for all seasons and one you’ll want to brew and enjoy often.",
   "locked": false,
-  "created_at": "2021-11-02T20:18:23.509Z",
-  "updated_at": "2021-11-02T20:18:23.511Z",
   "Ingredients": [
     {
       "id": 5,
       "recipe_id": 3,
-      "name": "Some ingredient",
+      "name": "American - Pale 2-Row",
       "amount": 5.6,
-      "type": "Hops",
-      "units": "Kg",
-      "created_at": "2021-11-02T20:18:23.509Z",
-      "updated_at": "2021-11-02T20:18:23.511Z"
+      "type": "Fermentable",
+      "units": "Kg"
     },
     {
       "id": 6,
       "recipe_id": 3,
-      "name": "Some different ingredient",
+      "name": "Fermentis - Safale - American Ale Yeast US-05",
       "amount": 1,
       "type": "Yeast",
-      "units": "Pcs",
-      "created_at": "2021-11-02T20:18:23.509Z",
-      "updated_at": "2021-11-02T20:18:23.511Z"
+      "units": ""
+    },
+    {
+      "id": 7,
+      "recipe_id": 3,
+      "name": "Magnum (Pellet)",
+      "amount": 1,
+      "type": "Hops",
+      "units": "oz"
+    },
+    {
+      "id": 8,
+      "recipe_id": 3,
+      "name": "Crush whilrfoc Tablet",
+      "amount": 1,
+      "type": "Other",
+      "units": ""
     }
   ],
   "Instructions": [
@@ -279,10 +249,8 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "function_option_id": 6,
       "ordering": 4,
       "param": null,
-      "created_at": "2021-11-02T20:18:23.509Z",
-      "updated_at": "2021-11-02T20:18:23.511Z",
       "Blocks": {
-        "name": "SECOND_BLOCK"
+        "name": "Fermentation"
       }
     },
     {
@@ -295,10 +263,8 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "param": {
         "temp": "60"
       },
-      "created_at": "2021-11-02T20:18:23.509Z",
-      "updated_at": "2021-11-02T20:18:23.511Z",
       "Blocks": {
-        "name": "SECOND_BLOCK"
+        "name": "Fermentation"
       }
     },
     {
@@ -311,10 +277,8 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "param": {
         "duration": "5"
       },
-      "created_at": "2021-11-02T20:18:23.509Z",
-      "updated_at": "2021-11-02T20:18:23.511Z",
       "Blocks": {
-        "name": "FIRST_BLOCK"
+        "name": "Yeasting"
       }
     },
     {
@@ -327,38 +291,23 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "param": {
         "rpms": "100"
       },
-      "created_at": "2021-11-02T20:18:23.509Z",
-      "updated_at": "2021-11-02T20:18:23.511Z",
       "Blocks": {
-        "name": "FIRST_BLOCK"
+        "name": "Yeasting"
       }
     }
   ]
 }
 ````
+
+### Výber receptu na varenie
+
 Pokiaľ je používateľ s vybraným receptom spokojný, klikne na tlačidlo **"Vybrať recept"**.
 Recept sa následne načíta na hlavnú obrazovku a tiež sa odošle
-POST request na BE s vybraným receptom:
+POST request na BE s vybraným receptom (aby BE vedel, že čo sa bude robiť):
 
 ```
 POST /api/recipe/{recipe-id}/load
-```
-
-```json
-{
-  "id" : 0,
-  "name" : "IPA",
-  "createdAt" : 1635335921000,    // example
-  "blocks" : [
-    ...
-  ],
-  "instructions" :
-  [
-    ...
-  ]
-}
-````
- 
+``` 
 
 ### Pridanie nového receptu
 
@@ -372,21 +321,33 @@ PUT /api/recipe
 
 ```json
 {
-  "name": "My first beer",
+  "name": "Perfect Northeast IPA (NEIPA)",
   "description": "I have no idea what I'am doing",
   "locked": false,
   "Ingredients": [
     {
-      "name": "First ingredient",
-      "amount": 4.6,
-      "type": "Hops",
-      "units": "Kg",
+      "name": "American - Pale 2-Row",
+      "amount": 5.6,
+      "type": "Fermentable",
+      "units": "Kg"
     },
     {
-      "name": "Second ingredient",
+      "name": "Fermentis - Safale - American Ale Yeast US-05",
       "amount": 1,
       "type": "Yeast",
-      "units": "Pcs",
+      "units": ""
+    },
+    {
+      "name": "Magnum (Pellet)",
+      "amount": 1,
+      "type": "Hops",
+      "units": "oz"
+    },
+    {
+      "name": "Crush whilrfoc Tablet",
+      "amount": 1,
+      "type": "Other",
+      "units": ""
     }
   ],
   "Instructions": [
@@ -431,7 +392,7 @@ Ako odpoveď na FE príde JSON s vygenerovaným ID pridaného receptu:
 ````json
 200 OK
 {
-    "id" : xx      
+  "id" : xxx
 }
 ````
 Tento recept spolu s jeho novým ID s následne FE uloží k sebe lokálne.
@@ -450,23 +411,12 @@ skontrolovať, či je recept správny. Pokiaľ je s receptom spokojný, spustí 
 Pri spustení varenia sa na BE pošle PUT request (body je prázdne):
 
 ```
-PUT /api/brew/{recipeId}/start
+PUT /api/brew/0/start
 ```
 
 ```json
 {
-  // pre istotu sa pošle recept znovu
-  "id": 3,
-  "name": "Corgoň",
-  "createdAt": ...,
-  "blocks" : [
-    ...
-  ],
-  "instructions" :
-  [
-    ...
-  ]
-}
+  "recipeId": 123  // id vybraného receptu
 }
 ````
 
@@ -484,17 +434,17 @@ Pokiaľ na BE nastane porucha alebo chyba pri spúšťaní, na FE pošle odpove�
 ````json
 500 SERVER ERROR
 {
-    "error" : "Temp error message."
+  "error" : "Temp error message."
 }
 ````
 FE túto chybu následne ohlási používateľovi.
 
-### Periodické dopyty na back-end
+### Periodické dopyty na back-end {#api-data}
 
 Pokiaľ sa varenie spustí úspešne, FE prejde do módu, kde sa periodicky dopytuje
 BE na stav receptu. Každú 1 sekundu na BE odošle GET request na URL:
 ````
-GET /api/brew/{brewId}
+GET /api/data
 ````
 #### Pokiaľ všetko prebieha v poriadku
 
@@ -503,42 +453,18 @@ V ideálnom prípade BE odpovie formou:
 ````json
 200 OK
 {
-  "module-states": [
-    // stavy jednotlivých modulov
-    {
-      "temp": 70,
-      "rpm": 100,
-      "heating": 1,
-      // 1 - true, 0 - false (myslím že JSON nepodporuje bool)
-      "active": 1
-    },
-    {
-      "temp": 20,
-      "rpm": 0,
-      "heating": 0,
-      "active": 0
-    },
-    "rec-blocks"
-    :
-    [
-      // základné informácie o všetkých blokoch
-      {
-        "id": 0,
-        "name": "BLOCK1"
-      },
-      {
-        "id": 1,
-        "name": "BLOCK2"
-      },
-      ...
-    ],
-    "instructions" : [
-      ...
-    ],
-    "remaining-time" :
-    ...
-    }
+  "data": {
+    <podporované údaje>
+  },
+  "instruction" : {
+    "currentInstruction": 23,
+    "status": "IN_PROGRESS"
+  },
+  "brewStatus": "IN_PROGRESS"
+}
 ````
+
+- **<podporované údaje>** - sú rovnaké údaje ako v [Podporované údaje](./supported-data.md)
 
 FE túto odpoveď spracuje a obnoví obrazovku.
 
@@ -551,38 +477,53 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
 {
   "error": "Temp error message.",
   "module": {
-    // špecifikácia chybného modulu (a zariadenia)
-    "name": "MODULE1",
-    ...
+    "moduleId": 234,
+    "device": "MOTOR_1",
+    "category": "MOTOR",
+    "error": "Cannot communicate with device" 
   },
-  "instruction": {
-    // inštrukcia, v ktorom nastala chyba
-    "parent-block": ID,
-    ...
-  }
+  "instruction" : {
+    "currentInstruction": 23,
+    "status": "FAIL"
+  },
+  "brewStatus": "STOPPED"
 }
 ````
+
 ### Úspešné ukončenie varenia
 
-Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (`GET /api/brew/{brewId}`) BE pridá položku `status: "fin"`:
+Pokiaľ BE úspešne ukončil varenie, pri najbližšom GET dopyte (`GET /api/data`) BE pridá položku `status: "FINISHED"`:
 ````json
 200 OK
 {
-    ...
-    ...
-    "status" : "fin"
+  ...
+  ...
+  "brewStatus": "FINISHED"
 }
 ````
 
 FE o tejto skutočnosti upovedomí používateľa a ukončí mód periodických dopytov.
- 
+
+### Potvrdenie manuálnej inštrukcie
+
+Keď nastane situácia, že treba vykonať manuálnu inštrukciu, systém bude čakať až kým používateľ nepotvrdí jej vykonanie.
+
+```
+POST /api/brew/{brewId}/instruction/{instructionId}/done
+```
+
+````json
+200 OK
+````
+
+Až po nasledujúcom dopyte v [Periodické dopyty na back-end](#api-data) sa prejde na ďalšiu inštrukciu, keď nám BE pošle, že sme na nasledujúcej inštrukcii.
 
 ### Úprava parametrov počas varenia
 
 Pokiaľ nastane zmena parametrov nejakých krokov, ktoré ešte neboli vykonané,
 FE odošle POST request na BE:
 ````
-POST /api/brew/{brewId}/step/{stepId}
+POST /api/brew/{brewId}/instruction/{instructionId}
 ````
 ````json
 {                     
@@ -601,7 +542,6 @@ Pokiaľ úpravu nebolo možné vykonať, BE odpovie správou:
     "error" : "Temp error message."
 }
 ````
-
 
 _Note: je potrebné, aby FE po tomto POST requeste spustil timer na periodické dopyty odznova,
 aby sme sa vyhli nepríjemnostiam s asynchronicitou BE._
@@ -628,6 +568,9 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
     "error" : "Temp error message."
 }
 ````
+
+### Pokračovanie varenia
+
 Ak chceme pokračovať vo varení, pošleme:
 ````
 POST /api/brew/{brewId}/resume
