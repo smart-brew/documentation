@@ -355,7 +355,6 @@ PUT /api/recipe
       "function_template_id": 4,
       "function_option_id": 6,
       "ordering": 4,
-      "param": null,
       "Block": "First stage",
     },
     {
@@ -369,7 +368,6 @@ PUT /api/recipe
     },
     {
       "function_template_id": 5,
-      "function_option_id": null,
       "ordering": 2,
       "param": {
         "duration": "5"
