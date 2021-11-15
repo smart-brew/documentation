@@ -52,116 +52,116 @@ GET /api/function
 [
   {
     "id": 1,
-    "code_name": "SET_TEMPERATURE",
-    "name": "Temperature",
+    "instruction": "SET_TEMPERATURE",
+    "name": "Set temperature",
     "category": "TEMPERATURE",
     "units": "°C",
-    "input_type": "float",
+    "inputType": "float",
     "description": "Sets temerature for selected chamber",
-    "Function_options": [
+    "devices": [
       {
         "id": 1,
         "name": "Chamber 1",
-        "code_name": "TEMP_1"
+        "device": "TEMP_1"
       },
       {
         "id": 2,
         "name": "Chamber 2",
-        "code_name": "TEMP_2"
+        "device": "TEMP_2"
       }
     ]
   },
   {
     "id": 2,
-    "code_name": "SET_MOTOR_SPEED",
-    "name": "Motor",
+    "instruction": "SET_MOTOR_SPEED",
+    "name": "Set motor speed",
     "category": "MOTOR",
     "units": "RMP",
-    "input_type": "float",
+    "inputType": "float",
     "description": "Sets rpms for selected motor",
-    "Function_options": [
+    "devices": [
       {
         "id": 3,
         "name": "Motor 1",
-        "code_name": "MOTOR_1"
+        "device": "MOTOR_1"
       },
       {
         "id": 4,
         "name": "Motor 2",
-        "code_name": "MOTOR_2"
+        "device": "MOTOR_2"
       }
     ]
   },
   {
     "id": 3,
-    "code_name": "TRANSFER_LIQUIDS",
+    "instruction": "TRANSFER_LIQUIDS",
     "name": "Transfer liquids",
     "category": "PUMP",
     "units": null,
-    "input_type": null,
+    "inputType": null,
     "description": "Transfers liquids from first chamber to second",
-    "Function_options": [
+    "devices": [
       {
         "id": 5,
         "name": "Pump 1",
-        "code_name": "PUMP_1"
+        "device": "PUMP_1"
       }
     ]
   },
   {
     "id": 4,
-    "code_name": "UNLOAD",
-    "name": "Unload",
+    "instruction": "UNLOAD",
+    "name": "Unload ingredient",
     "category": "UNLOADER",
     "units": null,
-    "input_type": null,
+    "inputType": null,
     "description": "Unloads selected ingredient into chamber",
-    "Function_options": [
+    "devices": [
       {
         "id": 6,
         "name": "Fermentables",
-        "code_name": "FERMENTABLE"
+        "device": "FERMENTABLE"
       },
       {
         "id": 7,
         "name": "Yeast",
-        "code_name": "YEAST"
+        "device": "YEAST"
       },
       {
         "id": 8,
         "name": "Hops",
-        "code_name": "HOPS"
+        "device": "HOPS"
       },
       {
         "id": 9,
         "name": "Other",
-        "code_name": "OTHER"
+        "device": "OTHER"
       }
     ]
   },
   {
     "id": 5,
-    "code_name": "WAIT",
+    "instruction": "WAIT",
     "name": "Wait",
     "category": "SYSTEM",
     "units": "Minutes",
-    "input_type": "float",
+    "inputType": "float",
     "description": "System will wait for given amount of minues",
-    "Function_options": []
+    "devices": []
   },
   {
     "id": 6,
-    "code_name": "MANUAL",
+    "instruction": "MANUAL",
     "name": "Manual step",
     "category": "SYSTEM",
     "units": null,
-    "input_type": "string",
+    "inputType": "string",
     "description": "System will wait for manual inervention",
-    "Function_options": []
+    "devices": []
   }
 ]
 ```
-### Výber receptu
+### Výber všetkých receptov
 
 Pri zapnutí si používateľ bude môcť vybrať, či chce použiť už
 vytvorený recept, alebo či chce vytvoriť nový recept.
@@ -192,6 +192,8 @@ Ako odpoveď obdrží základné informácie (id, názov, čas vytvorenia) pre *
 ]
 ```
 
+### Výber jedného receptu
+
 FE ponúkne používateľovi výber z prijatých receptov podľa názvu.
 Pri vybratí receptu sa odošle GET request na backend:
 
@@ -209,7 +211,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
   "Ingredients": [
     {
       "id": 5,
-      "recipe_id": 3,
+      "recipeId": 3,
       "name": "American - Pale 2-Row",
       "amount": 5.6,
       "type": "Fermentable",
@@ -217,7 +219,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
     },
     {
       "id": 6,
-      "recipe_id": 3,
+      "recipeId": 3,
       "name": "Fermentis - Safale - American Ale Yeast US-05",
       "amount": 1,
       "type": "Yeast",
@@ -225,7 +227,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
     },
     {
       "id": 7,
-      "recipe_id": 3,
+      "recipeId": 3,
       "name": "Magnum (Pellet)",
       "amount": 1,
       "type": "Hops",
@@ -233,7 +235,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
     },
     {
       "id": 8,
-      "recipe_id": 3,
+      "recipeId": 3,
       "name": "Crush whilrfoc Tablet",
       "amount": 1,
       "type": "Other",
@@ -243,58 +245,52 @@ Odpoveďou bude JSON so všetkými dátami receptu:
   "Instructions": [
     {
       "id": 11,
-      "recipe_id": 3,
-      "block_id": 1,
-      "function_template_id": 4,
-      "function_option_id": 6,
-      "ordering": 4,
-      "param": null,
-      "Blocks": {
-        "name": "Fermentation"
-      }
+      "recipeId": 3,
+      "templateId": 2,
+      "instruction": "SET_MOTOR_SPEED",
+      "param": 30, 
+      "category": "MOTOR",
+      "device": "MOTOR_1",
+      "blockId": 1, 
+      "block": "Fermentation",
+      "ordering": 1,
     },
     {
       "id": 12,
-      "recipe_id": 3,
-      "block_id": 1,
-      "function_template_id": 1,
-      "function_option_id": 1,
-      "ordering": 3,
-      "param": {
-        "temp": "60"
-      },
-      "Blocks": {
-        "name": "Fermentation"
-      }
+      "recipeId": 3,
+      "templateId": 1,
+      "instruction": "SET_TEMPERATURE",
+      "param": 85, 
+      "category": "TEMPERATURE",
+      "device": "TEMP_1",
+      "blockId": 1, 
+      "block": "Fermentation",
+      "ordering": 2,
     },
     {
       "id": 13,
-      "recipe_id": 3,
-      "block_id": 2,
-      "function_template_id": 5,
-      "function_option_id": null,
-      "ordering": 2,
-      "param": {
-        "duration": "5"
-      },
-      "Blocks": {
-        "name": "Yeasting"
-      }
+      "recipeId": 3,
+      "templateId": 2,
+      "instruction": "SET_MOTOR_SPEED",
+      "param": 0, 
+      "category": "MOTOR",
+      "device": "MOTOR_1",
+      "blockId": 2, 
+      "block": "Yeasting",
+      "ordering": 3,
     },
     {
       "id": 14,
-      "recipe_id": 3,
-      "block_id": 2,
-      "function_template_id": 2,
-      "function_option_id": 3,
-      "ordering": 1,
-      "param": {
-        "rpms": "100"
-      },
-      "Blocks": {
-        "name": "Yeasting"
-      }
-    }
+      "recipeId": 3,
+      "templateId": 1,
+      "instruction": "SET_TEMPERATURE",
+      "param": 23, 
+      "category": "TEMPERATURE",
+      "device": "TEMP_1",
+      "blockId": 2, 
+      "block": "Yeasting",
+      "ordering": 4,
+    },
   ]
 }
 ````
@@ -352,36 +348,32 @@ PUT /api/recipe
   ],
   "Instructions": [
     {
-      "function_template_id": 4,
-      "function_option_id": 6,
+      "templateId": 4,
+      "param": null,
+      "deviceId": 6,
+      "blockId": 1,
       "ordering": 4,
-      "Block": "First stage",
     },
     {
-      "function_template_id": 1,
-      "function_option_id": 1,
+      "templateId": 1,
+      "param": "60",
+      "deviceId": 1,
+      "blockId": 1,
       "ordering": 3,
-      "param": {
-        "temp": "60"
-      },
-      "Block": "First stage",
     },
     {
-      "function_template_id": 5,
+      "templateId": 5,
+      "param": "5",
+      "deviceId": null,
+      "blockId": 2,
       "ordering": 2,
-      "param": {
-        "duration": "5"
-      },
-      "Block": "Second stage",
     },
     {
-      "function_template_id": 2,
-      "function_option_id": 3,
+      "templateId": 2,
+      "param": "100",
+      "deviceId": 3,
+      "blockId": 2,
       "ordering": 1,
-      "param": {
-        "rpms": "100"
-      },
-      "Block": "Second stage",
     }
   ]
 }
@@ -393,20 +385,14 @@ Ako odpoveď na FE príde JSON s vygenerovaným ID pridaného receptu:
   "id" : xxx
 }
 ````
-Tento recept spolu s jeho novým ID s následne FE uloží k sebe lokálne.
 
-Ďalej používateľ dostane ponuku, či chce pridaný recept rovno využiť a variť
-podľa neho, alebo nie.
-
-Pokiaľ s ním chce variť, pošle sa POST request na BE (JSON v rovnakom formáte ako
-pri výbere existujúceho receptu). Pokiaľ s ním variť nechce, UI sa vráti na hlavnú obrazovku a 
-čaká na ďalšie pokyny.
+Po vytvorení receptu sa vrátime na výber receptov, kde bude už nový recept zobrazený.
 
 ### Začiatok varenia
 
 Po vybratí receptu sa recept načíta na hlavnú obrazovku. Používateľ dostane príležitosť
 skontrolovať, či je recept správny. Pokiaľ je s receptom spokojný, spustí varenie.
-Pri spustení varenia sa na BE pošle PUT request (body je prázdne):
+Pri spustení varenia sa na BE pošle PUT request:
 
 ```
 PUT /api/brew/0/start
@@ -423,7 +409,7 @@ FE čaká na odpoveď z BE, či sa všetko úspešne spustilo:
 ````json
 200 OK
 {
-    "brewId" : xx
+    "brewId" : xxx
 }
 ````
 FE si uloží ID varenia pre ďalšie dopyty.
@@ -456,7 +442,8 @@ V ideálnom prípade BE odpovie formou:
   },
   "instruction" : {
     "currentInstruction": 23,
-    "status": "IN_PROGRESS"
+    "currentValue": 36.5,
+    "status": "IN_PROGRESS",
   },
   "brewStatus": "IN_PROGRESS"
 }
@@ -482,6 +469,7 @@ Pokiaľ došlo k chybe niekde v pipeline, BE odpovie formou:
   },
   "instruction" : {
     "currentInstruction": 23,
+    "currentValue": 36.5,
     "status": "FAIL"
   },
   "brewStatus": "STOPPED"
