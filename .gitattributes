@@ -1,0 +1,9 @@
+*.md linguist-vendored=false
+*.md linguist-generated=false
+*.md linguist-documentation=false
+*.md linguist-detectable=true
+
+*.mdx linguist-vendored=false
+*.mdx linguist-generated=false
+*.mdx linguist-documentation=false
+*.mdx linguist-detectable=true
