@@ -20,15 +20,11 @@ Návrh užívateľského prostredia prešiel viacerými kolami úprav. Dole je o
 
 ### Hlavná obrazovka
 
-<div style="text-align:center">
-  <img src="https://user-images.githubusercontent.com/43378515/142446345-e63bf434-077c-4c22-bdf2-582bf88cd217.JPG " width="550" height="400" />
-</div>
+<img src="https://user-images.githubusercontent.com/43378515/142446345-e63bf434-077c-4c22-bdf2-582bf88cd217.JPG " width="550" height="400" />
 
 Obrázok zobrazuje stav, kedy je navolený recept, ale nie je potvrdené začatie procesu. Na ľavej strane obrazovky sa nachádza zariadenie, spolu s informáciami o procesoch vykonávajúcich sa v jednotlivých nádobách. Napravo sú zobrazené potrebné ingrediencie, spolu s inštrukciami, ktoré sa budú vykonávať. (Používateľ si môže skontrolovať, či má všetky dostupné ingrediencie, a v prípade potreby vybrať iný recept).
 
-<div style="text-align:center">
 <img src="https://user-images.githubusercontent.com/43378515/142447098-53c8ee2d-a601-4548-99df-49d5ddc39764.JPG" width="550" height="400" />
-</div>
 
 Po začatí varenia sa používateľovi zobrazujú bližšie informácie o prebiehajúcich (i ukončených a nasledujúcich) procesoch. 
 
@@ -40,34 +36,28 @@ Po začatí varenia sa používateľovi zobrazujú bližšie informácie o prebi
 
 ### Výber receptu
 
-<div style="text-align:center">
 <img src="https://user-images.githubusercontent.com/43378515/142450675-692804b0-9d38-42a0-89da-024c8a74fbdd.JPG" width="550" height="450" />
-</div>
 
 Pokiaľ si používateľ chce zvoliť recept na varenie, kliknutím na možnosť **Výber receptu** v menu prejde na obrazovku výberu receptu. Na pravej strane obrazovky sa zobrazí zoznam všetkých dostupných receptov. Po kliknutí na recept sa zobrazia informácie k danému receptu. Používateľ tento recept môže použiť tak, aký je, a načítať ho na hlavnú obrazovku, alebo ho upraviť. Tiež si môže vytvoriť úplne nový recept.
 
 ### Pridanie ingredencií
 
-<div style="text-align:center">
 <img src="https://user-images.githubusercontent.com/43378515/142450791-b8796239-ec50-4f2a-90d5-f2d94875f652.JPG" width="550" height="400" />
-</div>
 
 Pokiaľ si používateľ vyberie možnosť upraviť/vytvoriť recept, dostane sa na obrazovku pre vytvorenie zoznamu potrebných ingrediencií.
 Formulár na pridanie ingredencií obsahuje delenie na jednotlivé kategórie ingrediencií, a možnosť pridať a odobrať (v návrhu chýba) ingredienciu. Vždy je potrebné nastaviť množstvo, jednotku a popis ingrediencie (jej názov). Po stlačení tlačidla **Next step** používateľ prejde na úpravu/zostavovanie  inštrukcií v recepte. Pri **Cancel** sa najprv zobrazí upozornenie, že sa dané údaje stratia, pokiaľ bude používateľ pokračovať. Pri pokračovaní sa vracia na stránku s výberom receptu.
 
 ### Pridanie inštrukcii
 
-<div style="text-align:center">
 <img src="https://user-images.githubusercontent.com/43378515/142451444-8a8b30f7-75c5-442d-bab5-951f5f8fbc0b.JPG" width="550" height="370" />
-</div>
 
 Na obrazovke úpravy/zostavovania inštrukcií v recepte sa používateľovi vpravo zobrazuje zoznam ingrediencií, ktoré si v predošlom kroku navolil.
 Inštrukcie sú zobrazené naľavo. Delené sú do osobitných blokov označených vlastným názvom. Je možné pridávať a odoberať bloky, a rovnako aj inštrukcie v rámci blokov. Každá inštrukcia obsahuje pomocný popisok, ktorý jednoduchým spôsobom objasňuje používateľovi, čo daná inštrukcia vykonáva. Po kliknutí na zelené plusko sa zobrazí obrazovka výberu inštukcie. Spolu s ukážkou identifikovaných typov inštrukcií je zobrazená nižšie. 
 
-<div style="text-align:center">
+
 <img src="https://user-images.githubusercontent.com/43378515/142452039-45fa126d-dbb5-4987-a864-0cf997870fc1.JPG" width="550" height="370" />
+
 <img src="https://user-images.githubusercontent.com/43378515/142452049-b0d1c45c-3d3a-46d7-9adb-cc73df684ebb.JPG" width="450" height="200" />
-</div>
 
 Výber inštrukcie a rovnako aj typy inštrukcií pre zostavovanie receptu sú už implementované, ale samotné zostavovanie receptu ešte nie.
 
