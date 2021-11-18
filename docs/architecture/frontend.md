@@ -47,7 +47,7 @@ Pokiaľ si používateľ chce zvoliť recept na varenie, kliknutím na možnosť
 Pokiaľ si používateľ vyberie možnosť upraviť/vytvoriť recept, dostane sa na obrazovku pre vytvorenie zoznamu potrebných ingrediencií.
 Formulár na pridanie ingredencií obsahuje delenie na jednotlivé kategórie ingrediencií, a možnosť pridať a odobrať (v návrhu chýba) ingredienciu. Vždy je potrebné nastaviť množstvo, jednotku a popis ingrediencie (jej názov). Po stlačení tlačidla **Next step** používateľ prejde na úpravu/zostavovanie  inštrukcií v recepte. Pri **Cancel** sa najprv zobrazí upozornenie, že sa dané údaje stratia, pokiaľ bude používateľ pokračovať. Pri pokračovaní sa vracia na stránku s výberom receptu.
 
-### Pridanie inštrukcii
+### Pridanie inštrukcií
 
 <img src="https://user-images.githubusercontent.com/43378515/142451444-8a8b30f7-75c5-442d-bab5-951f5f8fbc0b.JPG" width="550" height="370" />
 
