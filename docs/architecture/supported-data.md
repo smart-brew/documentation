@@ -9,29 +9,29 @@ Zoznam podporovaných údajov systémom:
 
 ```js
 interface Temperature {
-  TEMP: number;
-  REGULATION_ENABLED: boolean;
-  STATE: string;
-  DEVICE: string; // "TEMP_1" or "TEMP_2"
+  temp: number;
+  regulation_enabled: boolean;
+  state: string;
+  device: string; // "TEMP_1" or "TEMP_2"
 }
 
 interface Motor {
-  SPEED: number;
-  RPM: number;
-  STATE: string;
-  DEVICE: string; // "MOTOR_1" or "MOTOR_2"
+  speed: number;
+  rpm: number;
+  state: string;
+  device: string; // "MOTOR_1" or "MOTOR_2"
 }
 
 interface Unloader {
-  UNLOADED: boolean;
-  STATE: string;
-  DEVICE: string; // "FERMENTABLE", "YEAST", "HOPS", "OTHER"
+  unloaded: boolean;
+  state: string;
+  device: string; // "FERMENTABLE", "YEAST", "HOPS", "OTHER"
 }
 
 interface Pump {
-  ENABLED: boolean;
-  STATE: string;
-  DEVICE: string; // "PUMP_1"
+  enabled: boolean;
+  state: string;
+  device: string; // "PUMP_1"
 }
 ```
 
@@ -43,59 +43,59 @@ interface Pump {
 {
   "TEMPERATURE": [
     {
-      "TEMP": 50,
-      "REGULATION_ENABLED": true,
-      "STATE": "IN_PROGRESS",
-      "DEVICE": "TEMP_1"
+      "temp": 50,
+      "regulation_enabled": true,
+      "state": "IN_PROGRESS",
+      "device": "TEMP_1"
     },
     {
-      "TEMP": 21.5,
-      "REGULATION_ENABLED": false,
-      "STATE": "WAITING",
-      "DEVICE": "TEMP_2"
+      "temp": 21.5,
+      "regulation_enabled": false,
+      "state": "WAITING",
+      "device": "TEMP_2"
     }
   ],
   "MOTOR": [
     {
-      "SPEED": 30,
-      "RPM": 25,
-      "STATE": "WAITING",
-      "DEVICE": "MOTOR_1"
+      "speed": 30,
+      "rpm": 25,
+      "state": "WAITING",
+      "device": "MOTOR_1"
     },
     {
-      "SPEED": 0,
-      "RPM": 0,
-      "STATE": "WAITING",
-      "DEVICE": "MOTOR_2"
+      "speed": 0,
+      "rpm": 0,
+      "state": "WAITING",
+      "device": "MOTOR_2"
     }
   ],
   "UNLOADER": [
     {
-      "UNLOADED": true,
-      "STATE": "WAITING",
-      "DEVICE": "FERMENTABLE"
+      "unloaded": true,
+      "state": "WAITING",
+      "device": "FERMENTABLE"
     },
     {
-      "UNLOADED": false,
-      "STATE": "WAITING",
-      "DEVICE": "YEAST"
+      "unloaded": false,
+      "state": "WAITING",
+      "device": "YEAST"
     },
     {
-      "UNLOADED": false,
-      "STATE": "WAITING",
-      "DEVICE": "HOPS"
+      "unloaded": false,
+      "state": "WAITING",
+      "device": "HOPS"
     },
     {
-      "UNLOADED": false,
-      "STATE": "WAITING",
-      "DEVICE": "OTHER"
+      "unloaded": false,
+      "state": "WAITING",
+      "device": "OTHER"
     }
   ],
   "PUMP": [
     {
-      "ENABLED": false,
-      "STATE": "WAITING",
-      "DEVICE": "PUMP_1"
+      "enabled": false,
+      "state": "WAITING",
+      "device": "PUMP_1"
     }
   ]
 }
