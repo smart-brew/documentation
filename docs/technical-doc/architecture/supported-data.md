@@ -3,7 +3,7 @@
 
 # Podporované údaje
 
-Tieto `interface` predstavujú kategórie, ktoré sú využívané aj v [Podporované funkcie](./supported-functions.md).
+Tieto `interface` predstavujú kategórie, ktoré sú využívané aj v [Podporované funkcie](supported-functions.md).
 
 Zoznam podporovaných údajov systémom:
 
