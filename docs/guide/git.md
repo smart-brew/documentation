@@ -12,6 +12,9 @@ V rámci tejto GitHub organizácie budeme pracovať v nasledovných repozitároc
 - [web](https://github.com/smart-brew/web) - pre tímovú stránku
 - [frontend](https://github.com/smart-brew/frontend) - GUI pre používateľov
 - [backend](https://github.com/smart-brew/backend) - aplikačný server, ktorý je spojený s databázou a rieši požiadavky z frontendu cez REST API
+- [websocket-module](https://github.com/smart-brew/websocket-module) - ESP32 modul (viac info [Moduly](../architecture/module.md))
+- [module-mock-server](https://github.com/smart-brew/module-mock-server) - testovací server, ktorý slúži ako náhrada modulu pre lokálny development (viac info [Testovací server](../architecture/test-server.md))
+- [startup](https://github.com/smart-brew/startup) - spustenie systému (viac info [Spustenie systému](./startup.md))
 
 ## Commit {#commit}
 

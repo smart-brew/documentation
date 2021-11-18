@@ -3,6 +3,8 @@
 
 # Spustenie pivovaru
 
+Link na repozitár, ktorý obsahuje automatický script: [startup](https://github.com/smart-brew/startup)
+
 ## Spustenie testovacej verzie
 
 V tejto verzii je nahradený modul, testovacím serverom, ktorý simuluje funkcionalitu modulov.
