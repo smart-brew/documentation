@@ -63,7 +63,7 @@ ktoré je treba monitorovať
 * grafická reprezentácia môže byť vytvorená cez špeciálny softvér
   * napr. SIMATIC WinCC
 
-![img.png](../../static/img/analysis/HMI_example.png)
+![img.png](../../../static/img/analysis/HMI_example.png)
 
 ## Využitie
 

@@ -13,7 +13,7 @@ Pre IDE je treba doinštalovať tieto rozšírenia - **eslint, prettier, editorc
 
 ## Komunikácia s back-endom
 
-Pre komunikáciu využijeme REST API cally a správy vo formáte JSON. Viac info na [API](./api-reference.md).
+Pre komunikáciu využijeme REST API cally a správy vo formáte JSON. Viac info na [API](api-reference.md).
 
 ## Opis prostredia
 Návrh užívateľského prostredia prešiel viacerými kolami úprav. Dole je opísaná verzia aktuálna po dokončení 3. šprintu, spolu s návrhmi úprav do ďalších šprintov. 

@@ -16,7 +16,7 @@ Zoznam podporovaných funkcií systémom:
 
 - **Name** - pekný názov na Frontende
 - **Code name** - ako sa bude v skutočnosti volať daná funkcia
-- **Category** - je kategória, do ktorej patrí daná funkcia (využívané v [Podporované údaje](./supported-data.md))
+- **Category** - je kategória, do ktorej patrí daná funkcia (využívané v [Podporované údaje](supported-data.md))
 - **Input type** - či bude mať možnosť meniť paramaetre alebo sa daná funkcie iba vykonáva
 - **Type** - validácia na Frontende, v skutočnosti všade posielam string
 - **Choices** - aké možnosti budú ponúkané - ktorý konkrétny prvok sa má spustiť

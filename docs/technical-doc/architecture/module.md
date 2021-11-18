@@ -13,7 +13,7 @@ Odpurúčaný setup pre ~~develomplemt~~ development je v [README](https://githu
 
 ## Komunikácia s back-endom
 
-Pre komunikáciu využijeme websocket a správy budú vyzerať ako v [Podporované údaje](./supported-data.md).
+Pre komunikáciu využijeme websocket a správy budú vyzerať ako v [Podporované údaje](supported-data.md).
 
 ```json title="Periodický update"
 {
@@ -33,19 +33,19 @@ Najprv si treba zadefinovať aké zariadenia máme kde pripojené a dať ich do 
 
 Modul sa pripojí na WiFi podľa konfigurácie a následne sa pripojí cez WebSocket na backendový server. Modul potom periodicky posiela svoj aktuálny stav, a aj stav všetkých pripojených zariadení.
 
-Na modul je možné poslať z backendu aj inštrukciu, ktorú má modul vykonať. Formát je zadefinovaný v [Podporované funkcie](./supported-functions.md#backend-module). Modul následne vo svojich periodických updatoch posiela aj informáciu o aktuálnom stave danej funkcie
+Na modul je možné poslať z backendu aj inštrukciu, ktorú má modul vykonať. Formát je zadefinovaný v [Podporované funkcie](supported-functions.md#backend-module). Modul následne vo svojich periodických updatoch posiela aj informáciu o aktuálnom stave danej funkcie
 
 ### Diagram zapojenia
 
 #### Zapojenie meniča H300
 
-![H300](../../static/img/module/wiring_H300.png)
+![H300](../../../static/img/module/wiring_H300.png)
 
 _\*Originálny autor diagramu H300: http://team18-19.studenti.fiit.stuba.sk/ _
 
 #### Zapojenie teplomera DS18B20
 
-![Teplomer](../../static/img/module/wiring_temp.png)
+![Teplomer](../../../static/img/module/wiring_temp.png)
 
 ## Notes
 

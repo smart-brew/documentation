@@ -34,7 +34,7 @@ Preferovaný je sériový prenos cez RS-485, za režimu linky 19200 baudov, 8 d�
 | Holding register | Read-Write | 16 bits | 0x0000 – 0xFFFF |
 
 
-![Function codes](../../static/img/analysis/modbus_function_codes.png)
+![Function codes](../../../static/img/analysis/modbus_function_codes.png)
 
 ## Zdroje
 

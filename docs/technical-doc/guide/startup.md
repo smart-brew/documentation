@@ -40,7 +40,7 @@ docker compose up
 
 :::note Poznámka
 
-Ak nebola doposial spustená databáza a sú problémy s nesprávnymi dátami, treba vykonať manuálne migráciu spolu so seedom údajov - viac info: [Migrácie](./migration.md)
+Ak nebola doposial spustená databáza a sú problémy s nesprávnymi dátami, treba vykonať manuálne migráciu spolu so seedom údajov - viac info: [Migrácie](migration.md)
 
 :::
 

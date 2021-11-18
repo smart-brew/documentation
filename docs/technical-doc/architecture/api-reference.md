@@ -19,7 +19,7 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
 }
 ```
 
-- **<podporované údaje>** - sú rovnaké údaje ako v [Podporované údaje](./supported-data.md)
+- **<podporované údaje>** - sú rovnaké údaje ako v [Podporované údaje](supported-data.md)
 
 ### Posielanie inštrukcií z backendu na modul
 
@@ -34,7 +34,7 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
 }
 ```
 
-- hodnoty budu podľa definície v [Podporované funkcie](./supported-functions.md)
+- hodnoty budu podľa definície v [Podporované funkcie](supported-functions.md)
 
 ## Backend <--> Frontend
 
@@ -458,7 +458,7 @@ V ideálnom prípade BE odpovie formou:
 }
 ```
 
-- **<podporované údaje>** - sú rovnaké údaje ako v [Podporované údaje](./supported-data.md)
+- **<podporované údaje>** - sú rovnaké údaje ako v [Podporované údaje](supported-data.md)
 
 FE túto odpoveď spracuje a obnoví obrazovku.
 

@@ -5,10 +5,10 @@
 Testovací server slúži na simuláciu správania modulov. Od vývoja modulov závisí hlavne vývoj backendu a aj frontendu, preto sme sa rozhodli vytvoriť testovací server, 
 ktorý simuluje správanie reálneho modulu, čím napomáha k rýchlejšiemu vývoju práve backendu a frontendu. 
 
-Server posiela a prijíma údaje cez WebSocket. Posielanie údajov a prijímanie inštrukcií prebieha rovnako ako je zadefinované v [API](./api-reference.md).
+Server posiela a prijíma údaje cez WebSocket. Posielanie údajov a prijímanie inštrukcií prebieha rovnako ako je zadefinované v [API](api-reference.md).
 
 Server po pripojení na backend posiela periodicky namodelované dáta. Server taktiež prijíma inštrukcie z backendu, na ktoré odpovedá zmenenými dátami podľa jednotlivých 
-inštrukcií. Zoznam podporovaných inštrukcií s konkrétnymi parametrami sa nachádza v [Podporované funkcie](./supported-functions.md).
+inštrukcií. Zoznam podporovaných inštrukcií s konkrétnymi parametrami sa nachádza v [Podporované funkcie](supported-functions.md).
 
 V prípade zmien na backende so spusteným testovacím serverom, nie je potrebné tento testovací server spúšťať znova, automaticky sa pripojí späť na backend. 
 
