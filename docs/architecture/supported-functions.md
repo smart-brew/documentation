@@ -24,25 +24,25 @@ Zoznam podporovaných funkcií systémom:
 
 V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**, **Category** a hodnoty **parametra**. Ostatné veci si už sám vyhľadá a doplní podľa špecifikácie.
 
-## Štruktúra posielanej inštrukcie Backend --> Modul
+## Štruktúra posielanej inštrukcie Backend --> Modul {#backend-module}
 
 ```json
 {
-    "moduleId": <id modulu>,
-    "instruction": <code name pre inštrukciu>,
-    "param": <hodnota parametru>, 
-    "category": <kategória inštrukcie/zariadenia>,
-    "device": <zariadenie>,
+  "moduleId": <id modulu>,
+  "instruction": <code name pre inštrukciu>,
+  "param": <hodnota parametru>,
+  "category": <kategória inštrukcie/zariadenia>,
+  "device": <zariadenie>,
 }
 ```
 
 ```json title="Ukážka"
 {
-    "moduleId": 1,
-    "instruction": "SET_MOTOR_SPEED",
-    "param": 30, 
-    "category": "MOTOR",
-    "device": "MOTOR_1",
+  "moduleId": 1,
+  "instruction": "SET_MOTOR_SPEED",
+  "param": 30,
+  "category": "MOTOR",
+  "device": "MOTOR_1"
 }
 ```
 
@@ -50,31 +50,31 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
 
 ```json
 {
-    "id": <id inštrukcie>,
-    "recipeId": <id receptu>,
-    "templateId": <id template pre inštrukciu>,
-    "instruction": <code name pre inštrukciu>, // aj toto sa bude mapovať na krajší názov
-    "param": <hodnota parametru>, 
-    "category": <kategória inštrukcie/zariadenia>,
-    "device": <zariadenie>, // na FE sa bude mapovať na krajší názov - napr. "TEMP_1" -> "Nádoba 1",
-    "blockId": <id bloku>, // ak by boli dva názvy rovnaké, ale chceme to mať ako dva rôzne bloky
-    "block": <názov bloku>,
-    "ordering": <poradové číslo>,
+  "id": <id inštrukcie>,
+  "recipeId": <id receptu>,
+  "templateId": <id template pre inštrukciu>,
+  "instruction": <code name pre inštrukciu>, // aj toto sa bude mapovať na krajší názov
+  "param": <hodnota parametru>,
+  "category": <kategória inštrukcie/zariadenia>,
+  "device": <zariadenie>, // na FE sa bude mapovať na krajší názov - napr. "TEMP_1" -> "Nádoba 1",
+  "blockId": <id bloku>, // ak by boli dva názvy rovnaké, ale chceme to mať ako dva rôzne bloky
+  "block": <názov bloku>,
+  "ordering": <poradové číslo>,
 }
 ```
 
 ```json title="Ukážka"
 {
-    "id": 234,
-    "recipeId": 123,
-    "templateId": 1,
-    "instruction": "SET_MOTOR_SPEED",
-    "param": 30, 
-    "category": "MOTOR",
-    "device": "MOTOR_1",
-    "blockId": 1, 
-    "block": "Fermentation",
-    "ordering": 2,
+  "id": 234,
+  "recipeId": 123,
+  "templateId": 1,
+  "instruction": "SET_MOTOR_SPEED",
+  "param": 30,
+  "category": "MOTOR",
+  "device": "MOTOR_1",
+  "blockId": 1,
+  "block": "Fermentation",
+  "ordering": 2
 }
 ```
 
@@ -131,21 +131,21 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
 
 ```json
 {
-    "templateId": <id vzoru pre danú inštrukciu>,
-    "blockId": <id bloku>, 
-    "param": <hodnota parametru>, 
-    "device": <zariadenie>,
-    "ordering": <poradové číslo>,
+  "templateId": <id vzoru pre danú inštrukciu>,
+  "blockId": <id bloku>,
+  "param": <hodnota parametru>,
+  "device": <zariadenie>,
+  "ordering": <poradové číslo>,
 }
 ```
 
 ```json title="Ukážka"
 {
-    "templateId": 123,
-    "blockId": 23, 
-    "param": 85, 
-    "device": "TEMP_1",
-    "ordering": 1,
+  "templateId": 123,
+  "blockId": 23,
+  "param": 85,
+  "device": "TEMP_1",
+  "ordering": 1
 }
 ```
 
