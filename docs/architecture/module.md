@@ -9,7 +9,7 @@ Link na repozitár - [Module](https://github.com/smart-brew/websocket-module)
 
 Používame ESP32 Dev board. Kód je písaný v **C++**.
 
-Odpurúčaný setup pre develomplemt je v [README](https://github.com/smart-brew/websocket-module) v rámci git repozitára.
+Odpurúčaný setup pre ~~develomplemt~~ development je v [README](https://github.com/smart-brew/websocket-module) v rámci git repozitára.
 
 ## Komunikácia s back-endom
 
