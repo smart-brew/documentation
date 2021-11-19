@@ -7,7 +7,7 @@ Tu je zapísaná základná organizácia stretnutí tímu, ktorej sa budeme sna�
 
 ## Kedy?
 **Pondelok** o 14:00 - konzultácie s vedúcim
-**Piatok/dohoda** - krátky standup(len časť jeden)
+**Štvrtok** o 20:30 (alebo inokedy po dohode) - krátky stand-up
 
 ## Časti stretnutia a práce v tíme
 Štruktúra ako by malo vyžerať tímové stretnutie.
@@ -24,3 +24,7 @@ Táto časť prebieha neustále. Vždy keď nejaký člen chce aby sa všetci za
 **Pravidlo 1** - V prípade, že chceme zasiahnuť do rozbehnutej diskusie, hlásime sa aby sme sa neprekrikovali počas stretnutí. Diskutujúca dvojica sa vždy posnaží dať hlásiacemu sa členovi priestor čo najskôr.
 
 **Pravidlo 2** - Vždy sa snažiť predstaviť svoje riešenie problému ako návrh, ktorý sa môže upraviť v prípade, že to spadá pod špecializáciu, ktorú člen tímu vykonáva. Teda ak mám nastarosti databázy mám automaticky väčšie práva vykonávať rozhodnutia ohľadom databáz ak som zvážil, že sa nejedná o naozaj kritickú časť projektu. Snažíme sa byť čo najviac samostatní a prezentovať našu prácu kolegom, ktorých pripomienky musí zobrať prezentujúci člen tímu do úvahy. Preto je informačné stretnutie aspoň davakrát do týždňa veľmi dôležité.
+
+## Iné usmernenia
+
+Vzhľadom na pandemickú situáciu a dištančné vzdelávanie sa od 8.11. do odvolania uskutočňujú stretnutia online pomocou kanálov Google Meet / Discord (viď [Metodika komunikácie](./communication.md)).
