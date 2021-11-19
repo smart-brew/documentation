@@ -7,6 +7,7 @@ Tu je zapísaná základná organizácia stretnutí tímu, ktorej sa budeme sna�
 
 ## Kedy?
 **Pondelok** o 14:00 - konzultácie s vedúcim
+
 **Štvrtok** o 20:30 (alebo inokedy po dohode) - krátky stand-up
 
 ## Časti stretnutia a práce v tíme
