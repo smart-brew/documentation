@@ -23,7 +23,7 @@ Automatically builds from `master` branch at http://team06-21.studenti.fiit.stub
 Generate pdf for final documentation:
 
 ```bash
-npx mr-pdf --initialDocURLs="http://team06-21.studenti.fiit.stuba.sk/docs/" --contentSelector="article" --paginationSelector=".pagination-nav__item--next > a" --excludeSelectors=".margin-vert--xl a" --coverTitle="Tímový projekt - SmartBrew"
+npx mr-pdf --initialDocURLs="http://team06-21.studenti.fiit.stuba.sk/docs/" --contentSelector="article" --paginationSelector=".pagination-nav__item--next > a" --excludeSelectors=".margin-vert--xl a,.theme-doc-toc-mobile" --coverTitle="Tímový projekt - SmartBrew"
 ```
 
 ## Index for Algolia doc search
