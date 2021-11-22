@@ -72,11 +72,7 @@ module.exports = {
                 href: 'https://github.com/smart-brew/',
               },
               {
-                label: 'Tímový web',
-                href: 'https://github.com/smart-brew/web',
-              },
-              {
-                label: 'Dokumentácia',
+                label: 'Tímový web + dokumentácia',
                 href: 'https://github.com/smart-brew/documentation',
               },
               {
