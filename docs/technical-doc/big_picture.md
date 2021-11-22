@@ -1,10 +1,11 @@
 ---
 title: Big Picture
+sidebar_position: 1
 ---
 
 
 # Úvod
-Tento dokument obsahuje informácie k produktu. Poskytuje základné delenie na časti **Architektúra, Analýzy a Návody.** V časti **Riadenie projektu** je členenie na **Členovia, Zápisnice, Šprinty, Metodiky**. 
+Tento dokument obsahuje informácie k produktu. Poskytuje základné delenie na časti **Architektúra, Analýzy a Návody.**  
 
 **Architektúra**
 - **Api**: Spôsoby komunikácie (requesty a odpovede) medzi komponentami jednotlivých vrstiev.
@@ -21,17 +22,6 @@ Tento dokument obsahuje informácie k produktu. Poskytuje základné delenie na 
 **Návody**
 - **Migrácie, Raspberry Pi, Spustenie pivovaru, Tímová VM, Tímový web + dokumentácia**: Návody k správnemu využívaniu daných nástrojov.
 
-**Členovia**
-- Kompetencie jednotlivých členov a podiel práce na projekte v jednotlivých šprintoch.
-
-**Zápisnice**
-- Zápisnice z jednotlivých týždňov, spolu s ich templatom.
-
-**Šprinty**
-- Vyhodnotenia jednotlivých šprintov spolu s ich templatom.
-
-**Metodiky**
-- Rôzne metodiky a usmernenia pre efektívnu prácu.
 
 # Ciele
 Cieľom projektu je vytvoriť ucelené riešenie na automatizovanie procesov v priemysle. 
@@ -61,7 +51,8 @@ To umožní znovupoužitie už vytvoreného receptu a vygenerovanie protokolu z 
 ## Ciele na tento semester
 Pripraviť funkčný prototyp tak, aby vykonával základné úlohy. 
 V užívateľskom prostredí si používateľ bude vedieť vytvoriť nový recept. Taktiež bude vedieť začať proces varenia, 
-a na obrazovke zobraziť jeho priebeh. Backend spracuje dané údaje, ktoré získa z modulov, a pošle ich na frontend. 
+a na obrazovke zobraziť jeho priebeh. Backend spracuje dané údaje, ktoré získa z modulov, a pošle ich na frontend - používateľ
+bude môcť kontrolovať stav varenia. Stav varenia sa tiež bude logovať do databázy (čo sa neskôr môže použiť na vytváranie protokolu o varení).
 Bude funkčná aspoň určitá podmnožina modulov (nakoľko nie sú niektoré zariadenia dostupné, nedá sa s nimi zatiaľ pracovať). 
 Rozsah inštrukcií vykonávaných počas varenia bude teda obmedzený. 
 
