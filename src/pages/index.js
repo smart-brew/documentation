@@ -24,20 +24,37 @@ function Content(props) {
 }
 
 function Headline(props) {
+  const { isDarkTheme } = useThemeContext();
   return (
     <div
-      style={{
-        width: '100%',
-        height: '400px',
-        marginBottom: '1rem',
-        padding: '1rem',
-        background:
-          'radial-gradient(circle, rgba(255,255,255,1) 1%, rgba(254,208,8,1) 55%, rgba(197,161,3,1) 100%)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+      style={
+        isDarkTheme
+          ? {
+              width: '100%',
+              height: '400px',
+              marginBottom: '1rem',
+              padding: '1rem',
+              background:
+                'radial-gradient(circle, rgba(222,222,222,1) 0%, rgba(207,171,17,1) 58%, rgba(197,161,3,1) 100%)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'black',
+            }
+          : {
+              width: '100%',
+              height: '400px',
+              marginBottom: '1rem',
+              padding: '1rem',
+              background:
+                'radial-gradient(circle, rgba(255,255,255,1) 1%, rgba(254,208,8,1) 55%, rgba(197,161,3,1) 100%)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }
+      }
     >
       <img
         src="/img/pivovar-animated.svg"
