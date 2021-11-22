@@ -53,7 +53,7 @@ Pripraviť funkčný prototyp tak, aby vykonával základné úlohy.
 V užívateľskom prostredí si používateľ bude vedieť vytvoriť nový recept. Taktiež bude vedieť začať proces varenia, 
 a na obrazovke zobraziť jeho priebeh. Backend spracuje dané údaje, ktoré získa z modulov, a pošle ich na frontend - používateľ
 bude môcť kontrolovať stav varenia. Stav varenia sa tiež bude logovať do databázy (čo sa neskôr môže použiť na vytváranie protokolu o varení).
-Bude funkčná aspoň určitá podmnožina modulov (nakoľko nie sú niektoré zariadenia dostupné, nedá sa s nimi zatiaľ pracovať). 
-Rozsah inštrukcií vykonávaných počas varenia bude teda obmedzený. 
+Bude funkčná aspoň určitá podmnožina modulov (nakoľko nie sú niektoré zariadenia dostupné, nedá sa s nimi zatiaľ pracovať).
+Front-end a back-end bude vedieť spracovávať všetky procesy, funkcionalitu zatiaľ nefunčných modulov budeme simulovať.  
 
 
