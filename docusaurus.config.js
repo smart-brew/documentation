@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     title: 'SmartBrew',
     tagline: 'Team 6 - Team project 2021/2022',
     url: 'http://team06-21.studenti.fiit.stuba.sk/',
-    baseUrl: '/docs/',
+    baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
@@ -25,7 +25,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         ({
           docs: {
             path: './docs',
-            routeBasePath: '/',
+            routeBasePath: '/docs',
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
           },
