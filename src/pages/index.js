@@ -23,6 +23,68 @@ function Content(props) {
   );
 }
 
+function LargeImage(props) {
+  const { isDarkTheme } = useThemeContext();
+  return (
+    <div
+      className={props.className}
+      style={{
+        maxWidth: '1000px',
+        margin: '2rem calc(1rem + 5vw)',
+        marginTop: '-2rem',
+        padding: '1rem',
+        borderRadius: '5px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}
+    >
+      <img
+        src={props.image}
+        style={{
+          width: '100%',
+          height: '100%',
+          maxHeight: '450px',
+          objectFit: 'cover',
+          margin: '2rem 3rem',
+          borderRadius: '5px',
+          boxShadow: '5px 5px 10px rgb(254,208,8,0.8)',
+        }}
+        alt={props.name}
+      />
+      <h3
+        style={
+          isDarkTheme
+            ? {
+                position: 'absolute',
+                bottom: '10px',
+                // left: '0px',
+                // width: '300px',
+                borderRadius: '5px',
+                padding: '0.5rem',
+                background: '#c5a103',
+              }
+            : {
+                position: 'absolute',
+                bottom: '10px',
+                left: '0 auto',
+                width: '300px',
+                borderRadius: '5px',
+                padding: '0.5rem',
+                background: 'rgb(254,208,8)',
+                // textShadow: '2px 2px 3px black', }
+              }
+        }
+        className="text--center"
+      >
+        {props.title}
+      </h3>
+    </div>
+  );
+}
+
 function Headline(props) {
   const { isDarkTheme } = useThemeContext();
   return (
@@ -249,6 +311,8 @@ export default function TeamPage() {
           name="IoT platforma na priemyselnú automatizáciu - malý pivovar"
           text="Cieľom projektu je vytvoriť ucelené riešenie na automatizovanie procesov v priemysle. Projekt je vykonávaný v spolupráci so Strojníckou fakultou STU, ktorá z veľkej časti zastrešuje materiálne požiadavky. Využívajú sa dve prepojené nádoby, pričom v každej prebieha iná fáza varenia. Naša práca bude prebiehať nad údajmi z pivovaru, konkrétne nad rôznymi efektormi (motory, násypníky, ventily...) a senzormi (teplomer, tlakomer...). Centrálnym komponentom systému je Raspberry Pi, ktoré bude poskytovať zázemie pre sieť senzorov a efektorov. Automatizovaná výroba piva pozostáva z pridania nového receptu (respektíve výberu už existujúceho receptu), procesu výroby piva, priebežného zobrazovania priebehu varenia a vytvorenia zápisu o ukončenom procese."
         />
+
+        <LargeImage image="/img/pivovar.jpeg" title="MightyBrewer 3000" />
 
         <h2 className="text--center">Členovia tímu</h2>
         <TeamMembers />
