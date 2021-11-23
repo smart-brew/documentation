@@ -1,4 +1,4 @@
-const items = [
+export const sprints = [
   {
     title: '3.10.2021',
     cardTitle: 'Šprint 1 - Zlatý bažant',
@@ -25,5 +25,3 @@ const items = [
     cardDetailedText: `V tomto šprinte sme sa pokúsili zhotoviť fyzický modul na ovládanie zariadení pivovaru. Rovnako sme začali s implementáciou unit testov backendu a pokračovali sme v práci na frontende (menu, vypínacie tlačidlo, tvorba receptov)`,
   },
 ];
-
-export default items;

@@ -52,7 +52,7 @@ module.exports = {
             type: 'doc',
             docId: 'navod',
             position: 'left',
-            label: 'Docs',
+            label: 'Dokumentácia',
           },
         ],
       },

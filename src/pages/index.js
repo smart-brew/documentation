@@ -1,13 +1,14 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import { Chrono } from 'react-chrono';
-import data from '../../static/data';
+import { sprints } from '../../static/sprints';
 import Link from '@docusaurus/Link';
 import useThemeContext from '@theme/hooks/useThemeContext';
 
 function Content(props) {
   return (
     <div
+      className={props.className}
       style={{
         maxWidth: '1000px',
         margin: '1rem calc(1rem + 5vw)',
@@ -16,8 +17,8 @@ function Content(props) {
         borderRadius: '5px',
       }}
     >
-      <h2 class="text--center">{props.name}</h2>
-      <p class="text--justify">{props.text}</p>
+      <h2 className="text--center">{props.name}</h2>
+      <p className="text--justify">{props.text}</p>
     </div>
   );
 }
@@ -63,7 +64,7 @@ function Headline(props) {
         }}
         alt="pivovar animated"
       />
-      <h1 class="text--center margin-top--sm">{props.title}</h1>
+      <h1 className="text--center margin-top--sm">{props.title}</h1>
     </div>
   );
 }
@@ -88,7 +89,7 @@ function TeamMember(props) {
           margin: '2rem 3rem',
           borderRadius: '5px',
           objectPosition: props.position,
-          boxShadow: '8px 10px 10px rgb(254,208,8,0.8)',
+          boxShadow: '5px 5px 10px rgb(254,208,8,0.8)',
         }}
         alt={props.name}
       />
@@ -117,11 +118,11 @@ function TeamMember(props) {
                 // textShadow: '2px 2px 3px black', }
               }
         }
-        class="text--center"
+        className="text--center"
       >
         {props.name}
       </h3>
-      <p class="text--italic size--lg">{props.text}</p>
+      <p className="text--italic size--lg">{props.text}</p>
     </div>
   );
 }
@@ -185,6 +186,26 @@ function TeamMembers() {
 }
 
 function Timeline() {
+  const { isDarkTheme } = useThemeContext();
+
+  const [theme, setTheme] = React.useState({});
+
+  React.useEffect(() => {
+    setTheme(
+      isDarkTheme
+        ? {
+            primary: 'var(--ifm-color-primary)',
+            cardBgColor: 'var(--ifm-color-emphasis-200)',
+            cardForeColor: 'var(--ifm-color-font)',
+          }
+        : {
+            primary: 'var(--ifm-color-primary)',
+            cardBgColor: 'var(--ifm-background-surface-color)',
+            cardForeColor: 'var(--ifm-color-font)',
+          }
+    );
+  }, [isDarkTheme]);
+
   return (
     <div
       style={{
@@ -193,15 +214,10 @@ function Timeline() {
       }}
     >
       <Chrono
-        items={data}
-        theme={{
-          primary: '#c5a103',
-        }}
+        items={sprints}
+        theme={theme}
         mode="VERTICAL_ALTERNATING"
-        scrollable
-        // slideShow
-        // useReadMore={false}
-        // flipLayouts
+        useReadMore={false}
         hideControls
       >
         <div className="chrono-icons">
@@ -225,31 +241,36 @@ export default function TeamPage() {
         }}
       >
         <Headline title="SmartBrew - Tím 6" />
+
         <Content
           name="IoT platforma na priemyselnú automatizáciu - malý pivovar"
           text="Cieľom projektu je vytvoriť ucelené riešenie na automatizovanie procesov v priemysle. Projekt je vykonávaný v spolupráci so Strojníckou fakultou STU, ktorá z veľkej časti zastrešuje materiálne požiadavky. Využívajú sa dve prepojené nádoby, pričom v každej prebieha iná fáza varenia. Naša práca bude prebiehať nad údajmi z pivovaru, konkrétne nad rôznymi efektormi (motory, násypníky, ventily...) a senzormi (teplomer, tlakomer...). Centrálnym komponentom systému je Raspberry Pi, ktoré bude poskytovať zázemie pre sieť senzorov a efektorov. Automatizovaná výroba piva pozostáva z pridania nového receptu (respektíve výberu už existujúceho receptu), procesu výroby piva, priebežného zobrazovania priebehu varenia a vytvorenia zápisu o ukončenom procese."
         />
-        <h2 class="text--center">Členovia tímu</h2>
+
+        <h2 className="text--center">Členovia tímu</h2>
         <TeamMembers />
+
         <Content
           name="O nášom tíme"
-          text="Našou prioritou je vytvorenie produktu, ktorý bude kvalitný a dobre použiteľný v praxi, a pritom sa niečo nové naučiť. Tímu nechýba organizovanosť, schopnosť komunikovať a prezentovať svoje nápady a znalosť zostavovania zrozumiteľnej dokumentácie. K povinnostiam pristupujeme svedomito a zakladáme si na dobrej tímovej spolupráci.Máme široký rozsah vedomostí pokiaľ ide o technológie vhodné k riešeniu tohto projektu. Jedná sa teda o webové aplikácie a technológie ako JavaScript, PHP, React, Angular, Node.js, HTML5 a CSS3, ale aj platformy Raspberry Pi či Arduino, a databázové systémy."
+          text="Našou prioritou je vytvorenie produktu, ktorý bude kvalitný a dobre použiteľný v praxi, a pritom sa niečo nové naučiť. Tímu nechýba organizovanosť, schopnosť komunikovať a prezentovať svoje nápady a znalosť zostavovania zrozumiteľnej dokumentácie. K povinnostiam pristupujeme svedomito a zakladáme si na dobrej tímovej spolupráci. Máme široký rozsah vedomostí pokiaľ ide o technológie vhodné k riešeniu tohto projektu. Jedná sa teda o webové aplikácie a technológie ako JavaScript, PHP, React, Angular, Node.js, HTML5 a CSS3, ale aj platformy Raspberry Pi či Arduino, a databázové systémy."
         />
-        <h2 class="text--center">Časová os</h2>
+
+        <h2 className="text--center">Časová os</h2>
         <Timeline />
-        <div
-          style={{
-            margin: '4rem calc(1rem + 5vw)',
-            padding: '1rem',
-            border: '5px solid #c5a103',
-            borderRadius: '5px',
-            fontWeight: 'bold',
-            fontSize: 'calc(1rem + 1vw)',
-            textAlign: 'center',
-          }}
-        >
-          Link na <Link to="/docs">dokumentáciu projektu</Link> !
-        </div>
+
+        <Content
+          className="theme-doc-markdown"
+          name="Dokumentácia"
+          text={
+            <>
+              Všetky dokumenty sú umiestené na našej dokumentácií. Je to naša
+              banka údajov a osvedčila sa aj vďaka tomu, že je k nej jednoduchý
+              prístup, jednoduché vytváranie nových príspevkov a a hlavne sa dá
+              jednoducho prehľadávať.{' '}
+              <Link to="/docs"> Prejsť do dokumentácie</Link>.
+            </>
+          }
+        />
       </div>
     </Layout>
   );
