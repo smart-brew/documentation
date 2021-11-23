@@ -39,13 +39,13 @@ Na modul je možné poslať z backendu aj inštrukciu, ktorú má modul vykonať
 
 #### Zapojenie meniča H300
 
-![H300](../../../static/img/module/wiring_H300.png)
+![H300](/img/module/wiring_H300.png)
 
 _\*Originálny autor diagramu H300: http://team18-19.studenti.fiit.stuba.sk/ _
 
 #### Zapojenie teplomera DS18B20
 
-![Teplomer](../../../static/img/module/wiring_temp.png)
+![Teplomer](/img/module/wiring_temp.png)
 
 ## Notes
 

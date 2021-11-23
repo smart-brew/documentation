@@ -221,7 +221,10 @@ function Timeline() {
         hideControls
       >
         <div className="chrono-icons">
-          <img src="../../static/img/beer.png" alt="pivo" />
+          <img src="/img/beer.png" alt="pivo" />
+          <img src="/img/beer.png" alt="pivo" />
+          <img src="/img/beer.png" alt="pivo" />
+          <img src="/img/beer.png" alt="pivo" />
         </div>
       </Chrono>
     </div>
