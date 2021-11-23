@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import { Chrono } from 'react-chrono';
 import data from '../../static/data';
+import Link from '@docusaurus/Link';
 import useThemeContext from '@theme/hooks/useThemeContext';
 
 function Content(props) {
@@ -236,6 +237,19 @@ export default function TeamPage() {
         />
         <h2 class="text--center">Časová os</h2>
         <Timeline />
+        <div
+          style={{
+            margin: '4rem calc(1rem + 5vw)',
+            padding: '1rem',
+            border: '5px solid #c5a103',
+            borderRadius: '5px',
+            fontWeight: 'bold',
+            fontSize: 'calc(1rem + 1vw)',
+            textAlign: 'center',
+          }}
+        >
+          Link na <Link to="/docs">dokumentáciu projektu</Link> !
+        </div>
       </div>
     </Layout>
   );
