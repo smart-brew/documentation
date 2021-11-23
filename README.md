@@ -1,6 +1,6 @@
-# Documentation
+# Documentation + web
 
-URL http://team06-21.studenti.fiit.stuba.sk/docs
+URL http://team06-21.studenti.fiit.stuba.sk
 
 ### Installation
 
@@ -16,7 +16,13 @@ $ yarn start
 
 ### Build
 
-Automatically builds from `master` branch at http://team06-21.studenti.fiit.stuba.sk/docs
+```
+$ yarn build
+```
+
+### Deploy
+
+Automatically deploys from `master` branch to http://team06-21.studenti.fiit.stuba.sk
 
 ## Generate pdf
 
