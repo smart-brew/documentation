@@ -1,9 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import { Chrono } from 'react-chrono';
-import Navbar from '@theme/Navbar';
-import clsx from 'clsx';
-import data from './data';
+import data from '../../static/data';
 import useThemeContext from '@theme/hooks/useThemeContext';
 
 function Content(props) {
