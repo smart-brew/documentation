@@ -43,12 +43,17 @@
   },
   "devDependencies": {
     "commit-message-validator": "^1.0.2",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1"
   },
   "config": {
     "commit-message-validator": {
       "pattern": "((feature)|(fix)|(chore)|(update))\\(SB-[1-9]\\d*\\): .*",
       "errorMessage": "+--------------------------------------------------------------------+\n| Check correct commit message formatting in SmartBrew documentation |\n+--------------------------------------------------------------------+"
     }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
