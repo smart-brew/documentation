@@ -35,7 +35,7 @@ jobs:
         with:
           switches: -Pav -O --no-perms --delete
           path: /build/
-          remote_path: ~/web/docs
+          remote_path: ~/web
           remote_host: ${{ secrets.HOST }}
           remote_user: ${{ secrets.USERNAME }}
           remote_key: ${{ secrets.KEY }}
