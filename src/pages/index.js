@@ -210,7 +210,7 @@ function TeamMembers() {
       <TeamMember
         name="Alexandra Frniaková"
         text="Grafické rozhranie a zápisy"
-        image="/img/team_members/marekK.jpg"
+        image="/img/team_members/alexandra.jpg"
         position="center"
       />
       <TeamMember
