@@ -608,3 +608,15 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 ```
 
 Now it's time to panic.
+
+### Vypnutie systému
+
+Používateľ môže kliknúť na tlačidlo vypnutia systému. FE sa opýta, či si je používateľ istý. 
+
+Po potvrdení je na BE odoslaný POST request:
+
+```
+POST /api/shutdown
+```
+
+BE následne vypne celé RPI, na ktorom beží systém pivovaru. 
