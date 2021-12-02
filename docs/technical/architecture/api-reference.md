@@ -52,112 +52,112 @@ GET /api/function
 [
   {
     "id": 1,
-    "instruction": "SET_TEMPERATURE",
+    "codeName": "SET_TEMPERATURE",
     "name": "Set temperature",
     "category": "TEMPERATURE",
     "units": "°C",
     "inputType": "float",
     "description": "Sets temerature for selected chamber",
-    "devices": [
+    "options": [
       {
         "id": 1,
         "name": "Chamber 1",
-        "device": "TEMP_1"
+        "codeName": "TEMP_1"
       },
       {
         "id": 2,
         "name": "Chamber 2",
-        "device": "TEMP_2"
+        "codeName": "TEMP_2"
       }
     ]
   },
   {
     "id": 2,
-    "instruction": "SET_MOTOR_SPEED",
+    "codeName": "SET_MOTOR_SPEED",
     "name": "Set motor speed",
     "category": "MOTOR",
     "units": "RMP",
     "inputType": "float",
     "description": "Sets rpms for selected motor",
-    "devices": [
+    "options": [
       {
         "id": 3,
         "name": "Motor 1",
-        "device": "MOTOR_1"
+        "codeName": "MOTOR_1"
       },
       {
         "id": 4,
         "name": "Motor 2",
-        "device": "MOTOR_2"
+        "codeName": "MOTOR_2"
       }
     ]
   },
   {
     "id": 3,
-    "instruction": "TRANSFER_LIQUIDS",
+    "codeName": "TRANSFER_LIQUIDS",
     "name": "Transfer liquids",
     "category": "PUMP",
     "units": null,
     "inputType": null,
     "description": "Transfers liquids from first chamber to second",
-    "devices": [
+    "options": [
       {
         "id": 5,
         "name": "Pump 1",
-        "device": "PUMP_1"
+        "codeName": "PUMP_1"
       }
     ]
   },
   {
     "id": 4,
-    "instruction": "UNLOAD",
+    "codeName": "UNLOAD",
     "name": "Unload ingredient",
     "category": "UNLOADER",
     "units": null,
     "inputType": null,
     "description": "Unloads selected ingredient into chamber",
-    "devices": [
+    "options": [
       {
         "id": 6,
         "name": "Fermentables",
-        "device": "FERMENTABLE"
+        "codeName": "FERMENTABLE"
       },
       {
         "id": 7,
         "name": "Yeast",
-        "device": "YEAST"
+        "codeName": "YEAST"
       },
       {
         "id": 8,
         "name": "Hops",
-        "device": "HOPS"
+        "codeName": "HOPS"
       },
       {
         "id": 9,
         "name": "Other",
-        "device": "OTHER"
+        "codeName": "OTHER"
       }
     ]
   },
   {
     "id": 5,
-    "instruction": "WAIT",
+    "codeName": "WAIT",
     "name": "Wait",
     "category": "SYSTEM",
     "units": "Minutes",
     "inputType": "float",
     "description": "System will wait for given amount of minues",
-    "devices": []
+    "options": []
   },
   {
     "id": 6,
-    "instruction": "MANUAL",
+    "codeName": "MANUAL",
     "name": "Manual step",
     "category": "SYSTEM",
     "units": null,
     "inputType": "string",
     "description": "System will wait for manual inervention",
-    "devices": []
+    "options": []
   }
 ]
 ```
@@ -249,48 +249,48 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "id": 11,
       "recipeId": 3,
       "templateId": 2,
-      "instruction": "SET_MOTOR_SPEED",
+      "codeName": "SET_MOTOR_SPEED",
       "param": 30,
       "category": "MOTOR",
-      "device": "MOTOR_1",
+      "optionCodeName": "MOTOR_1",
       "blockId": 1,
-      "block": "Fermentation",
+      "blockName": "Fermentation",
       "ordering": 1
     },
     {
       "id": 12,
       "recipeId": 3,
       "templateId": 1,
-      "instruction": "SET_TEMPERATURE",
+      "codeName": "SET_TEMPERATURE",
       "param": 85,
       "category": "TEMPERATURE",
-      "device": "TEMP_1",
+      "optionCodeName": "TEMP_1",
       "blockId": 1,
-      "block": "Fermentation",
+      "blockName": "Fermentation",
       "ordering": 2
     },
     {
       "id": 13,
       "recipeId": 3,
       "templateId": 2,
-      "instruction": "SET_MOTOR_SPEED",
+      "codeName": "SET_MOTOR_SPEED",
       "param": 0,
       "category": "MOTOR",
-      "device": "MOTOR_1",
+      "optionCodeName": "MOTOR_1",
       "blockId": 2,
-      "block": "Yeasting",
+      "blockName": "Yeasting",
       "ordering": 3
     },
     {
       "id": 14,
       "recipeId": 3,
       "templateId": 1,
-      "instruction": "SET_TEMPERATURE",
+      "codeName": "SET_TEMPERATURE",
       "param": 23,
       "category": "TEMPERATURE",
-      "device": "TEMP_1",
+      "optionCodeName": "TEMP_1",
       "blockId": 2,
-      "block": "Yeasting",
+      "blockName": "Yeasting",
       "ordering": 4
     }
   ]
@@ -611,7 +611,7 @@ Now it's time to panic.
 
 ### Vypnutie systému
 
-Používateľ môže kliknúť na tlačidlo vypnutia systému. FE sa opýta, či si je používateľ istý. 
+Používateľ môže kliknúť na tlačidlo vypnutia systému. FE sa opýta, či si je používateľ istý.
 
 Po potvrdení je na BE odoslaný POST request:
 
@@ -619,4 +619,4 @@ Po potvrdení je na BE odoslaný POST request:
 POST /api/shutdown
 ```
 
-BE následne vypne celé RPI, na ktorom beží systém pivovaru. 
+BE následne vypne celé RPI, na ktorom beží systém pivovaru.

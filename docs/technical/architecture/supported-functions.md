@@ -53,12 +53,12 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
   "id": <id inštrukcie>,
   "recipeId": <id receptu>,
   "templateId": <id template pre inštrukciu>,
-  "instruction": <code name pre inštrukciu>, // aj toto sa bude mapovať na krajší názov
+  "codeName": <code name pre inštrukciu>, // aj toto sa bude mapovať na krajší názov
   "param": <hodnota parametru>,
   "category": <kategória inštrukcie/zariadenia>,
-  "device": <zariadenie>, // na FE sa bude mapovať na krajší názov - napr. "TEMP_1" -> "Nádoba 1",
+  "optionCodeName": <zariadenie>, // na FE sa bude mapovať na krajší názov - napr. "TEMP_1" -> "Nádoba 1",
   "blockId": <id bloku>, // ak by boli dva názvy rovnaké, ale chceme to mať ako dva rôzne bloky
-  "block": <názov bloku>,
+  "blockName": <názov bloku>,
   "ordering": <poradové číslo>,
 }
 ```
@@ -68,12 +68,12 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
   "id": 234,
   "recipeId": 123,
   "templateId": 1,
-  "instruction": "SET_MOTOR_SPEED",
+  "codeName": "SET_MOTOR_SPEED",
   "param": 30,
   "category": "MOTOR",
-  "device": "MOTOR_1",
+  "optionCodeName": "MOTOR_1",
   "blockId": 1,
-  "block": "Fermentation",
+  "blockName": "Fermentation",
   "ordering": 2
 }
 ```
@@ -85,17 +85,17 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
 ```json
 {
   "id": <id template>,
-  "instruction": <code name pre inštrukciu>,
+  "codeName": <code name pre inštrukciu>,
   "name": <pekny nazov instrukcie>,
   "category": <kategoria>,
   "units": <jednotka>,
   "inputType": <typ inputu>,
   "description": <popis>,
-  "devices": [
+  "options": [
     {
       "id": <id zariadenia>,
       "name": <pekny nazov zariadenia>,
-      "device": <zariadenie>
+      "codeName": <zariadenie>
     },
     ...
     ...
@@ -106,22 +106,22 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
 ```json title="Ukážka"
 {
   "id": 1,
-  "instruction": "SET_TEMPERATURE",
+  "codeName": "SET_TEMPERATURE",
   "name": "Set temperature",
   "category": "TEMPERATURE",
   "units": "°C",
   "inputType": "float",
   "description": "Sets temerature for selected chamber",
-  "devices": [
+  "options": [
     {
       "id": 1,
       "name": "Chamber 1",
-      "device": "TEMP_1"
+      "codeName": "TEMP_1"
     },
     {
       "id": 2,
       "name": "Chamber 2",
-      "device": "TEMP_2"
+      "codeName": "TEMP_2"
     }
   ]
 }
@@ -132,9 +132,9 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
 ```json
 {
   "templateId": <id vzoru pre danú inštrukciu>,
-  "blockId": <id bloku>,
+  "blockName": <nazov bloku>,
   "param": <hodnota parametru>,
-  "device": <zariadenie>,
+  "codeName": <zariadenie>,
   "ordering": <poradové číslo>,
 }
 ```
@@ -142,9 +142,9 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
 ```json title="Ukážka"
 {
   "templateId": 123,
-  "blockId": 23,
+  "blockName": "Fermentation",
   "param": 85,
-  "device": "TEMP_1",
+  "codeName": "TEMP_1",
   "ordering": 1
 }
 ```
