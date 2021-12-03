@@ -352,29 +352,29 @@ PUT /api/recipe
     {
       "templateId": 4,
       "param": null,
-      "deviceId": 6,
-      "blockId": 1,
+      "optionCodeName": "WAIT",
+      "blockName": "Fermentation",
       "ordering": 4
     },
     {
       "templateId": 1,
       "param": "60",
-      "deviceId": 1,
-      "blockId": 1,
+      "optionCodeName": "TEMP_1",
+      "blockName": "Fermentation",
       "ordering": 3
     },
     {
       "templateId": 5,
       "param": "5",
-      "deviceId": null,
-      "blockId": 2,
+      "optionCodeName": null,
+      "blockName": "Yeasting",
       "ordering": 2
     },
     {
       "templateId": 2,
       "param": "100",
-      "deviceId": 3,
-      "blockId": 2,
+      "optionCodeName": "MOTOR_1",
+      "blockName": "Yeasting",
       "ordering": 1
     }
   ]

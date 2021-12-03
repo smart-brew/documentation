@@ -134,7 +134,7 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
   "templateId": <id vzoru pre danú inštrukciu>,
   "blockName": <nazov bloku>,
   "param": <hodnota parametru>,
-  "codeName": <zariadenie>,
+  "optionCodeName": <zariadenie>,
   "ordering": <poradové číslo>,
 }
 ```
@@ -144,7 +144,7 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
   "templateId": 123,
   "blockName": "Fermentation",
   "param": 85,
-  "codeName": "TEMP_1",
+  "optionCodeName": "TEMP_1",
   "ordering": 1
 }
 ```
