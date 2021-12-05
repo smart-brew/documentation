@@ -352,7 +352,7 @@ PUT /api/recipe
     {
       "templateId": 4,
       "param": null,
-      "optionCodeName": "WAIT",
+      "optionCodeName": "FERMENTABLE",
       "blockName": "Fermentation",
       "ordering": 4
     },
