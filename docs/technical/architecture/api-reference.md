@@ -25,12 +25,12 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
 
 ```json title="Posielanie inštrukcií z backendu na modul"
 {
-  "moduleId": "<názov modulu>",
   "type": "instruction",
+  "moduleId": "<názov modulu>",
   "category": "<ketegória>", // "MOTOR", "PUMP", ...
   "device": "<názov zariadenia>", // "MOTOR_1", "PUMP_2", ...
   "instruction": "<inštrukcia>", // "SET_TEMPERATURE", "SET_MOTOR_SPEED", ...
-  "parameter": "<parameter>"
+  "param": "<parameter>"
 }
 ```
 

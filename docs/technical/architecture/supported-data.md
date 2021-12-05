@@ -7,7 +7,7 @@ Tieto `interface` predstavujú kategórie, ktoré sú využívané aj v [Podporo
 
 Zoznam podporovaných údajov systémom:
 
-```js
+```ts
 interface Temperature {
   temp: number;
   regulation_enabled: boolean;
@@ -32,6 +32,12 @@ interface Pump {
   enabled: boolean;
   state: string;
   device: string; // "PUMP_1"
+}
+
+interface Timer {
+  remaining: number; // in seconds
+  state: string;
+  device: string; // "TIMER"
 }
 ```
 
@@ -96,6 +102,13 @@ interface Pump {
       "enabled": false,
       "state": "WAITING",
       "device": "PUMP_1"
+    }
+  ],
+  "TIMER": [
+    {
+      "remaining": 180,
+      "state": "IN_PROGRESS",
+      "device": "TIMER"
     }
   ]
 }
