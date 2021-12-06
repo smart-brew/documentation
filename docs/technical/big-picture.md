@@ -25,6 +25,10 @@ Tento dokument obsahuje informácie k produktu. Poskytuje základné delenie na 
 
 - **Migrácie, Raspberry Pi, Spustenie pivovaru, Tímová VM, Tímový web + dokumentácia**: Návody k správnemu využívaniu daných nástrojov.
 
+# Pohľad na systém
+
+![mikrosluzby](/img/microservices.png)
+
 # Ciele
 
 Cieľom projektu je vytvoriť ucelené riešenie na automatizovanie procesov v priemysle.
@@ -51,7 +55,7 @@ Frontend si ale tieto kroky bude triediť a spájať do blokov podľa určitých
 Všetky potrebné údaje o receptoch a jednotlivých vareniach sa budú ukladať do databázy.
 To umožní znovupoužitie už vytvoreného receptu a vygenerovanie protokolu z varenia.
 
-## Ciele na tento semester
+## Ciele na prvý semester
 
 Pripraviť funkčný prototyp tak, aby vykonával základné úlohy.
 V užívateľskom prostredí si používateľ bude vedieť vytvoriť nový recept. Taktiež bude vedieť začať proces varenia,
