@@ -5,14 +5,14 @@
 
 Zoznam podporovaných funkcií systémom:
 
-| Name             | Input type | Units   | Category    | Code name        | Type   | Choices                          | Code choices                    |
-| ---------------- | ---------- | ------- | ----------- | ---------------- | ------ | -------------------------------- | ------------------------------- |
-| Temperature      | field      | °C      | TEMPERATURE | SET_TEMPERATURE  | float  | Chamber 1, Chamber 2             | TEMP_1, TEMP_2                  |
-| Motor            | field      | RMP     | MOTOR       | SET_MOTOR_SPEED  | float  | Motor 1, Motor 2                 | MOTOR_1, MOTOR_2                |
-| Transfer liquids | executable | -       | PUMP        | TRANSFER_LIQUIDS | -      | Pump 1                           | PUMP_1                          |
-| Unload           | executable | -       | UNLOADER    | UNLOAD           | -      | Fermentables, Yeast, Hops, Other | FERMENTABLE, YEAST, HOPS, OTHER |
-| Wait             | field      | Minutes | SYSTEM      | WAIT             | float  | -                                | -                               |
-| Manual step      | field      | -       | SYSTEM      | MANUAL           | string | -                                | -                               |
+| Name             | Input type | Units | Category    | Code name        | Type   | Choices                          | Code choices                    |
+| ---------------- | ---------- | ----- | ----------- | ---------------- | ------ | -------------------------------- | ------------------------------- |
+| Temperature      | field      | °C    | TEMPERATURE | SET_TEMPERATURE  | float  | Chamber 1, Chamber 2             | TEMP_1, TEMP_2                  |
+| Motor            | field      | RMP   | MOTOR       | SET_MOTOR_SPEED  | float  | Motor 1, Motor 2                 | MOTOR_1, MOTOR_2                |
+| Transfer liquids | executable | -     | PUMP        | TRANSFER_LIQUIDS | -      | Pump 1                           | PUMP_1                          |
+| Unload           | executable | -     | UNLOADER    | UNLOAD           | -      | Fermentables, Yeast, Hops, Other | FERMENTABLE, YEAST, HOPS, OTHER |
+| Wait             | field      | ms    | SYSTEM      | WAIT             | float  | -                                | -                               |
+| Manual step      | field      | -     | SYSTEM      | MANUAL           | string | -                                | -                               |
 
 - **Name** - pekný názov na Frontende
 - **Code name** - ako sa bude v skutočnosti volať daná funkcia
@@ -24,10 +24,13 @@ Zoznam podporovaných funkcií systémom:
 
 V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**, **Category** a hodnoty **parametra**. Ostatné veci si už sám vyhľadá a doplní podľa špecifikácie.
 
-## Štruktúra posielanej inštrukcie Backend --> Modul {#backend-module}
+## Štruktúra posielaných údajov Backend --> Modul {#backend-module}
+
+### Inštrukcia
 
 ```json
 {
+  "type": "instruction",
   "moduleId": <id modulu>,
   "instruction": <code name pre inštrukciu>,
   "param": <hodnota parametru>,
@@ -46,7 +49,17 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
 }
 ```
 
-## Štruktúra posielanej inštrukcie Backend --> Frontend
+### Abort
+
+```json
+{
+  "type": "abort"
+}
+```
+
+## Štruktúra posielaných údajov Backend --> Frontend
+
+### Inštrukcia
 
 ```json
 {
@@ -78,7 +91,7 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
 }
 ```
 
-## Štruktúra template Backend --> Frontend
+### Template pre inštrukciu
 
 FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované systémom.
 
