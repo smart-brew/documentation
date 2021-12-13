@@ -29,6 +29,8 @@ Tento dokument obsahuje informácie k produktu. Poskytuje základné delenie na 
 
 ![mikrosluzby](/img/microservices.png)
 
+Systém pozostáva z mikroslužieb, ktoré medzi sebou komunikujú. Každá mikroslužba predstavuje jeden komponent. Využívame zaridenia raspberry pi a ESP-32. Na kontajencizáciu v zariadení raspberry pi používame virtuálne prostredie Docker.
+
 # Ciele
 
 Cieľom projektu je vytvoriť ucelené riešenie na automatizovanie procesov v priemysle.
