@@ -29,7 +29,7 @@ Tento dokument obsahuje informácie k produktu. Poskytuje základné delenie na 
 
 ![mikrosluzby](/img/microservices.png)
 
-Systém pozostáva z mikroslužieb, ktoré medzi sebou komunikujú. Každá mikroslužba predstavuje jeden komponent. Využívame zaridenia raspberry pi a ESP-32. Na kontajencizáciu v zariadení raspberry pi používame virtuálne prostredie Docker.
+Systém pozostáva z mikroslužieb, ktoré medzi sebou komunikujú. Každá mikroslužba predstavuje jeden komponent. Využívame zariadenia raspberry Pi a ESP-32. Na kontajnerizáciu v zariadení raspberry Pi používame virtuálne prostredie Docker.
 
 # Ciele
 
