@@ -28,11 +28,12 @@ a výsledok je použitý ako body pre dané story, ktorému tasky patria.
 
 ## Prechody
 
-`TO DO` --> `IN PROGRESS` --> `WAITING FOR REVIEW` --> `DONE`
+- `TO DO` --> `IN PROGRESS` --> `WAITING FOR REVIEW` --> `DONE`
+- `WAITING FOR REVIEW` --> `IN PROGRESS`
 
 Pokiaľ člen tímu začne vykonávať pridelený task, presunie ho do `IN PROGRESS`.
 
-Po dokončení tasku ho presunie do `WAITING FOR REVIEW` s tým, že mu ho musí iný (aspoň jeden) člen tímu odsúhlasiť.
+Po dokončení tasku ho presunie do `WAITING FOR REVIEW` s tým, že mu ho musí iný (aspoň jeden) člen tímu odsúhlasiť. Ak ho neodsúhlasí, tak sa môže presunúť naspäť do `IN PROGRESS`.
 
 ## Definition of DONE
 
