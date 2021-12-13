@@ -12,10 +12,10 @@ S [Jirou](https://smartbrew.atlassian.net/jira/software/projects/SB/boards/1) pr
 ## Úlohy
 
 - `Epic`
-  - Epic zahŕňa stories a tasky pre časť funkcionality projektu (moduly, back-end, front-end, organizácia).
+  - Epic zahŕňa stories a tasky pre časť funkcionality projektu, ktorá prechádza naprieč celým systémom.
   - Spravidla sa na ňom podieľajú viacerí členovia tímu.
 - `Story`
-  - Story je stavané z pohľadu "Ako používateľ chcem ...", napr. _"Ako používateľ chcem vytvoriť nový recept."_
+  - Story je stavané z pohľadu "Ako (niekto) chcem ..., aby som ...", napr. _"Ako používateľ chcem vytvoriť nový recept, aby som ho mohol použiť pri varení piva."_
   - Väčšinou sa na ňom podieľajú viacerí členovia tímu.
 - `Task`
   - Task ponúka najnižšiu granularitu pre story. Ide už o konkrétne implementačné úlohy.
@@ -23,8 +23,7 @@ S [Jirou](https://smartbrew.atlassian.net/jira/software/projects/SB/boards/1) pr
 
 ### Hodnotenie
 
-Tím bodovo hodnotí zložitosť jednotlivých **taskov**. Tieto hodnotenia sa potom spočítajú
-a výsledok je použitý ako body pre dané story, ktorému tasky patria.
+Tím bodovo hodnotí zložitosť jednotlivých **taskov**. Tieto hodnotenia sa potom spočítajú a výsledok je použitý ako body pre dané story, ktorému tasky patria.
 
 ## Prechody
 
@@ -37,8 +36,7 @@ Po dokončení tasku ho presunie do `WAITING FOR REVIEW` s tým, že mu ho musí
 
 ## Definition of DONE
 
-Pre každý šprint je nastavený **Definition of DONE**. Ide o konkrétne story alebo viacero stories,
-ktoré keď sa podarí tímu splniť, šprint môže byť považovaný za úspešne splnený.
+Pre každý šprint je nastavený **Definition of DONE**. Ide o konkrétne story alebo viacero stories, ktoré keď sa podarí tímu splniť, šprint môže byť považovaný za úspešne splnený.
 
 ## Zodpovednosti
 
