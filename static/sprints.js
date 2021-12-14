@@ -24,4 +24,10 @@ export const sprints = [
     cardSubtitle: `Dokončiť úlohy z Corgoň, ktoré sa týkali prototypu tvorby a spúšťania receptov.`,
     cardDetailedText: `V tomto šprinte sme sa pokúsili zhotoviť fyzický modul na ovládanie zariadení pivovaru. Rovnako sme začali s implementáciou unit testov backendu a pokračovali sme v práci na frontende (menu, vypínacie tlačidlo, tvorba receptov)`,
   },
+  {
+    title: '29.11.2021',
+    cardTitle: 'Šprint 5 - Šariš',
+    cardSubtitle: `Cieľom bolo vedieť zobrazovať informácie o aktuálnom recepte, ktoré sa používa na varenie.`,
+    cardDetailedText: `Hlavným obsahom bolo dokončiť celú API čo sa týka komunikácie jednotlivých častí systému. Týkalo sa to hlavne používateľského rozhrania a aplikačného serveru. Takisto bolo treba pridať podporu na nové inštrukcie (čakanie a manuálna inštrukcia) aj v rámci modulov a aj testovacieho serveru.`,
+  },
 ];
