@@ -23,10 +23,14 @@ _Zhrnutie, čo je cieľom a malo by byť výsledkom šprintu._
 
 _Stručne o stories, ktoré máme naplánované na šprint._
 
-### Story XY
+### Story XYZ
 
 _Ja ako XY chcem XY, lebo ..._
 _(a podobné veci)_
+
+### [Názov šprintu] Story XYZ
+
+_V prípade že sa úloha prenášala, napíšeme do názvu aj názov originálneho šprintu_
 
 ## Výsledky šprintu
 

@@ -68,7 +68,7 @@ module.exports = {
             title: 'GitHub',
             items: [
               {
-                label: 'Organizácia',
+                label: 'SmartBrew - Home',
                 href: 'https://github.com/smart-brew/',
               },
               {
