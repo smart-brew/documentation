@@ -392,6 +392,25 @@ Ako odpoveď na FE príde JSON s vygenerovaným ID pridaného receptu:
 
 Po vytvorení receptu sa vrátime na výber receptov, kde bude už nový recept zobrazený.
 
+### Vymazanie receptu
+
+Pokiaľ chce používateľ vymazať jeden z receptov, klikne na ten, ktorý chce vymazať a následne
+klikne na tlačidlo **"Vymazať"**. Po kliknutí na tlačidlo sa zobrazí potvrdzovacie okno a
+po kliknutí tlačidla **"Potvrdiť"** sa pošle na BE POST request:
+
+```
+POST /api/recipe/{recipe-id}/delete
+```
+Ako odpoveď na FE príde JSON s ID vymazaného receptu:
+
+```json
+200 OK
+{
+  "id" : 3
+}
+```
+Po vymazaní receptu sa obrazovka s receptami načíta znova a vymazaný recept už nebude zobrazovaný.
+
 ### Začiatok varenia
 
 Po vybratí receptu sa recept načíta na hlavnú obrazovku. Používateľ dostane príležitosť
