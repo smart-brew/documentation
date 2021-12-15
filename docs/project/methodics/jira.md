@@ -32,7 +32,7 @@ Tím bodovo hodnotí zložitosť jednotlivých **taskov**. Tieto hodnotenia sa p
 
 Pokiaľ člen tímu začne vykonávať pridelený task, presunie ho do `IN PROGRESS`.
 
-Po dokončení tasku ho presunie do `WAITING FOR REVIEW` s tým, že mu ho musí iný (aspoň jeden) člen tímu odsúhlasiť. 
+Po dokončení tasku ho presunie do `WAITING FOR REVIEW` s tým, že mu ho musí iný (aspoň jeden) člen tímu odsúhlasiť.
 Ak ho neodsúhlasí, tak sa môže presunúť naspäť do `IN PROGRESS` na revíziu.
 
 ## Definition of DONE

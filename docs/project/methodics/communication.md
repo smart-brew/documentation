@@ -24,11 +24,11 @@ Tento kanál je primárny na oznamovanie dôležitých informácií pre celý t�
 Tím má na Discorde vlastný server pre štruktúrovanú komunikáciu.
 Server má viacero textových kanálov:
 
-* **General** - všeobecná komunikácia
-* **Termíny** - informácie o dôležitých termínoch pre projekt
-* **Dokumenty** - dokumenty / linky na dokumenty súvisiace s projektom
-* **Credentials** - súkromné údaje pre pripájanie na používané zariadenia
-* **Problémy** - riešenie vyskytnutých problémov pri vývoji
+- **General** - všeobecná komunikácia
+- **Termíny** - informácie o dôležitých termínoch pre projekt
+- **Dokumenty** - dokumenty / linky na dokumenty súvisiace s projektom
+- **Credentials** - súkromné údaje pre pripájanie na používané zariadenia
+- **Problémy** - riešenie vyskytnutých problémov pri vývoji
 
 Server má tiež aj voice kanál, cez ktorý sa uskutočňujú **stand-up hovory**.
 

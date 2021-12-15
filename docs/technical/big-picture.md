@@ -37,45 +37,45 @@ Systém pozostáva z mikroslužieb, ktoré medzi sebou komunikujú na základe [
 
 ## UC01 Vyber recept a začni proces varenia
 
-| Hlavný scenár       |
-| :------------------ | 
-| 1. Používateľ z hlavného menu zvolí možnosť Recipes<br /> 2. Aplikácia zobrazí okno Recipes, kde sa na pravom sidebare zobrazuje zoznam možných receptov<br /> 3. Používateľ klikne na ľubovoľný prvok zo zoznamu<br /> 4. Aplikácia v hlavnej časti obrazovky zobrazí podrobnosti o danom recepte<br /> 5. Používateľ klikne na tlačidlo Load recipe<br /> 6. Aplikácia zobrazí Overview page, kde sa na pravom sidebare zobrazujú informácie o recepte a tlačidlo Start brewing<br /> 7. Používateľ klikne na tlačidlo Start brewing<br /> 8. Aplikácia zobrazí vyskakovacia okno s ingredienciami, ktoré treba pripraviť<br /> 9. Používateľ klikne na tlačidlo Confirm<br /> 10. Aplikácia na pravom sidebare zobrazuje stav procesu varenia<br /> 11. Prípad použitia skončí  | 
+| Hlavný scenár                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Používateľ z hlavného menu zvolí možnosť Recipes<br /> 2. Aplikácia zobrazí okno Recipes, kde sa na pravom sidebare zobrazuje zoznam možných receptov<br /> 3. Používateľ klikne na ľubovoľný prvok zo zoznamu<br /> 4. Aplikácia v hlavnej časti obrazovky zobrazí podrobnosti o danom recepte<br /> 5. Používateľ klikne na tlačidlo Load recipe<br /> 6. Aplikácia zobrazí Overview page, kde sa na pravom sidebare zobrazujú informácie o recepte a tlačidlo Start brewing<br /> 7. Používateľ klikne na tlačidlo Start brewing<br /> 8. Aplikácia zobrazí vyskakovacia okno s ingredienciami, ktoré treba pripraviť<br /> 9. Používateľ klikne na tlačidlo Confirm<br /> 10. Aplikácia na pravom sidebare zobrazuje stav procesu varenia<br /> 11. Prípad použitia skončí |
 
 ## UC02 Vytvor nový recept
 
-| Hlavný scenár       |
-| :------------------ | 
-| 1. Používateľ zvolí z hlavného menu možnosť Recipe<br /> 2. Aplikácia zobrazí okno Recipe, kde sa na pravom sidebare nachádza tlačidlo Create new<br /> 3. Používateľ klikne na tlačidlo Create new<br /> 4. Vyvolá sa prípad UC03 Vyber ingrediencie tvoriace recept<br /> 5. Vyvolá sa prípad UC04 Vyber bloky tvoriace recept<br /> 6. Aplikácia zobrazí vyskakovacie okno pre potvrdenie uloženia receptu<br /> 7. Používateľ potvrdí uloženie receptu tlačidlom Confirm<br /> 8. Aplikácia zobrazí okno Recipe<br /> 9. Prípad použitia skončí  | 
+| Hlavný scenár                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Používateľ zvolí z hlavného menu možnosť Recipe<br /> 2. Aplikácia zobrazí okno Recipe, kde sa na pravom sidebare nachádza tlačidlo Create new<br /> 3. Používateľ klikne na tlačidlo Create new<br /> 4. Vyvolá sa prípad UC03 Vyber ingrediencie tvoriace recept<br /> 5. Vyvolá sa prípad UC04 Vyber bloky tvoriace recept<br /> 6. Aplikácia zobrazí vyskakovacie okno pre potvrdenie uloženia receptu<br /> 7. Používateľ potvrdí uloženie receptu tlačidlom Confirm<br /> 8. Aplikácia zobrazí okno Recipe<br /> 9. Prípad použitia skončí |
 
 ## UC03 Vyber ingrediencie tvoriace recept
-| Hlavný scenár       |
-| :------------------ | 
-| 1. Aplikácia zobrazí okno Ingredients<br /> 2. Používateľ vyplní pole s názvom receptu<br />      Alternate:  2a.    Alternatívny scenár <br /> 3. Používateľ klikne na tlačidlo Add new ingredient korešpondujúce k vybranej kategórii ingrediencie<br /> 4. Aplikácia zobrazí nové pole pre zadanie informácii o recepte<br /> 5. Používateľ zadá informácie: počet, jednotku a opis ingrediencie<br /> 6. Používateľ stlačí tlačidlo Next Step<br /> 7. Prípad použitia skončí | 
 
-| Alternatívny scenár       |
-| :------------------ | 
-| 1. Používateľ klikne na tlačidlo - korešpondujúce s vybranou kategóriou ingrediencie<br /> 2. Aplikácia odstráni danú ingredienciu zo zoznamu<br /> 3. Hlavný scenár pokračuje krokom 6 | 
+| Hlavný scenár                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Aplikácia zobrazí okno Ingredients<br /> 2. Používateľ vyplní pole s názvom receptu<br /> Alternate: 2a. Alternatívny scenár <br /> 3. Používateľ klikne na tlačidlo Add new ingredient korešpondujúce k vybranej kategórii ingrediencie<br /> 4. Aplikácia zobrazí nové pole pre zadanie informácii o recepte<br /> 5. Používateľ zadá informácie: počet, jednotku a opis ingrediencie<br /> 6. Používateľ stlačí tlačidlo Next Step<br /> 7. Prípad použitia skončí |
+
+| Alternatívny scenár                                                                                                                                                                     |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Používateľ klikne na tlačidlo - korešpondujúce s vybranou kategóriou ingrediencie<br /> 2. Aplikácia odstráni danú ingredienciu zo zoznamu<br /> 3. Hlavný scenár pokračuje krokom 6 |
 
 ## UC04 Vyber bloky tvoriace recept
-| Hlavný scenár       |
-| :------------------ | 
-| 1. Aplikácia zobrazí okno Instructions<br />       Alternate:  1a.    Alternatívny scenár <br /> 2. Používateľ klikne na modrý znak plus na pridanie bloku<br /> 3. Aplikácia pridá nový blok do receptu<br /> 4. Používateľ zadá názov bloku<br /> 5. Vyvolá sa prípad UC05 Vyber inštrukcie tvoriace bloky<br /> 6. Používateľ stlačí tlačidlo Save recipe<br /> 7. Prípad použitia končí |
 
-| Alternatívny scenár       |
-| :------------------ | 
+| Hlavný scenár                                                                                                                                                                                                                                                                                                                                                                     |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Aplikácia zobrazí okno Instructions<br /> Alternate: 1a. Alternatívny scenár <br /> 2. Používateľ klikne na modrý znak plus na pridanie bloku<br /> 3. Aplikácia pridá nový blok do receptu<br /> 4. Používateľ zadá názov bloku<br /> 5. Vyvolá sa prípad UC05 Vyber inštrukcie tvoriace bloky<br /> 6. Používateľ stlačí tlačidlo Save recipe<br /> 7. Prípad použitia končí |
+
+| Alternatívny scenár                                                                                                                     |
+| :-------------------------------------------------------------------------------------------------------------------------------------- |
 | 1. Používateľ klikne na červené X označujúce vymazanie bloku<br /> 2. Aplikácia odstráni blok<br /> 3. Hlavný scenár pokračuje krokom 6 |
- 
- ## UC05 Vyber inštrukcie tvoriace bloky
-| Hlavný scenár       |
-| :------------------ | 
-| 1. Aplikácia zobrazí blok s možnosťami na pridanie alebo odobranie inštrukcie<br />       Alternate:  1a.    Alternatívny scenár <br /> 2. Používateľ klikne na zelený znak plus<br /> 3. Aplikácia zobrazí vyskakovacie okno s možnosťami pre výber inštrukcii<br /> 4. Používateľ kliknutím vyberie požadovanú inštrukciu<br /> 5. Aplikácia danú inštrukciu pridá na požadované miesto v rámci bloku<br /> 6. Používateľ vyplní údaje inštrukcie<br /> 7. Prípad použitia skončí |
 
-| Alternatívny scenár       |
-| :------------------ | 
+## UC05 Vyber inštrukcie tvoriace bloky
+
+| Hlavný scenár                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1. Aplikácia zobrazí blok s možnosťami na pridanie alebo odobranie inštrukcie<br /> Alternate: 1a. Alternatívny scenár <br /> 2. Používateľ klikne na zelený znak plus<br /> 3. Aplikácia zobrazí vyskakovacie okno s možnosťami pre výber inštrukcii<br /> 4. Používateľ kliknutím vyberie požadovanú inštrukciu<br /> 5. Aplikácia danú inštrukciu pridá na požadované miesto v rámci bloku<br /> 6. Používateľ vyplní údaje inštrukcie<br /> 7. Prípad použitia skončí |
+
+| Alternatívny scenár                                                                                                                                    |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1. Používateľ sa rozhodne kliknúť na červené X pre vymazanie inštrukcie<br /> 2. Aplikácia odstráni inštrukciu<br /> 3. Hlavný scenár pokračuje krokom |
-
-
-
 
 # Ciele
 

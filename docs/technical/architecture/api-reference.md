@@ -401,6 +401,7 @@ po kliknutí tlačidla **"Potvrdiť"** sa pošle na BE POST request:
 ```
 POST /api/recipe/{recipe-id}/delete
 ```
+
 Ako odpoveď na FE príde JSON s ID vymazaného receptu:
 
 ```json
@@ -409,6 +410,7 @@ Ako odpoveď na FE príde JSON s ID vymazaného receptu:
   "id" : 3
 }
 ```
+
 Po vymazaní receptu sa obrazovka s receptami načíta znova a vymazaný recept už nebude zobrazovaný.
 
 ### Začiatok varenia
