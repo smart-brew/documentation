@@ -23,4 +23,5 @@ _Uvedené kompetencie nie sú fixné, členovia sa môžu a aj sa podieľajú ti
 | 01 - Zlatý Bažant    | 17 %  |   16 %   | 17 %  | 17 %  | 17 % |   16 %   |
 | 02 - Pilsner Urquell | 17 %  |   17 %   | 16 %  | 16 %  | 17 % |   17 %   |
 | 03 - Corgoň          | 16 %  |   17 %   | 16 %  | 17 %  | 17 % |   17 %   |
-| 04 - Krušovice       |  ---  |   ---    |  ---  |  ---  | ---  |   ---    |
+| 04 - Krušovice       | 17 %  |   16 %   | 17 %  | 17 %  | 17 % |   16 %   |
+| 05 - Šariš           | 17 %  |   17 %   | 16 %  | 16 %  | 17 % |   17 %   |
