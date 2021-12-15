@@ -21,9 +21,16 @@ Tento kanál je primárny na oznamovanie dôležitých informácií pre celý t�
 
 ### Discord
 
-Tím má na Discorde vlastný server, cez ktorý uskutočňuje **stand-up hovory**.
-V textových kanáloch členovia posielajú dokumenty a správy, ktoré potrebujú
-byť uchované na dlhší čas (Discord vhodnejší než Messanger, keďže Messanger má neprehľadnú históriu).
+Tím má na Discorde vlastný server pre štruktúrovanú komunikáciu.
+Server má viacero textových kanálov:
+
+* **General** - všeobecná komunikácia
+* **Termíny** - informácie o dôležitých termínoch pre projekt
+* **Dokumenty** - dokumenty / linky na dokumenty súvisiace s projektom
+* **Credentials** - súkromné údaje pre pripájanie na používané zariadenia
+* **Problémy** - riešenie vyskytnutých problémov pri vývoji
+
+Server má tiež aj voice kanál, cez ktorý sa uskutočňujú **stand-up hovory**.
 
 ### Google Meet
 
