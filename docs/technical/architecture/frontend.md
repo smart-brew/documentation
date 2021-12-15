@@ -92,7 +92,7 @@ Rozdiel medzi posledným návrhom a aktuálnym riešením je výzor pravého sid
 
 Na prvom návrhu mali všetky inštrukcie rovnaký spôsob pridanie. Používateľ si vybral typ zariadenia, inštrukciu a parametre. To ale samozrejme nepostačuje pre všetky typy inštrukcii, napríklad ak by sa jednalo o dve zariadenia (čo sa nemusí nutne stať v našom zadaní, ale vo všeobecnosti je to možné). 
 
-<img src="/img/screenshots-frontend/newRecipe2.JPG" width="900" height="370" />
+<img src="/img/screenshots-frontend/newRecipe2.JPG" width="900" height="430" />
 
 Preto vznikol druhý návrh. Pri ňom už mala každá inštrukcia vlastný "obdĺžnik" prispôsobený svojim požiadavkám. Pre pridanie novej inštrukcie bolo potrebné kliknúť na zelené plus, čim sa otvorilo vyskakovacie okno a zobrazila ponuka inštrukcii. Taktiež sa na tej istej obrazovke pridávali ingrediencie.
 
