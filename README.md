@@ -29,7 +29,7 @@ Automatically deploys from `master` branch to http://team06-21.studenti.fiit.stu
 Generate pdf for final documentation:
 
 ```bash
-npx mr-pdf --initialDocURLs="http://team06-21.studenti.fiit.stuba.sk/docs/" --contentSelector="article" --paginationSelector=".pagination-nav__item--next > a" --excludeSelectors=".margin-vert--xl a,.theme-doc-toc-mobile" --coverTitle="Tímový projekt - SmartBrew"
+npx mr-pdf --initialDocURLs="http://team06-21.studenti.fiit.stuba.sk/docs/" --contentSelector="article" --paginationSelector=".pagination-nav__item--next > a" --excludeSelectors=".margin-vert--xl a,.theme-doc-toc-mobile,.theme-doc-footer-edit-meta-row" --coverTitle="Tímový projekt - SmartBrew" --cssStyle="h1{font-size: 24px; margin-top: 20px;} h2{font-size: 20px; margin-top: 100px;} h3{font-size: 18px; margin-top: 100px;} h4{font-size: 16px; margin-top: 100px;} p,li,ul{font-size: 14px; margin: 0; padding: 0;}" --outputPDFFilename="SmartBrew-dokumentacia.pdf" --pdfMargin="100,80,150,80"
 ```
 
 ## Index for Algolia doc search
