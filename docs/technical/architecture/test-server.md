@@ -94,7 +94,7 @@ Príklad inštrukcie, ktorú server prijme z backendu:
 }
 ```
 
-Na základe prijatej inštrukcie prebehne buď okamžitá alebo postupná zmena dát. Po prijatí inštrukcie vyššie môžu odosielané dáta vyzerať nasledovne:
+Na základe prijatej inštrukcie prebehne buď okamžitá, alebo postupná zmena dát. Po prijatí inštrukcie vyššie môžu odosielané dáta vyzerať nasledovne:
 
 ```json
 {

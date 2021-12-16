@@ -20,9 +20,9 @@ ssh-keygen
 ### 2. krok
 
 :::caution podmienka použitia príkazu
-Ak budeme mať heslo do virtuálneho stroja `heslo="neznáme"` môžes použiť príkaz na skopírovanie tvojho verejného kľuča do `authorized_keys`.
+Ak budeme mať heslo do virtuálneho stroja `heslo="neznáme"` je možné použiť príkaz na skopírovanie svojho verejného kľuča do `authorized_keys`.
 :::
-Ak je heslo neznáme pošli nejakému členovi napr. (Marek Vajda alebo Peter Stríž) svoj verejný kľúč aby ti ho nahrali na virtuálnom stroji do `authorized_keys`. V prípade, že skôr spomenuté možnosti nie sú dostupné, je potrebné sa prihlásiť pomocou privátneho kľúča do virtuálneho stroja, ktorý zadáš do prikazu `ssh -i [cesta ku privátnemu kľúču]> user@ip`. Následne si môžeš nahrať svoj kľúč samostatne.
+Ak je heslo neznáme, je potreba poslať nejakému členovi napr. (Marek Vajda alebo Peter Stríž) svoj verejný kľúč, aby ho nahrali na virtuálnom stroji do `authorized_keys`. V prípade, že skôr spomenuté možnosti nie sú dostupné, je potrebné sa prihlásiť pomocou privátneho kľúča do virtuálneho stroja, ktorý treba zadať do prikazu `ssh -i [cesta ku privátnemu kľúču]> user@ip`. Následne je možné nahrať svoj kľúč samostatne.
 
 ```bash title="Skopírovanie verejného kľúča do virtuálneho stroja"
 ssh-copy-id ubuntu@team06-21.studenti.fiit.stuba.sk
@@ -58,7 +58,7 @@ tp062122
 
 ## Spustenie browsera do fullscreenu na Rpi
 
-Rpi je nastavené tak aby sa po spustení otvoril webový frontend v prehliadaci. Momentáne sa v grafickom rozhraní spustí len webový prehliadač `chromium` bez ostatného grafického rozhrania. Toto nastavenie sme docielili v súbore `/home/pi/.config/lxsession/LXDE-pi/autostart`. Ak chceme aby sa otvorilo po štarte aj štandardné grafické rozhranie musíme nasledujúci príkaz zadať do súboru `/etc/xdg/lxsession/LXDE-pi/autostart`. Alebo ak nefunguje treba použiť `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` súbor.
+Rpi je nastavené tak aby sa po spustení otvoril webový frontend v prehliadači. Momentálne sa v grafickom rozhraní spustí len webový prehliadač `chromium` bez ostatného grafického rozhrania. Toto nastavenie sme docielili v súbore `/home/pi/.config/lxsession/LXDE-pi/autostart`. Ak chceme, aby sa otvorilo po štarte aj štandardné grafické rozhranie, musíme nasledujúci príkaz zadať do súboru `/etc/xdg/lxsession/LXDE-pi/autostart`. Alebo ak nefunguje, treba použiť `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` súbor.
 
 ```bash title="príkaz na spustenie prehliadaca vo fullscreen"
 @chromium-browser localhost --start-fullscreen --kiosk
@@ -72,7 +72,7 @@ Pripojenie funguje pomocou reverzného ssh spojenia. Rpi v intervale `1 min` sp�
 */1 * * * * sudo . /create_ssh_tunnel.sh > tunnel.log 2>&1
 ```
 
-Skript na vytvorenie reverzného konzolového spojenia sa pripája na virtuálny stroj `team06-21.studenti.fiit.stuba.sk`. Port `2224` na virtuálnom je následne tunelovaný ako port `22` na raspberry pi.
+Skript na vytvorenie reverzného konzolového spojenia sa pripája na virtuálny stroj `team06-21.studenti.fiit.stuba.sk`. Port `2224` na virtuálnom je následne tunelovaný ako port `22` na Raspberry pi.
 
 ```bash title="create_ssh_tunnel"
 #!/bin/bash

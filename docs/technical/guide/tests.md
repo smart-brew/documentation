@@ -4,21 +4,21 @@ author: Marek Vajda
 
 # Testovanie
 
-Na testovanie využívame unit a integračné testy vytvorené rámci `Jest`. Nový test vytvoríme tak, že vytvoríme `*.test.ts` súbor s rovnakým menom ako súbor .ts súbor, ktorý ideme testovať. Test sa rozpoznáva na na základe `.test.ts` prípony. Testy vytvárame vždy v `src/tests` priečinku.
+Na testovanie využívame unit a integračné testy vytvorené pomocou `Jest` testovacieho rámca. Nový test vytvoríme tak, že vytvoríme `*.test.ts` súbor s rovnakým menom ako .ts súbor, ktorý ideme testovať. Test sa rozpoznáva na základe `.test.ts` prípony. Testy vytvárame vždy v `src/tests` priečinku.
 
-Príkaz na manuálne spustenie testov je `yarn test` prípadne je potrebné spustiť pred tým to príkazom ešte príkaz `yarn` ak ste testovanie ešte nespúšťali.
+Príkaz na manuálne spustenie testov je `yarn test`, prípadne je potrebné spustiť pred týmto príkazom ešte príkaz `yarn` ak testovanie ešte nebolo spustené.
 
-:::caution pred testovaním
-Pre testovaním je potrebné spustiť databázu v docker kontajneri pomocou príkazu `yarn docker:up` v priečinku adresári backend repozitára. Na fungovanie tohto príkazu treba zapnúť aj aplikáciu docker desktop. Po skončení testovania kontajner môžeme vypnúť pomocou príkazu `yarn docker:down`.
+:::caution Pred testovaním
+Pred testovaním je potrebné spustiť databázu v docker kontajneri pomocou príkazu `yarn docker:up` v adresári backend repozitára. Na fungovanie tohto príkazu treba spustiť aj aplikáciu Docker desktop. Po skončení testovania je možné kontajner vypnúť pomocou príkazu `yarn docker:down`.
 :::
 
 ## Backend unit testy
 
-Testy pre backend sa automaticky spúšťajú pri príkaze `git push`. Pri testovaní využívame okem rámca `Jest` aj rámec `Supertest`, ktorý slúži na odosielanie HTTP requestov na API našich `Express.js` endpointov.
+Testy pre backend sa automaticky spúšťajú pri príkaze `git push`. Pri testovaní využívame okrem rámca `Jest` aj rámec `Supertest`, ktorý slúži na odosielanie HTTP requestov na API našich `Express.js` endpointov.
 
-Testy vytvorené objekty v databáze po skončení vymažú.
+Testy vytvorené záznamy v databáze po skončení vymažú.
 
-Zoznam testov unit testov pre endpointy:
+Zoznam unit testov pre endpointy:
 
 1. `GET /api/data`
 2. `GET /api/recipe`
@@ -51,8 +51,8 @@ Done in 7.09s.
 
 ## Backend integračné testy
 
-Integračné testy sa spúšťajú manuálne odstránením `skip()` funkcie z `describe` bloku testu. Bežne sa tieto testy preskakujú pretože zatiaľ nevieme spoľahlivo ukončiť všetky procesy, ktoré sa počas testu spúšťajú a testovanie nie je automaticky ukončené.
+Integračné testy sa spúšťajú manuálne odstránením `skip()` funkcie z `describe` bloku testu. Bežne sa tieto testy preskakujú, pretože zatiaľ nevieme spoľahlivo ukončiť všetky procesy, ktoré sa počas testu spúšťajú, a testovanie nie je automaticky ukončené.
 
-Zoznam testov integračných testov pre endpointy:
+Zoznam integračných testov pre endpointy:
 
 1. `PUT /api/brew/0/start` - načíta recept a spustí nové varenie

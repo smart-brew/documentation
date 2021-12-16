@@ -27,13 +27,13 @@ Pre komunikáciu využijeme websocket a správy budú vyzerať ako v [Podporovan
 
 ### Setup
 
-Najprv si treba zadefinovať aké zariadenia máme kde pripojené a dať ich do poľa všetkých zariadení (v budúcnosti by sme chceli aby tento krok nebolo treba manuálne robiť pred nasadením modulu, ale dala by sa modulu poslať konfigurácia).
+Najprv si treba zadefinovať aké zariadenia máme kde pripojené a dať ich do poľa všetkých zariadení (v budúcnosti by sme chceli, aby tento krok nebolo treba manuálne robiť pred nasadením modulu, ale dala by sa modulu poslať konfigurácia).
 
 ### Kód
 
 Modul sa pripojí na WiFi podľa konfigurácie a následne sa pripojí cez WebSocket na backendový server. Modul potom periodicky posiela svoj aktuálny stav, a aj stav všetkých pripojených zariadení.
 
-Na modul je možné poslať z backendu aj inštrukciu, ktorú má modul vykonať. Formát je zadefinovaný v [Podporované funkcie](supported-functions.md#backend-module). Modul následne vo svojich periodických updatoch posiela aj informáciu o aktuálnom stave danej funkcie
+Na modul je možné poslať z backendu aj inštrukciu, ktorú má modul vykonať. Formát je zadefinovaný v [Podporované funkcie](supported-functions.md#backend-module). Modul následne vo svojich periodických updatoch posiela aj informáciu o aktuálnom stave danej inštrukcie.
 
 ### Diagram zapojenia
 

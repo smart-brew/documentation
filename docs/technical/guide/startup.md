@@ -7,7 +7,7 @@ Link na repozitár, ktorý obsahuje automatický script: [startup](https://githu
 
 ## Spustenie testovacej verzie
 
-V tejto verzii je nahradený modul, testovacím serverom, ktorý simuluje funkcionalitu modulov.
+V tejto verzii je nahradený modul testovacím serverom, ktorý simuluje funkcionalitu modulov.
 
 ### Postup
 

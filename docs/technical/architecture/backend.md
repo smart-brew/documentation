@@ -13,19 +13,19 @@ Pre spojenie s databázou a obsluhu požiadaviek na databázu využívame ORM **
 
 ## Komunikácia
 
-Pre komunikáciu s frontednom je k dispozícií REST API, ktoré je dostupné na porte 8000.
+Pre komunikáciu s frontendom je k dispozícií REST API, ktoré je dostupné na porte 8000.
 
 Pre komunikáciu s jednotlivými modulmi pivovaru používame **websocket**. Spojenie prebieha na porte 8001.
 
-Viac info na [API](api-reference.md).
+Viac info v časti [API](api-reference.md).
 
 ## Súčasný stav
 
 ### Web socket
 
-Pomocu web socketového servera je možné pripojiť viacero klientov, ktorí predstavujú moduly pivovaru, ktoré slúžia na obsluhu efektorov a zisk údajov zo senzorov. Server s nimi pravidelne udržiava spojenie (keep alive) a odosiela im jednotlivé inštrukcie. Bližšie informácie o nich je možné nájsť v [Podporované inštrukcie](supported-functions.md).
+Pomocu web socketového servera je možné pripojiť viacero klientov, ktorí predstavujú moduly pivovaru. Tie slúžia na obsluhu efektorov a zisk údajov zo senzorov. Server s nimi pravidelne udržiava spojenie (keep-alive) a odosiela im jednotlivé inštrukcie. Bližšie informácie o nich je možné nájsť v [Podporované inštrukcie](supported-functions.md).
 
-Pokiaľ spojenie k požadovanému modulu neexistuje proces varenia sa ukončí špeciálnou inštrukciou **Abort**.
+Pokiaľ spojenie k požadovanému modulu neexistuje, proces varenia sa ukončí špeciálnou inštrukciou **Abort**.
 
 ### REST API
 
@@ -35,7 +35,7 @@ Zoznam endpointov v rámci REST API sa nachádza v [API](api-reference.md), avš
 - Získanie konkrétneho receptu
 - Získanie všetkých podporovaných funkcií
 - Vytvorenie nového receptu
-- Načítanie recptu pre varenie
+- Načítanie receptu pre varenie
 - Spustenie varenia
 - Pozastavenie a pokračovanie varenia
 - Vynútené zrušenie varenia

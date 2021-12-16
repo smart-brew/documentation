@@ -7,7 +7,11 @@ Na databázu používame technológiu `PostgreSQL` a na manipuláciu dát sa vyu
 
 ## Návrh databázy
 
-Hlavnou entitou je **Recipe**, ktorá reprezentuje recept pre varenie piva. S ňou sú spojené ďaľšie entity, ako **Ingredient a Instruction**, ktoré reprezentujú ingrediencie použité v recepte a konkrétne inštrukcie, ktoré sa v recepte majú vykonať. Entita **Block** slúži pre frontend pre zoskupenie inštrukcií do väčších celkov. Entity **Function Template a Functio Option** predstavujú podporované funkcie v rámci tohto systému a k nim prislúchajúce možnosti, z ktorých má používateľ možnosť výberu. Entita **Brewing** reprezentuje konkrétne varenie podĺa vybraného receptu. Entity **Status Log a Instruction Log** predstavujú pravidelné záznamy z varenia a vykonávania jednotlivých inštrukcií.
+Hlavnou entitou je **Recipe**, ktorá reprezentuje recept pre varenie piva. S ňou sú spojené ďaľšie entity, ako **Ingredient** a **Instruction**, 
+ktoré reprezentujú ingrediencie použité v recepte a konkrétne inštrukcie, ktoré sa v recepte majú vykonať. Entita **Block** slúži pre frontend 
+na zoskupenie inštrukcií do väčších celkov. Entity **Function Template** a **Function Option** predstavujú podporované funkcie v rámci tohto systému 
+a k nim prislúchajúce možnosti, z ktorých má používateľ možnosť výberu. Entita **Brewing** reprezentuje konkrétne varenie podľa vybraného receptu. 
+Entity **Status Log** a **Instruction Log** predstavujú pravidelné záznamy z varenia a vykonávania jednotlivých inštrukcií.
 
 Aktuálny [návrh databázy](https://dbdiagram.io/d/616c64a1940c4c4eec99678e) je nasledovný:
 

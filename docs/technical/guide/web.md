@@ -15,7 +15,7 @@ Po commite sa vykoná krátky script, ktorý zbuilduje stránku a nahrá súbory
 
 ## Server
 
-Ako server na hostovanie webu sa používa [http-server](https://www.npmjs.com/package/http-server), keďže všetky súbory sú statické, stačí ich len vedieť poskytnúť používateľovi.
+Ako server na hostovanie webu sa používa [http-server](https://www.npmjs.com/package/http-server). Keďže všetky súbory sú statické, stačí ich len vedieť poskytnúť používateľovi.
 
 Automatické spustenie servera:
 
