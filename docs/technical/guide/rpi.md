@@ -53,7 +53,7 @@ marek.vajda009@gmail.com
 ````
 
 ```bash title="password"
-tp062122
+***** (treba získať prístup od: Marek Vajda)
 ```
 
 ## Spustenie browsera do fullscreenu na Rpi
