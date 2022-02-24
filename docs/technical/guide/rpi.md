@@ -197,3 +197,7 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 #add
 @chromium-browser localhost --start-fullscreen --kiosk
 ```
+
+:::caution po inštalácií
+https://docs.docker.com/engine/install/linux-postinstall/
+:::
