@@ -9,7 +9,7 @@ K návrhu sa môžu pridať aj iní členovia tímu.
 
 ## Nástroje
 
-Pre návrh front-endu sa využíva nástroj Figma.
+Pre návrh front-endu sa využíva nástroj [Figma](https://www.figma.com/file/ZrHvvQlWMiHubLrEj2Pr4T/Pivovar?node-id=0%3A1).
 
 ## Usmernenia
 
