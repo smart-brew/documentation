@@ -11,9 +11,48 @@ Používame ESP32 Dev board. Kód je písaný v **C++**.
 
 Odpurúčaný setup pre ~~develomplemt~~ development je v [README](https://github.com/smart-brew/websocket-module) v rámci git repozitára.
 
+## Rôzne moduly
+
+V tejto sekcii sa pozrieme na to, aké rôzne moduly náš pivovar podporuje
+
+### Motor
+
+Motory sa nachádzajú v každej z varných nádob a umožnujú stabilné miešania surovín potrebných na prípravu piva. Vo vnútry nádob sa nachádzajú rózne metličky, vzhľadom k tomu, že v prvej nádobe očakávame tekutinu hustejšiu a v tej druhej, zase viac riedku.
+
+Tento motor je riadený pomocou meniča _H300_ ([zapojenie](#h300)), ktorý používa [Modbus](../analysis/modbus.md) na komunikáciu s ESP32.
+
+Menič H300 je taktiež potrebné nastaviť, aby vedel komunikovať s ESP:
+
+```
+PD.00 - 6006 (19200 BAUD)
+PD.01 - 3 (jeden stop bit)
+P0.02 - 2 (mala by blikat LEDka)
+P0.03 - 9
+P0.04 - 8
+P0.11 - 5
+```
+
+### Teplomer
+
+Teplomer sa nachádza v každej z varných nádob a spolu s regulátorom teploty umožnuje reguláciu správnej teploty tekutiny počas varenia a kvasenia.
+
+Používame teplomer rady _DS18B20_ ([zapojenie](#ds18b20)).
+
+### Regulátor teploty
+
+Používame _JULABO CF41_. **TBD...**
+
+### Pumpa
+
+Pumpa sa využíva, keď je potrebné prečerpať tekutinu z prvej nádoby do tej druhej. Používame pumpu _AWH E-Actuator 24V Type E2 DIN_. Na spúštanie tejto pumpy nám však stačí iba obyčajné relé, čo nám veľmi uľahčí prácu s daným zariadením. Ako relé používame _Hong Wei HW-655_, ktoré je ovládané cez sériové rozhranie.
+
+### Násypníky
+
+Momentálne máme iba jeden násypník, ktorý je ovládaný jedným servom _SG90_ (_\*pravdepodobne - nieje to isté_). Servo vlastne iba posunie pliešok, ktorý drží všetky suroviny, ktoré následne spadnú do prvej varnej nádoby.
+
 ## Komunikácia s back-endom
 
-Pre komunikáciu využijeme websocket a správy budú vyzerať ako v [Podporované údaje](supported-data.md).
+Pre komunikáciu využijeme websocket a správy budú mať formu: [Podporované údaje](supported-data.md).
 
 ```json title="Periodický update"
 {
@@ -37,13 +76,13 @@ Na modul je možné poslať z backendu aj inštrukciu, ktorú má modul vykonať
 
 ### Diagram zapojenia
 
-#### Zapojenie meniča H300
+#### Zapojenie meniča H300 {#h300}
 
 ![H300](/img/module/wiring_H300.png)
 
 _\*Originálny autor diagramu H300: http://team18-19.studenti.fiit.stuba.sk/ _
 
-#### Zapojenie teplomera DS18B20
+#### Zapojenie teplomera DS18B20 {#ds18b20}
 
 ![Teplomer](/img/module/wiring_temp.png)
 
