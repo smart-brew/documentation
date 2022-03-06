@@ -201,3 +201,23 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 :::caution po inštalácií
 https://docs.docker.com/engine/install/linux-postinstall/
 :::
+
+## RPI wifi hotspot
+
+:::note link na nastavenie rpi wifi hotspotu
+https://www.raspberrypi.com/documentation/computers/configuration.html
+:::
+
+Wifi hotspot funguje s SSID: `rpiWifi`.
+
+```title="password"
+tp062122
+```
+
+Rpi robí vlastný router na subnete `10.20.1.0/24` rpi má adresu `10.20.1.1/24`.
+
+```title="ssh pripojenie k rpi po pripojeni k wifi"
+ssh pi@10.20.1.1
+```
+
+Na rpi nefunguje DHCP. Treba nastaviť statickú ip z rozsahu subnety ideálne od `<10.20.1.2 - 10.20.1.9>`. Adresu `10.20.1.3` používam (Marek Vajda) pre notebook. Dávať modulom ip adresy odkonca vyššie napísaného rozsahu. Od `<10.20.1.10 - 10.20.1.100>` by malo ip adresy priradovať DHCP, ale to nie je funkčné.
