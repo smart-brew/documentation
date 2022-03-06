@@ -210,13 +210,13 @@ https://www.raspberrypi.com/documentation/computers/configuration.html
 
 Wifi hotspot funguje s SSID: `rpiWifi`.
 
-```title="password"
+```bash title="password"
 tp062122
 ```
 
 Rpi robí vlastný router na subnete `10.20.1.0/24` rpi má adresu `10.20.1.1/24`.
 
-```title="ssh pripojenie k rpi po pripojeni k wifi"
+```bash title="ssh pripojenie k rpi po pripojeni k wifi"
 ssh pi@10.20.1.1
 ```
 
