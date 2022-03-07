@@ -40,8 +40,23 @@ Používame teplomer rady _DS18B20_ ([zapojenie](#ds18b20)).
 
 ### Regulátor teploty
 
-Používame _JULABO CF41_. **TBD...**
+Používame _JULABO CF41_ s podporovaným sériovým rozhraním RS-232 alebo RS-485. Pre ovládanie zariadenia na diaľku je nutné v menu _Interface_ vybrať typ rozhrania a následne v menu _Configuration_ nastaviť položku _Setpoint_ na vybrané rozhranie.
 
+Potom možeme so zariadením komunikovať pomocou príkazov, ktoré by však mali byť posielané s časovým rozostupom aspoň 250ms. Príkazy pre získanie údajov zo zariadenie sa začínajú **IN** a príkazy pre nastavenie hodnoty v zariadení sa začínajú **OUT**.
+
+Príklad príkazu pre nastavenie pracovnej teploty
+```
+OUT_SP_00 ⇔ 55.5↵
+```
+Príklad príkazu pre získanie pracovnej teploty
+```
+IN_SP_00↵
+```
+a odpoveď na tento príkaz
+```
+55.5↵ LF
+```
+Všetky podporované príkazy ako aj možné odpovede sú bližšie špecifikované v [oficiálnom manuáli](https://www.julabo.com/sites/default/files/betriebsanleitung/1.950.4871.en.V09.pdf#page=72) v kapitole 11.
 ### Pumpa
 
 Pumpa sa využíva, keď je potrebné prečerpať tekutinu z prvej nádoby do tej druhej. Používame pumpu _AWH E-Actuator 24V Type E2 DIN_. Na spúštanie tejto pumpy nám však stačí iba obyčajné relé, čo nám veľmi uľahčí prácu s daným zariadením. Ako relé používame _Hong Wei HW-655_, ktoré je ovládané cez sériové rozhranie.
