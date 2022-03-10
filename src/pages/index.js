@@ -55,28 +55,15 @@ function LargeImage(props) {
         alt={props.name}
       />
       <h3
-        style={
-          isDarkTheme
-            ? {
-                position: 'absolute',
-                bottom: '10px',
-                // left: '0px',
-                // width: '300px',
-                borderRadius: '5px',
-                padding: '0.5rem',
-                background: '#c5a103',
-              }
-            : {
-                position: 'absolute',
-                bottom: '10px',
-                left: '0 auto',
-                width: '300px',
-                borderRadius: '5px',
-                padding: '0.5rem',
-                background: 'rgb(254,208,8)',
-                // textShadow: '2px 2px 3px black', }
-              }
-        }
+        style={{
+          position: 'absolute',
+          bottom: '10px',
+          left: '0 auto',
+          width: '300px',
+          borderRadius: '5px',
+          padding: '0.5rem',
+          background: isDarkTheme ? '#c5a103' : 'rgb(254,208,8)',
+        }}
         className="text--center"
       >
         {props.title}
@@ -89,34 +76,20 @@ function Headline(props) {
   const { isDarkTheme } = useThemeContext();
   return (
     <div
-      style={
-        isDarkTheme
-          ? {
-              width: '100%',
-              height: '400px',
-              marginBottom: '1rem',
-              padding: '1rem',
-              background:
-                'radial-gradient(circle, rgba(222,222,222,1) 0%, rgba(207,171,17,1) 58%, rgba(197,161,3,1) 100%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'black',
-            }
-          : {
-              width: '100%',
-              height: '400px',
-              marginBottom: '1rem',
-              padding: '1rem',
-              background:
-                'radial-gradient(circle, rgba(255,255,255,1) 1%, rgba(254,208,8,1) 55%, rgba(197,161,3,1) 100%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }
-      }
+      style={{
+        width: '100%',
+        height: '400px',
+        marginBottom: '1rem',
+        padding: '1rem',
+        background: isDarkTheme
+          ? 'radial-gradient(circle, rgba(222,222,222,1) 0%, rgba(207,171,17,1) 58%, rgba(197,161,3,1) 100%)'
+          : 'radial-gradient(circle, rgba(255,255,255,1) 1%, rgba(254,208,8,1) 55%, rgba(197,161,3,1) 100%)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: isDarkTheme ? 'black' : '',
+      }}
     >
       <img
         src="/img/pivovar-animated.svg"
@@ -156,30 +129,16 @@ function TeamMember(props) {
         alt={props.name}
       />
       <h3
-        style={
-          isDarkTheme
-            ? {
-                position: 'absolute',
-                top: '10px',
-                left: '0px',
-                width: '106px',
-                borderRadius: '5px',
-                wordSpacing: '1000px',
-                padding: '0.3rem',
-                background: '#c5a103',
-              }
-            : {
-                position: 'absolute',
-                top: '10px',
-                left: '0px',
-                width: '106px',
-                borderRadius: '5px',
-                wordSpacing: '1000px',
-                padding: '0.3rem',
-                background: 'rgb(254,208,8)',
-                // textShadow: '2px 2px 3px black', }
-              }
-        }
+        style={{
+          position: 'absolute',
+          top: '10px',
+          left: '0px',
+          width: '106px',
+          borderRadius: '5px',
+          wordSpacing: '1000px',
+          padding: '0.3rem',
+          background: isDarkTheme ? '#c5a103' : 'rgb(254,208,8)',
+        }}
         className="text--center"
       >
         {props.name}
@@ -253,19 +212,13 @@ function Timeline() {
   const [theme, setTheme] = React.useState({});
 
   React.useEffect(() => {
-    setTheme(
-      isDarkTheme
-        ? {
-            primary: 'var(--ifm-color-primary)',
-            cardBgColor: 'var(--ifm-color-emphasis-200)',
-            cardForeColor: 'var(--ifm-color-font)',
-          }
-        : {
-            primary: 'var(--ifm-color-primary)',
-            cardBgColor: 'var(--ifm-background-surface-color)',
-            cardForeColor: 'var(--ifm-color-font)',
-          }
-    );
+    setTheme({
+      primary: 'var(--ifm-color-primary)',
+      cardBgColor: isDarkTheme
+        ? 'var(--ifm-color-emphasis-200)'
+        : 'var(--ifm-background-surface-color)',
+      cardForeColor: 'var(--ifm-color-font)',
+    });
   }, [isDarkTheme]);
 
   return (
@@ -283,10 +236,9 @@ function Timeline() {
         hideControls
       >
         <div className="chrono-icons">
-          <img src="/img/beer.png" alt="pivo" />
-          <img src="/img/beer.png" alt="pivo" />
-          <img src="/img/beer.png" alt="pivo" />
-          <img src="/img/beer.png" alt="pivo" />
+          {sprints.map((sprint) => (
+            <img key={sprint.title} src="/img/beer.png" alt="pivo" />
+          ))}
         </div>
       </Chrono>
     </div>
