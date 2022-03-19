@@ -9,6 +9,8 @@
 
 🧑‍🏫 [Prezentácia k riadeniu tímového projektu](/assets/Riadenie_TP.pdf)
 
+📄 [Priebežné odovzdanie 1. semester](/assets/Timovy_projekt_milestone1.pdf)
+
 🏆 [Prihláška do TP CUP](/assets/TP_Cup_prihlaska.pdf)
 
 🧑‍🎓 [Motivačný dokument](/assets/Motivacny_dokument.pdf)
