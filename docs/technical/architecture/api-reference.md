@@ -392,6 +392,88 @@ Ako odpoveď na FE príde JSON s vygenerovaným ID pridaného receptu:
 
 Po vytvorení receptu sa vrátime na výber receptov, kde bude už nový recept zobrazený.
 
+### Úprava existujúceho receptu
+
+Pokiaľ používateľ chce upraviť existujúci recept, pomocou obrazovky pre úpravu
+receptu pozmení všetky požadované položky a klikne na tlačidlo **"Uložiť recept"** a odošle požiadavku na BE. Keďže potrebujem uchovať údaje pre potreby histórie varení, upravený recept sa uloží ako nový recept a pôvodný sa ďalej nebude zobrazovať medzi výberom recptov. 
+
+```
+PUT /api/recipe/{recipe-id}/edit
+```
+
+```json
+{
+  "name": "New Perfect Northeast IPA (NEIPA)",
+  "description": "I have no idea what I'am doing",
+  "locked": false,
+  "Ingredients": [
+    {
+      "name": "American - Pale 2-Row",
+      "amount": 8.6,
+      "type": "Fermentable",
+      "units": "Kg"
+    },
+    {
+      "name": "Fermentis - Safale - American Ale Yeast US-05",
+      "amount": 2,
+      "type": "Yeast",
+      "units": ""
+    },
+    {
+      "name": "Magnum (Pellet)",
+      "amount": 0.5,
+      "type": "Hops",
+      "units": "oz"
+    },
+    {
+      "name": "Crush whilrfoc Tablet",
+      "amount": 1.5,
+      "type": "Other",
+      "units": ""
+    }
+  ],
+  "Instructions": [
+    {
+      "templateId": 4,
+      "param": null,
+      "optionCodeName": "FERMENTABLE",
+      "blockName": "Fermentation",
+      "ordering": 4
+    },
+    {
+      "templateId": 1,
+      "param": "80",
+      "optionCodeName": "TEMP_1",
+      "blockName": "Fermentation",
+      "ordering": 3
+    },
+    {
+      "templateId": 5,
+      "param": "5",
+      "optionCodeName": null,
+      "blockName": "Yeasting",
+      "ordering": 2
+    },
+    {
+      "templateId": 2,
+      "param": "100",
+      "optionCodeName": "MOTOR_1",
+      "blockName": "Yeasting",
+      "ordering": 1
+    }
+  ]
+}
+```
+
+Ako odpoveď na FE príde JSON s vygenerovaným ID aktualizovaného receptu:
+
+```json
+200 OK
+{
+  "id" : xxx
+}
+```
+
 ### Vymazanie receptu
 
 Pokiaľ chce používateľ vymazať jeden z receptov, klikne na ten, ktorý chce vymazať a následne
