@@ -222,7 +222,7 @@ ssh pi@10.20.1.1
 
 Na rpi nefunguje DHCP. Treba nastaviť statickú ip z rozsahu subnety ideálne od `<10.20.1.2 - 10.20.1.9>`. Adresu `10.20.1.3` používam (Marek Vajda) pre notebook. Dávať modulom ip adresy odkonca vyššie napísaného rozsahu. Od `<10.20.1.10 - 10.20.1.100>` by malo ip adresy priradovať DHCP, ale to nie je funkčné.
 
-## Priklad kodu na pripojenie esp k wifi
+## Príklad kódu na pripojenie ESP32 k rpiWifi sieti
 
 V loope je nadbytočný kód ale možno sa zíde.
 
