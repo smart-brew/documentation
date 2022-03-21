@@ -50,6 +50,14 @@ export const sprints = [
   {
     title: '7.3.2022',
     cardTitle: 'Šprint 7 - Kelt',
+    cardSubtitle:
+      'Cieľom siedmeho šprintu bolo editovanie vytvorených receptov. Ďalej sme sa zamerali na uzavretie všetkých úloh a podrobné otestovanie celého procesu varenia s testovacím serverom.',
+    cardDetailedText:
+      'Prvoradým cieľom tohoto šprintu bolo editovanie receptu. Museli sme pridať nové enpointy a upraviť stránku s vytváraním receptu, aby vedela robiť aj edit existujúceho. Tiež sme podrobne otestovali celý systém a spravili rýchle opravy, aby nám prebiehalo varenie správne aspoň s testovacím serverom. Takisto sme sa snažili opraviť ESP moduly, ktoré nefungovali doposial správne - konkrétne komunikácia s modulom H300.',
+  },
+  {
+    title: '21.3.2022',
+    cardTitle: 'Šprint 8 - Smädný mních',
     cardSubtitle: 'Tvrdo pracujeme...',
     cardDetailedText: '... a občas popíjame pri tom pivko...',
   },

@@ -240,6 +240,30 @@ function Timeline() {
             <img key={sprint.title} src="/img/beer.png" alt="pivo" />
           ))}
         </div>
+        {sprints.map((sprint, index) => (
+          <div
+            key={sprint.title + 'text'}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <p
+              style={{
+                marginBlockEnd: '0.5em',
+              }}
+            >
+              {sprint.cardDetailedText}
+            </p>
+
+            <Link
+              to={`/docs/project/sprints/${String(index + 1).padStart(2, '0')}`}
+            >
+              Viac info
+            </Link>
+          </div>
+        ))}
       </Chrono>
     </div>
   );
