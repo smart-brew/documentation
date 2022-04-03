@@ -33,7 +33,7 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
   "type": "instruction",
   "moduleId": <id modulu>,
   "instruction": <code name pre inštrukciu>,
-  "param": <hodnota parametru>,
+  "params": <hodnota parametru>,
   "category": <kategória inštrukcie/zariadenia>,
   "device": <zariadenie>,
 }
@@ -43,7 +43,7 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
 {
   "moduleId": 1,
   "instruction": "SET_MOTOR_SPEED",
-  "param": 30,
+  "params": 30,
   "category": "MOTOR",
   "device": "MOTOR_1"
 }
@@ -67,7 +67,7 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
   "recipeId": <id receptu>,
   "templateId": <id template pre inštrukciu>,
   "codeName": <code name pre inštrukciu>, // aj toto sa bude mapovať na krajší názov
-  "param": <hodnota parametru>,
+  "params": <hodnota parametru>,
   "category": <kategória inštrukcie/zariadenia>,
   "optionCodeName": <zariadenie>, // na FE sa bude mapovať na krajší názov - napr. "TEMP_1" -> "Nádoba 1",
   "blockId": <id bloku>, // ak by boli dva názvy rovnaké, ale chceme to mať ako dva rôzne bloky
@@ -82,7 +82,7 @@ V skutočnosti Frontend ukladá a prijíma iba: **Code name**, **Code choices**,
   "recipeId": 123,
   "templateId": 1,
   "codeName": "SET_MOTOR_SPEED",
-  "param": 30,
+  "params": 30,
   "category": "MOTOR",
   "optionCodeName": "MOTOR_1",
   "blockId": 1,
@@ -146,7 +146,7 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
 {
   "templateId": <id vzoru pre danú inštrukciu>,
   "blockName": <nazov bloku>,
-  "param": <hodnota parametru>,
+  "params": <hodnota parametru>,
   "optionCodeName": <zariadenie>,
   "ordering": <poradové číslo>,
 }
@@ -156,7 +156,7 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
 {
   "templateId": 123,
   "blockName": "Fermentation",
-  "param": 85,
+  "params": 85,
   "optionCodeName": "TEMP_1",
   "ordering": 1
 }

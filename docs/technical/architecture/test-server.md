@@ -90,7 +90,7 @@ Príklad inštrukcie, ktorú server prijme z backendu:
   "category": "TEMPERATURE",
   "device": "TEMP_2",
   "instruction": "SET_TEMPERATURE",
-  "parameter": "100"
+  "params": "100"
 }
 ```
 

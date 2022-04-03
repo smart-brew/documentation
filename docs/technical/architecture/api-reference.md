@@ -30,7 +30,7 @@ Modul komunikuje smerom na backend cez WebSocket a posiela periodicky nasledujú
   "category": "<ketegória>", // "MOTOR", "PUMP", ...
   "device": "<názov zariadenia>", // "MOTOR_1", "PUMP_2", ...
   "instruction": "<inštrukcia>", // "SET_TEMPERATURE", "SET_MOTOR_SPEED", ...
-  "param": "<parameter>"
+  "params": "<parameter>"
 }
 ```
 
@@ -250,7 +250,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "recipeId": 3,
       "templateId": 2,
       "codeName": "SET_MOTOR_SPEED",
-      "param": 30,
+      "params": 30,
       "category": "MOTOR",
       "optionCodeName": "MOTOR_1",
       "blockId": 1,
@@ -262,7 +262,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "recipeId": 3,
       "templateId": 1,
       "codeName": "SET_TEMPERATURE",
-      "param": 85,
+      "params": 85,
       "category": "TEMPERATURE",
       "optionCodeName": "TEMP_1",
       "blockId": 1,
@@ -274,7 +274,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "recipeId": 3,
       "templateId": 2,
       "codeName": "SET_MOTOR_SPEED",
-      "param": 0,
+      "params": 0,
       "category": "MOTOR",
       "optionCodeName": "MOTOR_1",
       "blockId": 2,
@@ -286,7 +286,7 @@ Odpoveďou bude JSON so všetkými dátami receptu:
       "recipeId": 3,
       "templateId": 1,
       "codeName": "SET_TEMPERATURE",
-      "param": 23,
+      "params": 23,
       "category": "TEMPERATURE",
       "optionCodeName": "TEMP_1",
       "blockId": 2,
@@ -351,28 +351,28 @@ PUT /api/recipe
   "Instructions": [
     {
       "templateId": 4,
-      "param": null,
+      "params": null,
       "optionCodeName": "FERMENTABLE",
       "blockName": "Fermentation",
       "ordering": 4
     },
     {
       "templateId": 1,
-      "param": "60",
+      "params": "60",
       "optionCodeName": "TEMP_1",
       "blockName": "Fermentation",
       "ordering": 3
     },
     {
       "templateId": 5,
-      "param": "5",
+      "params": "5",
       "optionCodeName": null,
       "blockName": "Yeasting",
       "ordering": 2
     },
     {
       "templateId": 2,
-      "param": "100",
+      "params": "100",
       "optionCodeName": "MOTOR_1",
       "blockName": "Yeasting",
       "ordering": 1
@@ -395,7 +395,7 @@ Po vytvorení receptu sa vrátime na výber receptov, kde bude už nový recept 
 ### Úprava existujúceho receptu
 
 Pokiaľ používateľ chce upraviť existujúci recept, pomocou obrazovky pre úpravu
-receptu pozmení všetky požadované položky a klikne na tlačidlo **"Uložiť recept"** a odošle požiadavku na BE. Keďže potrebujem uchovať údaje pre potreby histórie varení, upravený recept sa uloží ako nový recept a pôvodný sa ďalej nebude zobrazovať medzi výberom recptov. 
+receptu pozmení všetky požadované položky a klikne na tlačidlo **"Uložiť recept"** a odošle požiadavku na BE. Keďže potrebujem uchovať údaje pre potreby histórie varení, upravený recept sa uloží ako nový recept a pôvodný sa ďalej nebude zobrazovať medzi výberom recptov.
 
 ```
 PUT /api/recipe/{recipe-id}/edit
@@ -435,28 +435,28 @@ PUT /api/recipe/{recipe-id}/edit
   "Instructions": [
     {
       "templateId": 4,
-      "param": null,
+      "params": null,
       "optionCodeName": "FERMENTABLE",
       "blockName": "Fermentation",
       "ordering": 4
     },
     {
       "templateId": 1,
-      "param": "80",
+      "params": "80",
       "optionCodeName": "TEMP_1",
       "blockName": "Fermentation",
       "ordering": 3
     },
     {
       "templateId": 5,
-      "param": "5",
+      "params": "5",
       "optionCodeName": null,
       "blockName": "Yeasting",
       "ordering": 2
     },
     {
       "templateId": 2,
-      "param": "100",
+      "params": "100",
       "optionCodeName": "MOTOR_1",
       "blockName": "Yeasting",
       "ordering": 1
