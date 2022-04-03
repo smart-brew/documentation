@@ -5,6 +5,8 @@
 
 ## Odovzdané dokumenty
 
+📖 [Článok do TP CUP](/assets/TP_Cup_clanok.pdf)
+
 🍺 [Odovzdanie za 1. semester](/assets/Timovy_projekt.pdf)
 
 🧑‍🏫 [Prezentácia k riadeniu tímového projektu](/assets/Riadenie_TP.pdf)
