@@ -58,6 +58,14 @@ export const sprints = [
   {
     title: '21.3.2022',
     cardTitle: 'Šprint 8 - Smädný mních',
+    cardSubtitle:
+      'Prvoradým cieľom tohoto šprintu bolo posielanie jednoduchej inštrukcie na modul.',
+    cardDetailedText:
+      ' Ďalej sme pridávali support pre kryostat, aby sme vedeli regulovať teplotu vo varnej kadi. Takisto sme opravili nespočetné množstvo chýb, ktoré vyplynuli z testovania.',
+  },
+  {
+    title: '5.4.2022',
+    cardTitle: 'Šprint 9 - Argus',
     cardSubtitle: 'Tvrdo pracujeme...',
     cardDetailedText: '... a občas popíjame pri tom pivko...',
   },
