@@ -712,6 +712,316 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 
 Now it's time to panic.
 
+### História všetkých varení
+
+Pre zobrazenie prehľadu všetkých varení na FE je vytvorený endpoint:
+
+```
+GET /api/brew
+```
+
+Ako odpoveď príde zoznam vštekých ukončených varení s id, (poznámky a vyhdonotenie sme zatiaľ neimplementovali, možno v budúcnosti), status ako sa varenie skončilo, meno použitého receptu pre varenie, a časy začiatku a skončenia varenia.
+
+```json
+[
+   {
+      "id":1,
+      "notes":null,
+      "evaluation":null,
+      "endState":"Aborted",
+      "recipeName":"Smoky Grove Lichtenhainer",
+      "startedAt":"2022-04-07T16:12:03.011Z",
+      "finishedAt":"2022-04-07T16:12:47.442Z"
+   },
+   ...
+]
+```
+
+### História konkrétneho varenia
+
+Pre zobrazenie podrobného prehľadu varenia na FE je vytvorený endpoint:
+
+```
+GET /api/brew/{brewId}
+```
+
+Ako odpoveď príde JSON s údajmi o varení ako pri dopytovaní si prehľadu všetkých varení. Spolu s týmito údajmi prídu aj údaje o použitom recepte (rovnaké údaje ako pri dopytovaní si konkrétneho recptu na endpointe **GET /api/recipe/{recipe-id}**) a k tomu ešte aj záznamy z priebehu varenia. Časové údaje v týchto záznamoch sú relatívne k začiatku varenia.
+
+Pod **InstructionLogs** sa nachádza zoznam záznamov o začatí vykonávania jednotlivých inštrukcií použitého receptu a o ich ukončení(v uvedenom príklade bol recept ukončený abortom počas vykonávania druhej inštrukcie, preto sa táto instšrukcia neukončila úspešne a nasledujúce sa ani nezačali vykonávať). Obsahuje identifikačné údaje varenia a inštrukcie ku ktorej patrí a údaje o úspešnom ukončení a relatívny čas začiatku vykonávania inštrukcie.
+
+Pod **StatusLogs** sa nachádza zoznam záznamov o stave pivovaru a hodnotách nameraných na jednotlivých senzoroch (rovnaký formát ako pri dopyte na endpoint **GET /api/data**). Pre optimalizáciu výkonu a zjednodušenie zobrazenia údajov na FE posielame iba jeden záznam za minútu aj keď v skutočnosti má každé varenie oveľa viac záznamov.
+
+```json
+{
+   "id":1,
+   "notes":null,
+   "evaluation":null,
+   "endState":"Aborted",
+   "recipeName":"Smoky Grove Lichtenhainer",
+   "startedAt":"2022-04-07T16:12:03.011Z",
+   "finishedAt":"2022-04-07T16:12:47.442Z",
+   "recipe":{
+      "name":"Smoky Grove Lichtenhainer",
+      "id":1,
+      "locked":true,
+      "description":"Light, gently tart, and smoked—lichtenhainer is an unusual beer, yet surprisingly good for all seasons and one you’ll want to brew and enjoy often.",
+      "Ingredients":[
+         {
+            "id":1,
+            "recipeId":1,
+            "name":"American - Pale 2-Row",
+            "amount":5.6,
+            "type":"Fermentable",
+            "units":"Kg",
+            "createdAt":"2022-04-07T14:45:04.034Z",
+            "updatedAt":"2022-04-07T14:45:04.037Z"
+         },
+         {
+            "id":2,
+            "recipeId":1,
+            "name":"Fermentis - Safale - American Ale Yeast US-05",
+            "amount":1,
+            "type":"Yeast",
+            "units":"",
+            "createdAt":"2022-04-07T14:45:04.034Z",
+            "updatedAt":"2022-04-07T14:45:04.037Z"
+         },
+         {
+            "id":3,
+            "recipeId":1,
+            "name":"Magnum (Pellet)",
+            "amount":1,
+            "type":"Hops",
+            "units":"oz",
+            "createdAt":"2022-04-07T14:45:04.034Z",
+            "updatedAt":"2022-04-07T14:45:04.037Z"
+         },
+         {
+            "id":4,
+            "recipeId":1,
+            "name":"Crush whilrfoc Tablet",
+            "amount":1,
+            "type":"Other",
+            "units":"",
+            "createdAt":"2022-04-07T14:45:04.034Z",
+            "updatedAt":"2022-04-07T14:45:04.037Z"
+         }
+      ],
+      "Instructions":[
+         {
+            "id":4,
+            "recipeId":1,
+            "templateId":6,
+            "codeName":"SET_MOTOR_SPEED",
+            "param":"100",
+            "category":"MOTOR",
+            "optionCodeName":"MOTOR_1",
+            "blockId":2,
+            "blockName":"FIRST_BLOCK",
+            "ordering":1
+         },
+         {
+            "id":3,
+            "recipeId":1,
+            "templateId":2,
+            "codeName":"WAIT",
+            "param":"50000",
+            "category":"SYSTEM",
+            "optionCodeName":null,
+            "blockId":2,
+            "blockName":"FIRST_BLOCK",
+            "ordering":2
+         },
+         {
+            "id":2,
+            "recipeId":1,
+            "templateId":4,
+            "codeName":"SET_TEMPERATURE",
+            "param":"60",
+            "category":"TEMPERATURE",
+            "optionCodeName":"TEMP_1",
+            "blockId":1,
+            "blockName":"SECOND_BLOCK",
+            "ordering":3
+         },
+         {
+            "id":1,
+            "recipeId":1,
+            "templateId":5,
+            "codeName":"UNLOAD",
+            "param":null,
+            "category":"UNLOADER",
+            "optionCodeName":"FERMENTABLE",
+            "blockId":1,
+            "blockName":"SECOND_BLOCK",
+            "ordering":4
+         }
+      ]
+   },
+   "InstructionLogs":[
+      {
+         "id":2,
+         "brewingId":1,
+         "instructionId":3,
+         "finished":false,
+         "startedAt":2999
+      },
+      {
+         "id":1,
+         "brewingId":1,
+         "instructionId":4,
+         "finished":true,
+         "startedAt":218
+      }
+   ],
+   "StatusLogs":[
+      {
+         "id":1,
+         "brewingId":1,
+         "status":"IN_PROGRESS",
+         "params":{
+            "TEMPERATURE":[
+               {
+                  "TEMP":16.2652657535844,
+                  "REGULATION_ENABLED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"TEMP_1"
+               },
+               {
+                  "TEMP":10.941566144455068,
+                  "REGULATION_ENABLED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"TEMP_2"
+               }
+            ],
+            "MOTOR":[
+               {
+                  "SPEED":0,
+                  "RPM":-0.15012981101345724,
+                  "STATE":"WAITING",
+                  "DEVICE":"MOTOR_1"
+               },
+               {
+                  "SPEED":0,
+                  "RPM":14.64062077202769,
+                  "STATE":"WAITING",
+                  "DEVICE":"MOTOR_2"
+               }
+            ],
+            "UNLOADER":[
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"FERMENTABLE"
+               },
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"YEAST"
+               },
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"HOPS"
+               },
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"OTHER"
+               }
+            ],
+            "PUMP":[
+               {
+                  "ENABLED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"PUMP_1"
+               }
+            ],
+            "SYSTEM":[
+               {
+                  "REMAINING":0,
+                  "STATE":"WAITING",
+                  "DEVICE":"WAIT"
+               }
+            ]
+         },
+         "createdAt":1382
+      },
+      {
+         "id":42,
+         "brewingId":1,
+         "status":"IN_PROGRESS",
+         "params":{
+            "TEMPERATURE":[
+               {
+                  "TEMP":14.262489126700011,
+                  "REGULATION_ENABLED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"TEMP_1"
+               },
+               {
+                  "TEMP":7.213137158608217,
+                  "REGULATION_ENABLED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"TEMP_2"
+               }
+            ],
+            "MOTOR":[
+               {
+                  "SPEED":100,
+                  "RPM":90.88227550340005,
+                  "STATE":"WAITING",
+                  "DEVICE":"MOTOR_1"
+               },
+               {
+                  "SPEED":0,
+                  "RPM":12.901996647902722,
+                  "STATE":"WAITING",
+                  "DEVICE":"MOTOR_2"
+               }
+            ],
+            "UNLOADER":[
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"FERMENTABLE"
+               },
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"YEAST"
+               },
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"HOPS"
+               },
+               {
+                  "UNLOADED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"OTHER"
+               }
+            ],
+            "PUMP":[
+               {
+                  "ENABLED":false,
+                  "STATE":"WAITING",
+                  "DEVICE":"PUMP_1"
+               }
+            ],
+            "SYSTEM":[
+               {
+                  "REMAINING":14,
+                  "STATE":"IN_PROGRESS",
+                  "DEVICE":"WAIT"
+               }
+            ]
+         },
+         "createdAt":42498
+      }
+   ]
+}
+```
 ### Vypnutie systému
 
 Používateľ môže kliknúť na tlačidlo vypnutia systému. FE sa opýta, či si je používateľ istý.
