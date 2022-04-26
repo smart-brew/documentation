@@ -66,6 +66,14 @@ export const sprints = [
   {
     title: '5.4.2022',
     cardTitle: 'Šprint 9 - Argus',
+    cardSubtitle:
+      'Hlavným cieľom pre tento šprint bolo zobrazovanie histórie všetkých varení. Ďalej sme sa zamerali na opravovanie vecí, ktoré boli nájdené počas zapájania na Strojníckej fakulte.',
+    cardDetailedText:
+      'V zobrazení histórie všetkých varení sa zobrazujú všetky varenia, pričom si môžme vybrať jedno konrétne varenie. Tu sa nám môžu zobrazovať rôzne detaily ako postup krokov, či graf teploty od času. Takisto sme opravovali komunikáciu s H300, ktorá nefungovala správne.',
+  },
+  {
+    title: '19.4.2022',
+    cardTitle: 'Šprint 10 - Erb',
     cardSubtitle: 'Tvrdo pracujeme...',
     cardDetailedText: '... a občas popíjame pri tom pivko...',
   },
