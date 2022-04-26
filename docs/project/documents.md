@@ -5,6 +5,8 @@
 
 ## Odovzdané dokumenty
 
+🪧 [Poster](/assets/Poster.png)
+
 📖 [Článok do TP CUP](/assets/TP_CUP_clanok.pdf)
 
 🍺 [Odovzdanie za 1. semester](/assets/Timovy_projekt.pdf)

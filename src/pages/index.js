@@ -314,6 +314,28 @@ export default function TeamPage() {
             </>
           }
         />
+
+        <h2 className="text--center">Poster</h2>
+
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '1000px',
+            margin: '1rem calc(2rem + 5vw)',
+            borderRadius: '5px',
+            overflow: 'hidden',
+            display: 'flex',
+          }}
+        >
+          <img
+            src="/assets/Poster.png"
+            title="Poster"
+            style={{
+              width: '100%',
+            }}
+            loading="lazy"
+          />
+        </div>
       </div>
     </Layout>
   );
