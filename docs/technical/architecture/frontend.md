@@ -47,7 +47,7 @@ Pokiaľ si používateľ vyberie možnosť upraviť/vytvoriť recept, dostane sa
 
 ### Pridanie inštrukcií
 
-![img](/img/screenshots-frontend/rcipe%making%instructions.JPG)
+![img](/img/screenshots-frontend/recipe_making_instructions.JPG)
 
 Na obrazovke úpravy/zostavovania inštrukcií v recepte sa používateľovi vpravo zobrazuje zoznam ingrediencií, ktoré si v predošlom kroku navolil.
 Inštrukcie sú zobrazené naľavo. Delené sú do osobitných stagov označených vlastným názvom. Každý recept musí obsahovať aspoň jeden stage, pričom každý stage musí mať (pre daný recept) jedinecný názov. Každý stage musí obsahovať aspoň jednu inštrukciu. Je možné pridávať a odoberať stage, a rovnako aj inštrukcie v rámci stagov. Každá inštrukcia obsahuje pomocný popisok, ktorý jednoduchým spôsobom objasňuje používateľovi, čo daná inštrukcia vykonáva.  Po kliknutí na zelené plusko sa zobrazí obrazovka výberu inštukcie, je zobrazená nižšie.
