@@ -29,9 +29,9 @@ Obrázok zobrazuje stav, kedy je navolený recept, ale nie je potvrdené začati
 
 Pred začatím varenia treba potvrdiť, že sa potrebné ingrediencie nachádzajú v správnom násypníku. 
 
-![img](/img/screenshots-frontend/while_page.JPG)
+![img](/img/screenshots-frontend/while_brewing.JPG)
 
-Po začatí varenia sa používateľovi zobrazujú bližšie informácie o prebiehajúcich procesoch. V budúcnosti je možné pridanie ďalšieho obsahu na obrazovku, napríklad časovača, na zobrazenie kedy proces skončí.
+Po začatí varenia sa používateľovi zobrazujú bližšie informácie o prebiehajúcich procesoch, spolu s tlačidlamie Abort a Pause. Možné vylepšenie by bolo v pridaní časovača na zobrazenie kedy proces skončí.
 
 ### Výber receptu
 
