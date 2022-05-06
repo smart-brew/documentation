@@ -33,7 +33,7 @@ Systém pozostáva z mikroslužieb, ktoré medzi sebou komunikujú na základe [
 
 # Use Cases
 
-![useCases](/img/useCasesDiagram.png)
+![useCases](/img/useCasesDiagramV2.jpg)
 
 ## UC01 Vyber recept a začni proces varenia
 
@@ -76,6 +76,17 @@ Systém pozostáva z mikroslužieb, ktoré medzi sebou komunikujú na základe [
 | Alternatívny scenár                                                                                                                                    |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1. Používateľ sa rozhodne kliknúť na červené X pre vymazanie inštrukcie<br /> 2. Aplikácia odstráni inštrukciu<br /> 3. Hlavný scenár pokračuje krokom 7 |
+
+## UC06 Zobraz históriu varenia
+| Hlavný scenár |
+|-------------------------|
+| 1. Používateľ z hlavného menu zvolí možnosť History <br/> 2. Aplikácia zobrazí okno History, kde sa na pravom sidebare zobrazuje zoznam možných ukončených varení <br/> 3. Používateľ klikne na ľubovoľný prvok zo zoznamu <br/> 4. Aplikácia v hlavnej časti obrazovky zobrazí status ukončeného varenia, čas jeho začiatku a konca, spolu s ingredienciami a inštrukciami použitého receptu <br/> 5. Používateľ zvolí možnosť zobrazenia štatisktík varenia kliknutím na tlačidlo Stats vo vedľajšom menu  <br/> 6. Aplikácia zobrazí postupnosť vykonaných inštrukcii, spolu s časom ich začiatku (relatívneho ku začiatku varenia). Ďalej zobrazí v grafoch štatistiky zmien teplôt a rýchlosti otáčania motoru v jednotlivých nádobách. </br> 7. Prípad použitia skončí
+ |
+
+ ## UC07 Otestuj ovládanie
+ | Hlavný scenár |
+|-------------------------|
+| 1. Používateľ z hlavného menu zvolí možnosť Tester <br/> 2. Aplikácia zobrazí okno Tester, na ktorom sa nachádza zoznam možných inštrukcii <br/> 3. Používateľ zvolí inštrukciu <br/> 4. Aplikácia zobrazí aké parametre sa dajú pri danej inštrukcii nastaviť <br/> 5. Používateľ zvolí parameter <br/> 6. Aplikácia ponúkne možnosť submitnúť inštrukciu <br/> 7. Používateľ stlačí tlačidlo submit a potvrdí zaslanie inštrukcie na backend a ďalej na moduly <br/> 8. Prípad použitia skončí |
 
 # Ciele
 
