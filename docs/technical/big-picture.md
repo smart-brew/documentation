@@ -80,8 +80,7 @@ Systém pozostáva z mikroslužieb, ktoré medzi sebou komunikujú na základe [
 ## UC06 Zobraz históriu varenia
 | Hlavný scenár |
 |-------------------------|
-| 1. Používateľ z hlavného menu zvolí možnosť History <br/> 2. Aplikácia zobrazí okno History, kde sa na pravom sidebare zobrazuje zoznam možných ukončených varení <br/> 3. Používateľ klikne na ľubovoľný prvok zo zoznamu <br/> 4. Aplikácia v hlavnej časti obrazovky zobrazí status ukončeného varenia, čas jeho začiatku a konca, spolu s ingredienciami a inštrukciami použitého receptu <br/> 5. Používateľ zvolí možnosť zobrazenia štatisktík varenia kliknutím na tlačidlo Stats vo vedľajšom menu  <br/> 6. Aplikácia zobrazí postupnosť vykonaných inštrukcii, spolu s časom ich začiatku (relatívneho ku začiatku varenia). Ďalej zobrazí v grafoch štatistiky zmien teplôt a rýchlosti otáčania motoru v jednotlivých nádobách. </br> 7. Prípad použitia skončí
- |
+| 1. Používateľ z hlavného menu zvolí možnosť History <br/> 2. Aplikácia zobrazí okno History, kde sa na pravom sidebare zobrazuje zoznam možných ukončených varení <br/> 3. Používateľ klikne na ľubovoľný prvok zo zoznamu <br/> 4. Aplikácia v hlavnej časti obrazovky zobrazí status ukončeného varenia, čas jeho začiatku a konca, spolu s ingredienciami a inštrukciami použitého receptu <br/> 5. Používateľ zvolí možnosť zobrazenia štatisktík varenia kliknutím na tlačidlo Stats vo vedľajšom menu  <br/> 6. Aplikácia zobrazí postupnosť vykonaných inštrukcii, spolu s časom ich začiatku (relatívneho ku začiatku varenia). Ďalej zobrazí v grafoch štatistiky zmien teplôt a rýchlosti otáčania motoru v jednotlivých nádobách. <br/> 7. Prípad použitia skončí |
 
  ## UC07 Otestuj ovládanie
  | Hlavný scenár |
