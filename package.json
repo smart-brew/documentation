@@ -9,6 +9,7 @@
     "dev": "docusaurus start",
     "docusaurus": "docusaurus",
     "format": "prettier --write docs",
+    "postbuild": "node postprocess",
     "prepare": "husky install",
     "serve": "docusaurus serve",
     "start": "docusaurus start",
