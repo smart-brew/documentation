@@ -1031,6 +1031,27 @@ Pod **StatusLogs** sa nachádza zoznam záznamov o stave pivovaru a hodnotách n
    ]
 }
 ```
+
+### Exportovanie logov - CSV
+
+Pre export status logov počas varenia ako csv súboru je možné poslať request:
+
+```
+GET /api/brew/{brewId}/exportCsv
+```
+
+Následne sa stiahne csv súbor obsahujúci logy varenia.
+
+### Exportovanie logov - JSON
+
+Pre export status logov počas varenia ako json súboru je možné poslať request:
+
+```
+GET /api/brew/{brewId}/exportJson
+```
+
+Následne sa stiahne json súbor obsahujúci logy varenia.
+
 ### Vypnutie systému
 
 Používateľ môže kliknúť na tlačidlo vypnutia systému. FE sa opýta, či si je používateľ istý.
