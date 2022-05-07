@@ -658,7 +658,7 @@ na tlačidlo **"Pauza"**. FE sa opýta, či si je používateľ istý.
 Po potvrdení je na BE odoslaný POST request:
 
 ```
-POST /api/brew/{brewId}/pause
+POST /api/brew/0/pause
 ```
 
 BE by mal zastaviť časovače na všetkých aktívnych procesoch a odpovedať formou:
@@ -681,7 +681,7 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 Ak chceme pokračovať vo varení, pošleme:
 
 ```
-POST /api/brew/{brewId}/resume
+POST /api/brew/0/resume
 ```
 
 ### Zrušenie varenia
@@ -692,7 +692,7 @@ na tlačidlo **"Zrušiť varenie"**. FE sa opýta, či si je používateľ istý
 Po potvrdení je na BE odoslaný POST request:
 
 ```
-POST /api/brew/{brewId}/abort
+POST /api/brew/0/abort
 ```
 
 BE by mal zrušiť všetky procesy, správne vypnúť všetky zariadenia a odpovedať formou:
@@ -711,6 +711,15 @@ Pokiaľ pri zrušení nastane chyba, BE odpovie formou:
 ```
 
 Now it's time to panic.
+
+
+### Resetovanie varenia po errore
+
+Ak chceme pokračovať vo varení, po tom ako sa vyskytla chyba spojenia s modulmi , pošleme:
+
+```
+POST /api/brew/0/reset
+```
 
 ### História všetkých varení
 
