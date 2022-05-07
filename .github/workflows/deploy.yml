@@ -40,6 +40,50 @@ jobs:
           remote_user: ${{ secrets.USERNAME }}
           remote_key: ${{ secrets.KEY }}
 
+  deploy-zip:
+    needs: [deploy]
+    name: 🎉 Deploy zip for labss2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # see also: https://github.com/facebook/docusaurus/issues/2798#issuecomment-636602951
+
+      - name: ✨ Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+
+      - name: 🔨 Build Project
+        run: |
+          yarn
+          yarn build:labss2
+
+      - name: 🎁 Zip files
+        uses: papeloto/action-zip@v1
+        with:
+          files: build/
+          dest: team06-21.zip
+
+      - name: 💾 Save artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: team06-21.zip
+          path: ${{ github.workspace }}/team06-21.zip
+
+      - name: 🔗 Rsync zip of website
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -Pav -O --no-perms
+          path: team06-21.zip
+          remote_path: ~/web
+          remote_host: ${{ secrets.HOST }}
+          remote_user: ${{ secrets.USERNAME }}
+          remote_key: ${{ secrets.KEY }}
+
   index:
     needs: [deploy]
     name: 🎉 Index Algolia

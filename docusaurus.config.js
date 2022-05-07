@@ -7,7 +7,7 @@ module.exports = {
   title: 'SmartBrew',
   tagline: 'Team 6 - Team project 2021/2022',
   url: 'http://team06-21.studenti.fiit.stuba.sk/',
-  baseUrl: '/',
+  baseUrl: process.env.BASE_URL || '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
