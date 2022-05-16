@@ -74,7 +74,9 @@ export const sprints = [
   {
     title: '19.4.2022',
     cardTitle: 'Šprint 10 - Erb',
-    cardSubtitle: 'Tvrdo pracujeme...',
-    cardDetailedText: '... a občas popíjame pri tom pivko...',
+    cardSubtitle:
+      'V tomto šprinte sme sa hlavne venovali dokumentačným a prezentačným činnostiam ako napríklad konferencia IIT SRC, či prezentačné video a článok.',
+    cardDetailedText:
+      'Okrem týchto prezentačných vecí sme sa venovali ošetrovaniu všetkých možných okrajových stavov, ku ktorým môže v našom systéme dôjsť.',
   },
 ];

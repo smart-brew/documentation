@@ -5,6 +5,8 @@
 
 ## Odovzdané dokumenty
 
+☝️ [Článok na Touch4IT](/assets/Clanok_Touch4IT.pdf)
+
 🪧 [Poster](/assets/Poster.png)
 
 📖 [Článok do TP CUP](/assets/TP_CUP_clanok.pdf)
