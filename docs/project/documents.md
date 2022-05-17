@@ -5,7 +5,7 @@
 
 ## Odovzdané dokumenty
 
-☝️ [Článok na Touch4IT](/assets/Clanok_Touch4IT.pdf)
+☝️ [Článok na TouchIT](/assets/Clanok_Touch4IT.pdf)
 
 🪧 [Poster](/assets/Poster.png)
 

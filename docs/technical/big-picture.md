@@ -121,3 +121,10 @@ a na obrazovke zobraziť jeho priebeh. Backend spracuje dané údaje, ktoré zí
 bude môcť kontrolovať stav varenia. Stav varenia sa tiež bude logovať do databázy (čo sa neskôr môže použiť na vytváranie protokolu o varení).
 Bude funkčná aspoň určitá podmnožina modulov (nakoľko nie sú niektoré zariadenia dostupné, nedá sa s nimi zatiaľ pracovať).
 Front-end a back-end bude vedieť spracovávať všetky procesy, funkcionalitu zatiaľ nefunčných modulov budeme simulovať.
+
+
+## Ciele na druhý semester
+
+Hlavným cieľom je odladiť funkcionality z predošlého semestra a odstrániť prípadné bugy.
+Tiež pridanie funkcionality histórie, aby si používateľ mohol prehliadať históriu varení a generovať protokoly. Dôležitou časťou systému je aj ošetrenie hraničných a chybových stavov, napr. výpadok modulu alebo prerušenie komunikácie.
+Nakoniec je potrebné systém nasadiť na hardvér na Strojníckej fakulte.
