@@ -161,8 +161,3 @@ FE si vie získať ako vyzerajú všetky inštrukcie, ktoré sú podporované sy
   "ordering": 1
 }
 ```
-
-## TODO
-
-- domysliet vytiahnutie chmeľu
-- ukončenie

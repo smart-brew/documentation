@@ -101,8 +101,3 @@ _\*Originálny autor diagramu H300: http://team18-19.studenti.fiit.stuba.sk/ _
 
 ![Teplomer](/img/module/wiring_temp.png)
 
-## Notes
-
-- pridať viac diagramov zapojenia modulu a rôznych zariadení
-- automatická kontrola WiFi spojenia (ak bolo prerušené)
-- dynamická konfigurácia pripojených zariadení

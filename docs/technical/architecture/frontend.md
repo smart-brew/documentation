@@ -85,7 +85,6 @@ Druhá časť obsahuje zoznam priebehu varenia - inštrukcie a ich čas dokonče
 
 Na grafoch sú zobrazené zmeny v templotách v nádobách, respektíve zmeny v rýchlostiach točenia počas daného varenia. 
 
-## Do budúcna
 
 ## Priebeh návrhu
 
